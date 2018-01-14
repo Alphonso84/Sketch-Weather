@@ -62,6 +62,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="iRG-a9-5gE" firstAttribute="top" secondItem="Lea-4W-sVu" secondAttribute="bottom" constant="8" symbolic="YES" id="3vU-XA-jeJ"/>
                             <constraint firstItem="xYV-2S-ws9" firstAttribute="leading" secondItem="gP5-ZV-OWm" secondAttribute="leading" id="9kJ-N6-aex"/>
@@ -79,12 +80,20 @@
                             <constraint firstItem="Lea-4W-sVu" firstAttribute="trailing" secondItem="iRG-a9-5gE" secondAttribute="trailing" id="u5j-SZ-1jt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TAn-S4-5Xx"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DU2-k9-pSx" appends="YES" id="8QT-24-2Fs"/>
+                        </connections>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="188" height="812"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="812"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUm-ta-R5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DU2-k9-pSx">
+                    <connections>
+                        <action selector="tap:" destination="gyf-1m-ouo" id="c29-2g-5Ka"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="217" y="18"/>
         </scene>
@@ -289,6 +298,7 @@
         <image name="Sunshine" width="1018" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Njb-2u-l6Z"/>
         <segue reference="C5t-cp-Oa4"/>
     </inferredMetricsTieBreakers>
 </document>

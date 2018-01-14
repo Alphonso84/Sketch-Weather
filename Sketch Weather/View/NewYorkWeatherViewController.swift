@@ -29,9 +29,9 @@ class NewYorkWeatherViewController: UIViewController {
         super.viewDidLoad()
        
         myMotionEffect(view: weatherView, min: -15, max: 15)
-        myMotionEffect(view: conditionsImage, min: -60, max: 60)
-        myMotionEffect(view: conditionsLabel, min: -60, max: 60)
-        myMotionEffect(view: temperatureLabel, min: -60, max: 60)
+        myMotionEffect(view: conditionsImage, min: -30, max: 30)
+        myMotionEffect(view: conditionsLabel, min: -30, max: 30)
+        myMotionEffect(view: temperatureLabel, min: -30, max: 30)
         
         
         

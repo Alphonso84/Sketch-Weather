@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
-class MenuView: UIViewController {
+class MenuView: UIViewController, UIGestureRecognizerDelegate {
+    
+    @IBAction func tap(_ sender: Any) {
+       self.dismiss(animated: true)
     
     
-    
+}
     
 }
