@@ -11,7 +11,7 @@ import UIKit
 
 var location = ""
 var urlString = ""
-
+var currentWeather = [String:AnyObject]()
 
 public func buildURL(constructedUrl: String) -> URL {
     
@@ -22,6 +22,8 @@ public func buildURL(constructedUrl: String) -> URL {
     let url = URL(string: urlString)
     return url!
 }
+
+
 
 func getWeatherForecast() {
     let unwrappedURL = buildURL(constructedUrl: urlString)

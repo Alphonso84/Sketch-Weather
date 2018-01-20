@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-var currentWeather = [String:AnyObject]()
+
 
 class WeatherViewController: UIViewController {
 
@@ -31,19 +31,19 @@ class WeatherViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        
+        DispatchQueue.main.async {
+            
+            self.temperatureLabel.text = "45"
+            
+//            \(currentWeather["currently"]!["temperature"])
+        }
     }
     
     var temperature = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         getWeatherForecast()
-        DispatchQueue.main.async {
-           
-            self.temperature = currentWeather["currently"]!["temperature"] as! String
-            self.temperatureLabel.text = "\(self.temperature)"
-            
-           
-        }
+       
         
         myMotionEffect(view: weatherView, min: -15, max: 15)
         myMotionEffect(view: conditionsImage, min: -30, max: 30)
