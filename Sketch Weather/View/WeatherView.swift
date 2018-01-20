@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+var currentWeather = [String:AnyObject]()
+
 class WeatherViewController: UIViewController {
 
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
@@ -27,16 +29,27 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var temperatureLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+       
+    }
+    
+    var temperature = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-       getWeatherForecast()
+        getWeatherForecast()
+        DispatchQueue.main.async {
+           
+            self.temperature = currentWeather["currently"]!["temperature"] as! String
+            self.temperatureLabel.text = "\(self.temperature)"
+            
+           
+        }
+        
         myMotionEffect(view: weatherView, min: -15, max: 15)
         myMotionEffect(view: conditionsImage, min: -30, max: 30)
         myMotionEffect(view: conditionsLabel, min: -30, max: 30)
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
-        
-        
-        
+    
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
