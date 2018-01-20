@@ -29,7 +29,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       getWeatherForecast()
         myMotionEffect(view: weatherView, min: -15, max: 15)
         myMotionEffect(view: conditionsImage, min: -30, max: 30)
         myMotionEffect(view: conditionsLabel, min: -30, max: 30)

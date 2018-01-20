@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 var cities = ["San Francisco", "Oakland", "San Jose", "Sunnyvale", "Palo Alto", "Cupertino", "Hayward", "Fremont", "Sacramento"]
 
-
+struct Weather {
 struct Condition {
     let condition: UIImageView
 }
@@ -121,5 +121,6 @@ struct Alert {
     let severity: String
     let time, expires: Int
     let description, uri: String
+}
 }
 

@@ -24,7 +24,8 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
+        
     }
     
     override func viewDidLoad() {

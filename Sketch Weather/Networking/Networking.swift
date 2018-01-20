@@ -7,26 +7,43 @@
 //
 
 import Foundation
+import UIKit
 
 
-private func getWeatherForecast() {
-    let baseURL = "https://api.darksky.net/forecast/"
-    let apiKey = "cf6f8b86040554591f1bf925e2a9d71b/"
-//    let location =
-//    var latitude =
-//    var longitude =
-//    let urlString =
+var urlString = ""
+
+public func buildURL(constructedUrl: String) -> URL {
     
-//    let url = URL(string: urlString)!
-//    let request = URLRequest(url: url)
-//
-//    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//        if error == nil {
-//            print(data)
-//        }
-//    }
-//
-//    task.resume()
-//}
+    let apiKey = "cf6f8b86040554591f1bf925e2a9d71b/"
+    let base = "https://api.darksky.net/forecast/"
+    let location = "37.804363,-122.271111"
+    urlString = "\(base)\(apiKey)\(location)"
+    let url = URL(string: urlString)
+    return url!
 }
 
+func getWeatherForecast() {
+    let unwrappedURL = buildURL(constructedUrl: urlString)
+    print(unwrappedURL)
+    let session = URLSession.shared
+    let task = session.dataTask(with: unwrappedURL) { data, response, error in
+        print("Start")
+        
+        guard let unwrappedData = data else {return}
+        do {
+//            let jsonDecoder = JSONDecoder()
+//            let jsonData = try jsonDecoder.decode(Array<Weather>.self, from: unwrappedData)
+             let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as? [String: Any]
+            print(jsonData!)
+        } catch {
+            print(error)
+        }
+    }
+    
+    task.resume()
+    
+}
+
+
+    
+          
