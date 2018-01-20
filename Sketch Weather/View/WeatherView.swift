@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
     @IBAction func MenuButton(_ sender: Any) {
         
     }
+    @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var CitySketch: UIImageView!
     

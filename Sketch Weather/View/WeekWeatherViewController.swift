@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NewYorkWeatherViewController: UIViewController {
+class WeekWeatherViewController: UIViewController {
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
@@ -17,22 +17,10 @@ class NewYorkWeatherViewController: UIViewController {
     
     @IBOutlet weak var CitySketch: UIImageView!
     
-    @IBOutlet weak var weatherView: UIImageView!
-    
-    @IBOutlet weak var conditionsImage: UIImageView!
-    
-    @IBOutlet weak var conditionsLabel: UILabel!
-    
-    @IBOutlet weak var temperatureLabel: UILabel!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        myMotionEffect(view: weatherView, min: -15, max: 15)
-        myMotionEffect(view: conditionsImage, min: -30, max: 30)
-        myMotionEffect(view: conditionsLabel, min: -30, max: 30)
-        myMotionEffect(view: temperatureLabel, min: -30, max: 30)
-        
         
         
     }

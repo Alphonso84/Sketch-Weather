@@ -14,8 +14,9 @@
 		892FF1212003799B00C558E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11F2003799B00C558E4 /* LaunchScreen.storyboard */; };
 		892FF12A200379BA00C558E4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF129200379BA00C558E4 /* Networking.swift */; };
 		892FF12D200379D700C558E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF12C200379D700C558E4 /* Model.swift */; };
-		892FF13020043A2600C558E4 /* NewYorkWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF12F20043A2600C558E4 /* NewYorkWeatherViewController.swift */; };
+		892FF13020043A2600C558E4 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */; };
 		892FF13220043BAF00C558E4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF13120043BAF00C558E4 /* MenuView.swift */; };
+		897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897D47672012AEB800CB68FD /* MenuViewTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 		892FF1222003799B00C558E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		892FF129200379BA00C558E4 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		892FF12C200379D700C558E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		892FF12F20043A2600C558E4 /* NewYorkWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkWeatherViewController.swift; sourceTree = "<group>"; };
+		892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewController.swift; sourceTree = "<group>"; };
 		892FF13120043BAF00C558E4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		897D47672012AEB800CB68FD /* MenuViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				892FF13120043BAF00C558E4 /* MenuView.swift */,
+				897D47672012AEB800CB68FD /* MenuViewTableCell.swift */,
 				892FF1182003799B00C558E4 /* WeatherView.swift */,
-				892FF12F20043A2600C558E4 /* NewYorkWeatherViewController.swift */,
+				892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,8 +177,9 @@
 			files = (
 				892FF12A200379BA00C558E4 /* Networking.swift in Sources */,
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
+				897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */,
 				892FF1192003799B00C558E4 /* WeatherView.swift in Sources */,
-				892FF13020043A2600C558E4 /* NewYorkWeatherViewController.swift in Sources */,
+				892FF13020043A2600C558E4 /* WeekWeatherViewController.swift in Sources */,
 				892FF1172003799B00C558E4 /* AppDelegate.swift in Sources */,
 				892FF12D200379D700C558E4 /* Model.swift in Sources */,
 			);

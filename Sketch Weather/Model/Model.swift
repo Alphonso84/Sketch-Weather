@@ -7,6 +7,8 @@
 //
 import Foundation
 import UIKit
+var cities = ["San Francisco", "Oakland", "San Jose", "Sunnyvale", "Palo Alto", "Cupertino", "Hayward", "Fremont", "Sacramento"]
+
 
 struct Condition {
     let condition: UIImageView
