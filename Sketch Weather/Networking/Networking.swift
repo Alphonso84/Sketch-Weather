@@ -11,7 +11,14 @@ import UIKit
 
 var location = ""
 var urlString = ""
-var currentWeather = [String:AnyObject]()
+var temp = Double()
+
+public func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
+    DispatchQueue.main.async {
+        updates()
+    }
+}
+
 
 public func buildURL(constructedUrl: String) -> URL {
     
@@ -35,12 +42,19 @@ func getWeatherForecast() {
         guard let unwrappedData = data else {return}
         do {
 //            let jsonDecoder = JSONDecoder()
-//            let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: unwrappedData)
-            let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as? [String:AnyObject]
-            currentWeather = jsonData!
+//            let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
             
             
-           print(currentWeather["currently"]!["temperature"])
+            guard let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as? [String:AnyObject] else {return}
+    
+            let currentWeather = jsonData["currently"]
+            temp = currentWeather!["temperature"] as! Double
+            let summary = currentWeather!["summary"] as! String
+            
+            
+            print(currentWeather)
+            print("It was rather cold. About \(temp) degrees. But the night was \(summary)")
+           
         } catch {
             print(error)
         }

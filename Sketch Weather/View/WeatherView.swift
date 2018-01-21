@@ -11,8 +11,15 @@ import UIKit
 
 
 class WeatherViewController: UIViewController {
-
+   
+    
+  
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        //This Method makes a network call
+        getWeatherForecast()
+    }
     
     @IBAction func MenuButton(_ sender: Any) {
         
@@ -23,33 +30,39 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var weatherView: UIImageView!
     
-    @IBOutlet weak var conditionsImage: UIImageView!
+   
+    @IBOutlet weak var degreesStringLabel: UILabel!
     
-    @IBOutlet weak var conditionsLabel: UILabel!
+    @IBOutlet weak var tempHeaderLabel: UILabel!
+    
     
     @IBOutlet weak var temperatureLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
        
-        DispatchQueue.main.async {
-            
-            self.temperatureLabel.text = "45"
-            
-//            \(currentWeather["currently"]!["temperature"])
-        }
+        temperatureLabel.text = "\(temp)"
     }
     
     var temperature = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         getWeatherForecast()
+        
+       
+       
+      myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
+        
+        myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
+       
+        myMotionEffect(view: temperatureLabel, min: -30, max: 30)
+        myMotionEffect(view: weatherView, min: -15, max: 15)
        
         
-        myMotionEffect(view: weatherView, min: -15, max: 15)
-        myMotionEffect(view: conditionsImage, min: -30, max: 30)
-        myMotionEffect(view: conditionsLabel, min: -30, max: 30)
-        myMotionEffect(view: temperatureLabel, min: -30, max: 30)
-    
+        
+  
+    }
+    func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
+        
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
@@ -67,10 +80,7 @@ class WeatherViewController: UIViewController {
         view.addMotionEffect(motionEffectGroup)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
 
 
 }

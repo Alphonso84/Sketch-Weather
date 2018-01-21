@@ -10,44 +10,36 @@ import UIKit
 var cities = ["San Francisco", "Oakland", "San Jose", "Sunnyvale", "Palo Alto", "Cupertino", "Hayward", "Fremont", "Sacramento"]
 
 
-
-
-struct Currently {
-    let temperature: Double
+struct Currently: Codable {
+    let apparentTemperature: Double
+    let cloudCover: Double
+    let dewPoint: Double
     let humidity: Double
-    let precipitationProbability: Double
-    let summary: String
     let icon: String
-}
-    extension Currently {
-        struct Key {
-            static let temperature = "temperature"
-            static let humidity = "humidity"
-            static let precipitationProbability = "precipProbability"
-            static let summary = "summary"
-            static let icon = "icon"
-        }
-    
-    
-     
-        
+    let nearestStormBearing: Int
+    let nearestStormDistance: Int
+    let ozone: Double
+    let precipIntensity: Int
+    let precipProbability: Int
+    let pressure: Double
+    let summary: String
+    let temperature: Double
+    let time: Int
+    let uvIndex: Int
+    let visibility: Int
+    let windBearing: Int
+    let windGust: Double
+    let windSpeed: Double
 
-//        init?(jsonData: [String:AnyObject]) {
-//            guard let tempValue = jsonData[Key.temperature] as? Double,
-//            let humidityValue = jsonData[Key.humidity] as? Double,
-//            let precipitationProbabilityValue = jsonData[Key.precipitationProbability] as? Double,
-//            let summaryString = jsonData[Key.summary] as? String,
-//            let iconString = jsonData[Key.icon] as? String else {return nil}
-
-//            self.temperature = tempValue
-//            self.humidity = humidityValue
-//            self.precipitationProbability = precipitationProbabilityValue
-//            self.summary = summaryString
-//            self.icon = iconString
-
-        
 }
 
+//    init(weatherData: AnyObject) {
+//        self.temperature = weatherData["temperature"] as! String
+//        self.humidity = weatherData["humidity"] as! String
+//        self.precipitationProbability = weatherData["precipProbability"] as! String
+//       self.summary = weatherData["summary"] as! String
+//        self.icon = weatherData["icon"] as! String
+//}
 
 
 
