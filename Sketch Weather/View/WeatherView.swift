@@ -9,16 +9,17 @@ import Foundation
 import UIKit
 
 
-
 class WeatherViewController: UIViewController {
    
     
+    
+
   
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
     @IBAction func refreshButton(_ sender: Any) {
         //This Method makes a network call
-        getWeatherForecast()
+       
     }
     
     @IBAction func MenuButton(_ sender: Any) {
@@ -37,23 +38,20 @@ class WeatherViewController: UIViewController {
     
     
     @IBOutlet weak var temperatureLabel: UILabel!
+
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        getWeatherForecast()
         temperatureLabel.text = "\(temp)"
     }
     
-    var temperature = String()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        getWeatherForecast()
         
-       
-       
-      myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         
+        
+        myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
-       
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
         myMotionEffect(view: weatherView, min: -15, max: 15)
        
