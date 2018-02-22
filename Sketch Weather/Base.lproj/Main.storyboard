@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1360.8" y="-84.236453201970448"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Screen-->
         <scene sceneID="vID-Bj-ZPm">
             <objects>
-                <viewController id="aKy-3v-YnK" sceneMemberID="viewController">
+                <viewController title="Home Screen" id="aKy-3v-YnK" customClass="HomeScreenView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gMK-dW-J7E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

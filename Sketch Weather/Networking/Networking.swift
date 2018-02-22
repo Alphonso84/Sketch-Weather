@@ -22,7 +22,7 @@ var temp: Double = 0.0
        
     }
 }
-
+class Networking: UIViewController {
 
 public func buildURL(constructedUrl: String) -> URL {
     
@@ -53,8 +53,11 @@ public func getWeatherForecast() {
             temp = currentWeather!["temperature"] as! Double
             
             let summary = currentWeather!["summary"] as! String
+            let windSpeed = currentWeather!["windSpeed"] as! Float
             print(currentWeather)
             print("\(temp)")
+            print(summary)
+            print(windSpeed)
            
         } catch {
             print(error)
@@ -69,4 +72,4 @@ public func getWeatherForecast() {
 //            let jsonDecoder = JSONDecoder()
 //            let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
 
-          
+}
