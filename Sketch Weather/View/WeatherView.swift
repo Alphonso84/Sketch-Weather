@@ -43,17 +43,19 @@ class WeatherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getWeatherForecast()
         temperatureLabel.text = "\(temp)"
+        reloadInputViews()
     }
     
     
     override func viewDidLoad() {
         
         
-        
+        temperatureLabel.text = "\(Int(temp))"
+        myMotionEffect(view: cityLabel, min: -30, max: 30)
         myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
-        myMotionEffect(view: weatherView, min: -15, max: 15)
+        
        
         
         

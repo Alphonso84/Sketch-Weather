@@ -30,6 +30,9 @@ struct Currently: Codable {
     let windBearing: Int
     let windGust: Double
     let windSpeed: Double
+    
+    
+    
 
 }
 
