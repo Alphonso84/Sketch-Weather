@@ -184,6 +184,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="getWeather:" destination="aKy-3v-YnK" eventType="touchUpInside" id="CLk-1S-VM9"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="j7W-GW-uk0"/>
                                         </connections>
                                     </button>

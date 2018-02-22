@@ -11,37 +11,21 @@ import UIKit
 
 class WeatherViewController: UIViewController {
    
-    
-    
-
-  
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    @IBAction func refreshButton(_ sender: Any) {
-        //This Method makes a network call
-       
-    }
-    
-    @IBAction func MenuButton(_ sender: Any) {
-        
-    }
     @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var CitySketch: UIImageView!
     
-    @IBOutlet weak var weatherView: UIImageView!
-    
-   
     @IBOutlet weak var degreesStringLabel: UILabel!
     
     @IBOutlet weak var tempHeaderLabel: UILabel!
-    
     
     @IBOutlet weak var temperatureLabel: UILabel!
 
     
     override func viewWillAppear(_ animated: Bool) {
-        getWeatherForecast()
+        //getWeatherForecast()
         temperatureLabel.text = "\(temp)"
         reloadInputViews()
     }
