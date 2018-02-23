@@ -11,38 +11,87 @@ var cities = ["San Francisco", "Oakland", "San Jose", "Sunnyvale", "Palo Alto", 
 
 
 struct Currently: Codable {
-    let apparentTemperature: Double
-    let cloudCover: Double
-    let dewPoint: Double
-    let humidity: Double
-    let icon: String
-    let nearestStormBearing: Int
-    let nearestStormDistance: Int
-    let ozone: Double
-    let precipIntensity: Int
-    let precipProbability: Int
-    let pressure: Double
-    let summary: String
-    let temperature: Double
-    let time: Int
-    let uvIndex: Int
-    let visibility: Int
-    let windBearing: Int
-    let windGust: Double
-    let windSpeed: Double
+    var apparentTemperature: Double?
+    var cloudCover: Double?
+    var dewPoint: Double?
+    var humidity: Double?
+    var icon: String?
+    var nearestStormBearing: Int?
+    var nearestStormDistance: Int?
+    var ozone: Double?
+    var precipIntensity: Int?
+    var precipProbability: Int?
+    var pressure: Double?
+    var summary: String?
+    var temperature: Double?
+    var time: Int?
+    var uvIndex: Int?
+    var visibility: Int?
+    var windBearing: Int?
+    var windGust: Double?
+    var windSpeed: Double?
     
     
     
+    init(with currently: [String:Any]?) {
+                guard let currently = currently else { return }
+                apparentTemperature = (currently["apparentTemperature"] as? Double)
+                cloudCover = (currently["cloudCover"] as? Double)
+                dewPoint = (currently["dewPoint"] as? Double)
+                humidity = (currently["humidity"] as? Double)
+                icon = (currently["icon"] as? String)
+                nearestStormBearing = (currently["nearestStormBearing"] as? Int)
+                nearestStormDistance = (currently["nearestStormDistance"] as? Int)
+                ozone = (currently["ozone"] as? Double)
+                precipIntensity = (currently["precipIntensity"] as? Int)
+                precipProbability = (currently["precipProbability"] as? Int)
+                pressure = (currently["pressure"] as? Double)
+                summary = (currently["summary"] as? String)
+                temperature = (currently["temperature"] as? Double)
+                time = (currently["time"] as? Int)
+                uvIndex = (currently["uvIndex"] as? Int)
+                visibility = (currently["visibility"] as? Int)
+                windBearing = (currently["windBearing"] as? Int)
+                windGust = (currently["windGust"] as? Double)
+                windSpeed = (currently["windSpeed"] as? Double)
+        
+        
+            }
 
+    
 }
 
-//    init(weatherData: AnyObject) {
-//        self.temperature = weatherData["temperature"] as! String
-//        self.humidity = weatherData["humidity"] as! String
-//        self.precipitationProbability = weatherData["precipProbability"] as! String
-//       self.summary = weatherData["summary"] as! String
-//        self.icon = weatherData["icon"] as! String
+//extension Currently {
+//    init(data: Data) throws {
+//        self = try JSONDecoder().decode(Currently.self, from: data)
+//    }
+//
+//    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+//        guard let data = json.data(using: encoding) else {
+//            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+//        }
+//        try self.init(data: data)
+//    }
+//
+//    init(fromURL url: URL) throws {
+//        try self.init(data: try Data(contentsOf: url))
+//    }
+//
+//    func jsonData() throws -> Data {
+//        return try JSONEncoder().encode(self)
+//    }
+//
+//    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+//        return String(data: try self.jsonData(), encoding: encoding)
+//    }
 //}
+
+    
+//
+
+
+
+
 
 
 

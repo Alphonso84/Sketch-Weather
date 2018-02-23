@@ -9,11 +9,25 @@ import Foundation
 import UIKit
 
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.detailTextLabel?.text = "\(temp)"
+        return cell
+    }
+    
    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    @IBOutlet weak var cityLabel: UILabel!
+   
     
     @IBOutlet weak var CitySketch: UIImageView!
     
@@ -35,12 +49,12 @@ class WeatherViewController: UIViewController {
         
         
         temperatureLabel.text = "\(Int(temp))"
-        myMotionEffect(view: cityLabel, min: -30, max: 30)
+       
         myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
         
-       
+       tableView.reloadData()
         
         
   

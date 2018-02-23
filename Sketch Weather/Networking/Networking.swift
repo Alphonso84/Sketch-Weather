@@ -11,9 +11,11 @@ import UIKit
 
 
 
+
 var location = ""
 var urlString = ""
-var temp: Double = 0.0
+var temp = Double()
+
 
 
 
@@ -46,19 +48,25 @@ public func getWeatherForecast() {
         
         guard let unwrappedData = data else {return}
         do {
-
-        guard let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as? [String:AnyObject] else {return}
+        
+            
+            let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: .allowFragments ) as! [String:AnyObject]
+            
+                //as? [String:AnyObject] else {return}
+            
     
-            let currentWeather = jsonData["currently"]
+           let currentWeather = Currently(with: jsonData["currently"] as? [String : Any])
             
-            temp = currentWeather!["temperature"] as! Double
             
-            let summary = currentWeather!["summary"] as! String
-            let windSpeed = currentWeather!["windSpeed"] as! Float
+            
+            temp = currentWeather.temperature!
+           // let summary = currentWeather["summary"]
+           // let windSpeed = currentWeather["windSpeed"]
+            
             print(currentWeather)
-            print("\(temp)")
-            print(summary)
-            print(windSpeed)
+           // print("\(temp)")
+           // print(summary)
+            //print(windSpeed)
            
         } catch {
             print(error)
