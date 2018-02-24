@@ -15,7 +15,7 @@ import UIKit
 var location = ""
 var urlString = ""
 var temp = Double()
-
+var summary = String()
 
 
 
@@ -60,7 +60,7 @@ public func getWeatherForecast() {
             
             
             temp = currentWeather.temperature!
-           // let summary = currentWeather["summary"]
+            summary = currentWeather.summary!
            // let windSpeed = currentWeather["windSpeed"]
             
             print(currentWeather)

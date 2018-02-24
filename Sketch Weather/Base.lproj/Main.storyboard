@@ -103,8 +103,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SF" translatesAutoresizingMaskIntoConstraints="NO" id="WPr-8f-mr4">
                                 <rect key="frame" x="0.0" y="0.0" width="386" height="724"/>
                             </imageView>
-                            <stackView alpha="0.94999999999999996" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Mf-Qo-yEc">
-                                <rect key="frame" x="117" y="163" width="141.33333333333337" height="104.33333333333334"/>
+                            <stackView alpha="0.94999999999999996" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Mf-Qo-yEc">
+                                <rect key="frame" x="117.00000000000001" y="162.66666666666666" width="141.33333333333337" height="104.33333333333334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81b-YZ-2Rf">
                                         <rect key="frame" x="0.0" y="0.0" width="141.33333333333334" height="24"/>
@@ -146,16 +146,28 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHT-Yy-4UR">
+                                <rect key="frame" x="16" y="20" width="343" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="rwM-T8-JDx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="49"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WPr-8f-mr4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4tX-uO-Aff"/>
                             <constraint firstItem="Thk-xz-oJB" firstAttribute="top" secondItem="8Mf-Qo-yEc" secondAttribute="bottom" constant="38" id="6dy-n2-veR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WPr-8f-mr4" secondAttribute="trailing" constant="-27" id="9FQ-wM-n6V"/>
+                            <constraint firstItem="DHT-Yy-4UR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="BlQ-zv-srZ"/>
                             <constraint firstItem="Thk-xz-oJB" firstAttribute="centerX" secondItem="8Mf-Qo-yEc" secondAttribute="centerX" id="It4-0i-Ioq"/>
+                            <constraint firstItem="DHT-Yy-4UR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="K94-Fl-6ry"/>
                             <constraint firstAttribute="trailing" secondItem="Thk-xz-oJB" secondAttribute="trailing" id="aOR-Py-Yod"/>
                             <constraint firstItem="WPr-8f-mr4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="d01-TP-W5h"/>
                             <constraint firstAttribute="bottom" secondItem="WPr-8f-mr4" secondAttribute="bottom" id="fsD-d9-xBd"/>
+                            <constraint firstItem="DHT-Yy-4UR" firstAttribute="centerX" secondItem="8Mf-Qo-yEc" secondAttribute="centerX" id="i3t-0i-Wbf"/>
                             <constraint firstItem="Thk-xz-oJB" firstAttribute="leading" secondItem="WPr-8f-mr4" secondAttribute="leading" id="kfX-YC-ieP"/>
                             <constraint firstItem="Thk-xz-oJB" firstAttribute="bottom" secondItem="WPr-8f-mr4" secondAttribute="bottom" id="yUR-8a-U5w"/>
                         </constraints>
@@ -166,6 +178,7 @@
                     <connections>
                         <outlet property="CitySketch" destination="WPr-8f-mr4" id="V3X-ux-wJr"/>
                         <outlet property="degreesStringLabel" destination="0lO-JH-q2E" id="pJ7-e2-feg"/>
+                        <outlet property="summaryLabel" destination="DHT-Yy-4UR" id="XsZ-vH-xnh"/>
                         <outlet property="tableView" destination="Thk-xz-oJB" id="pWv-v2-HIO"/>
                         <outlet property="tempHeaderLabel" destination="81b-YZ-2Rf" id="FW9-PD-sIB"/>
                         <outlet property="temperatureLabel" destination="gJ6-L8-B1t" id="3fC-iS-K7R"/>

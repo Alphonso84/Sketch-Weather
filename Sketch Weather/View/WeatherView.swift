@@ -27,7 +27,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-   
+    @IBOutlet weak var summaryLabel: UILabel!
+    
     
     @IBOutlet weak var CitySketch: UIImageView!
     
@@ -49,7 +50,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         temperatureLabel.text = "\(Int(temp))"
-       
+        summaryLabel.text = summary
+        
+        myMotionEffect(view: summaryLabel, min: -30, max: 30)
         myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
