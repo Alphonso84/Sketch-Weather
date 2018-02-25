@@ -7,25 +7,18 @@
 //
 import Foundation
 import UIKit
+import MapKit
 
 
-class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.detailTextLabel?.text = "\(temp)"
-        return cell
-    }
+   
     
    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
+    
+    @IBOutlet weak var windSPeed2: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
     
     @IBOutlet weak var summaryLabel: UILabel!
     
@@ -51,13 +44,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         temperatureLabel.text = "\(Int(temp))"
         summaryLabel.text = summary
+        windSpeedLabel.text = "\(windSpeed)"
         
         myMotionEffect(view: summaryLabel, min: -30, max: 30)
         myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)
         myMotionEffect(view: degreesStringLabel, min: -30, max: 30)
         myMotionEffect(view: temperatureLabel, min: -30, max: 30)
+        myMotionEffect(view: windSpeedLabel, min: -30, max: 30)
+        myMotionEffect(view: windSPeed2, min: -30, max: 30)
+       
         
-       tableView.reloadData()
+       
         
         
   

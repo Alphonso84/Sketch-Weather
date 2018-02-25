@@ -16,8 +16,10 @@ var location = ""
 var urlString = ""
 var temp = Double()
 var summary = String()
-
-
+var windSpeed = Double()
+var windGust = Double()
+var windBearing = Int()
+var precipProbability = Int()
 
     public func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
     DispatchQueue.main.async {
@@ -58,10 +60,12 @@ public func getWeatherForecast() {
            let currentWeather = Currently(with: jsonData["currently"] as? [String : Any])
             
             
-            
+            windBearing = currentWeather.windBearing!
+            windGust = currentWeather.windGust!
+            windSpeed = currentWeather.windSpeed!
             temp = currentWeather.temperature!
             summary = currentWeather.summary!
-           // let windSpeed = currentWeather["windSpeed"]
+            precipProbability = currentWeather.precipProbability!
             
             print(currentWeather)
            // print("\(temp)")
