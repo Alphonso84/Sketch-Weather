@@ -17,6 +17,8 @@ class WeatherViewController: UIViewController {
    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
+    @IBOutlet weak var rainLabelMarker: UILabel!
+    @IBOutlet weak var stormDistanceLabel: UILabel!
     @IBOutlet weak var windSPeed2: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     
@@ -45,6 +47,7 @@ class WeatherViewController: UIViewController {
         temperatureLabel.text = "\(Int(temp))"
         summaryLabel.text = summary
         windSpeedLabel.text = "\(windSpeed)"
+        stormDistanceLabel.text = "\(nearestStormDistance)"
         
         myMotionEffect(view: summaryLabel, min: -30, max: 30)
         myMotionEffect(view: tempHeaderLabel, min: -30, max: 30)

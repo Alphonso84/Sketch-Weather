@@ -20,6 +20,7 @@ var windSpeed = Double()
 var windGust = Double()
 var windBearing = Int()
 var precipProbability = Int()
+var nearestStormDistance = Int()
 
     public func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
     DispatchQueue.main.async {
@@ -59,7 +60,7 @@ public func getWeatherForecast() {
     
            let currentWeather = Currently(with: jsonData["currently"] as? [String : Any])
             
-            
+            nearestStormDistance = currentWeather.nearestStormDistance!
             windBearing = currentWeather.windBearing!
             windGust = currentWeather.windGust!
             windSpeed = currentWeather.windSpeed!
