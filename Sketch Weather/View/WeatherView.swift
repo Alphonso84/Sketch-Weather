@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //getWeatherForecast()
-        temperatureLabel.text = "\(temp)"
+        temperatureLabel.text = "\(Int(temp))"
         reloadInputViews()
     }
     
