@@ -31,32 +31,54 @@ struct Currently: Codable {
     var windGust: Double?
     var windSpeed: Double?
     
-    
-    
-    init(with currently: [String:Any]?) {
-                guard let currently = currently else { return }
-                apparentTemperature = (currently["apparentTemperature"] as? Double)
-                cloudCover = (currently["cloudCover"] as? Double)
-                dewPoint = (currently["dewPoint"] as? Double)
-                humidity = (currently["humidity"] as? Double)
-                icon = (currently["icon"] as? String)
-                nearestStormBearing = (currently["nearestStormBearing"] as? Int)
-                nearestStormDistance = (currently["nearestStormDistance"] as? Int)
-                ozone = (currently["ozone"] as? Double)
-                precipIntensity = (currently["precipIntensity"] as? Int)
-                precipProbability = (currently["precipProbability"] as? Int)
-                pressure = (currently["pressure"] as? Double)
-                summary = (currently["summary"] as? String)
-                temperature = (currently["temperature"] as? Double)
-                time = (currently["time"] as? Int)
-                uvIndex = (currently["uvIndex"] as? Int)
-                visibility = (currently["visibility"] as? Int)
-                windBearing = (currently["windBearing"] as? Int)
-                windGust = (currently["windGust"] as? Double)
-                windSpeed = (currently["windSpeed"] as? Double)
+    init(apparentTemperature: Double?, cloudCover: Double?, dewPoint: Double?, humidity: Double?, icon: String?, nearestStormBearing: Int?, nearestStormDistance: Int?, ozone: Double?, precipIntensity: Int?, precipProbability: Int?, pressure: Double?, summary: String?, temperature: Double?, time: Int?, uvIndex: Int?, visibility: Int?, windBearing: Int?, windGust: Double?, windSpeed: Double?) {
         
         
-            }
+        self.apparentTemperature = apparentTemperature
+        self.cloudCover = cloudCover
+        self.dewPoint = dewPoint
+        self.humidity = humidity
+        self.icon = icon
+        self.nearestStormBearing = nearestStormBearing
+        self.nearestStormDistance = nearestStormDistance
+        self.ozone = ozone
+        self.precipIntensity = precipIntensity
+        self.precipProbability = precipProbability
+        self.pressure = pressure
+        self.summary = summary
+        self.temperature = temperature
+        self.time = time
+        self.uvIndex = uvIndex
+        self.visibility = visibility
+        self.windBearing = windBearing
+        self.windGust = windGust
+        self.windSpeed = windSpeed
+    }
+    
+//    init(with currently: [String:Any]?) {
+//                guard let currently = currently else { return }
+//                apparentTemperature = (currently["apparentTemperature"] as? Double)
+//                cloudCover = (currently["cloudCover"] as? Double)
+//                dewPoint = (currently["dewPoint"] as? Double)
+//                humidity = (currently["humidity"] as? Double)
+//                icon = (currently["icon"] as? String)
+//                nearestStormBearing = (currently["nearestStormBearing"] as? Int)
+//                nearestStormDistance = (currently["nearestStormDistance"] as? Int)
+//                ozone = (currently["ozone"] as? Double)
+//                precipIntensity = (currently["precipIntensity"] as? Int)
+//                precipProbability = (currently["precipProbability"] as? Int)
+//                pressure = (currently["pressure"] as? Double)
+//                summary = (currently["summary"] as? String)
+//                temperature = (currently["temperature"] as? Double)
+//                time = (currently["time"] as? Int)
+//                uvIndex = (currently["uvIndex"] as? Int)
+//                visibility = (currently["visibility"] as? Int)
+//                windBearing = (currently["windBearing"] as? Int)
+//                windGust = (currently["windGust"] as? Double)
+//                windSpeed = (currently["windSpeed"] as? Double)
+//
+//
+//            }
 
     
 }

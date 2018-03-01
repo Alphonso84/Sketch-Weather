@@ -11,6 +11,8 @@ import MapKit
 
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,8 +32,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.imageView?.image = #imageLiteral(resourceName: "Sunshine")
+        
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = "\(Int(temp))"
+        cell.textLabel?.text = "\(String(describing: Int((now?.temperature)!)))"
         
         return cell
     }
@@ -39,7 +42,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         //getWeatherForecast()
-       
+        
         reloadInputViews()
     }
     
@@ -47,7 +50,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         
     tableView.reloadData()
-        
+      summaryLabel.text = now?.summary
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
   
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {

@@ -15,6 +15,7 @@ var latitude = [Double]()
 var longitude = [Double]()
 let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
+var variableArray: [AnyObject?]? = nil
 
 class HomeScreenView: UIViewController {
     
@@ -53,7 +54,7 @@ class HomeScreenView: UIViewController {
     
     
     @IBAction func getWeather(_ sender: Any) {
-        
+        variableArray?.append(now as AnyObject)
     }
     
     
