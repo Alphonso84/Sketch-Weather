@@ -10,50 +10,43 @@ import UIKit
 import MapKit
 
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+    @IBOutlet weak var tableView: UITableView!
+    
     
    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    @IBOutlet weak var visibilityLabel: UILabel!
-    @IBOutlet weak var rainLabelMarker: UILabel!
-    @IBOutlet weak var stormDistanceLabel: UILabel!
-    @IBOutlet weak var windSPeed2: UILabel!
-    @IBOutlet weak var windSpeedLabel: UILabel!
     
-    @IBOutlet weak var summaryLabel: UILabel!
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 19
+    }
     
-    
-    @IBOutlet weak var CitySketch: UIImageView!
-    
-    @IBOutlet weak var degreesStringLabel: UILabel!
-    
-    @IBOutlet weak var tempHeaderLabel: UILabel!
-    
-    @IBOutlet weak var temperatureLabel: UILabel!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.imageView?.image = #imageLiteral(resourceName: "Sunshine")
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.text = "\(Int(temp))"
+        
+        return cell
+    }
 
     
     override func viewWillAppear(_ animated: Bool) {
         //getWeatherForecast()
-        temperatureLabel.text = "\(Int(temp))"
+       
         reloadInputViews()
     }
     
     
     override func viewDidLoad() {
         
-        
-        temperatureLabel.text = "\(Int(temp))"
-       
-        
-       
-        myMotionEffect(view: temperatureLabel, min: -30, max: 30)
-       
-        
-       
-        
+    tableView.reloadData()
         
   
     }

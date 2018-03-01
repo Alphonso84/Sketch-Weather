@@ -68,7 +68,7 @@ public func getWeatherForecast() {
             summary = currentWeather.summary!
             //precipProbability = currentWeather.precipProbability!
             
-            print(currentWeather.temperature)
+            print(currentWeather)
            // print("\(temp)")
            // print(summary)
             //print(windSpeed)

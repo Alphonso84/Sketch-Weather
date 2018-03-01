@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Optima.ttc">
-            <string>Optima-Regular</string>
-        </array>
         <array key="Savoye.ttc">
             <string>SavoyeLetPlain</string>
         </array>
@@ -95,44 +92,48 @@
             </objects>
             <point key="canvasLocation" x="895" y="-848"/>
         </scene>
-        <!--Now-->
+        <!--NOW-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WPr-8f-mr4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-w4-CRC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyk-od-U1q">
-                                <rect key="frame" x="94" y="136" width="187" height="125"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="60"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="5B0-48-KL1">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5B0-48-KL1" id="qaO-Er-erR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="AfU-dr-vQj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FaC-UD-H28"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Iyk-od-U1q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="18X-eB-T1v"/>
-                            <constraint firstItem="WPr-8f-mr4" firstAttribute="centerX" secondItem="Iyk-od-U1q" secondAttribute="centerX" id="FLQ-bb-xiM"/>
-                            <constraint firstAttribute="bottom" secondItem="WPr-8f-mr4" secondAttribute="bottom" id="KKD-V2-4yt"/>
-                            <constraint firstItem="WPr-8f-mr4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lho-ae-fpw"/>
-                            <constraint firstAttribute="trailing" secondItem="WPr-8f-mr4" secondAttribute="trailing" id="P8E-1h-MYY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iyk-od-U1q" secondAttribute="bottom" constant="380" id="Q7n-oP-SOt"/>
-                            <constraint firstItem="Iyk-od-U1q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="bB3-17-wp0"/>
-                            <constraint firstItem="WPr-8f-mr4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qV5-PM-hM8"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="58e-IU-fKl"/>
+                            <constraint firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="EEX-yc-dk3"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZKO-mf-6ay"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oBF-4h-HNC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now" id="dmz-t9-aCb"/>
+                    <tabBarItem key="tabBarItem" title="NOW" id="dmz-t9-aCb"/>
                     <navigationItem key="navigationItem" id="W4e-7Q-dXi"/>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <connections>
-                        <outlet property="CitySketch" destination="WPr-8f-mr4" id="V3X-ux-wJr"/>
-                        <outlet property="temperatureLabel" destination="Iyk-od-U1q" id="sUy-cD-mzR"/>
+                        <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -181,20 +182,21 @@
             </objects>
             <point key="canvasLocation" x="154" y="-164"/>
         </scene>
-        <!--View Controller-->
+        <!--Day-->
         <scene sceneID="PiS-Ej-Nvy">
             <objects>
                 <viewController id="qOz-lB-MP1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h3f-ZI-A0J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="29V-Iw-4r6"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Day" id="Q4m-qD-3pK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsK-jJ-Pmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3103.1999999999998" y="-116.00985221674877"/>
+            <point key="canvasLocation" x="2710" y="-164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H72-AI-Qy7">
@@ -221,14 +223,16 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ITF-S4-ZZm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nuv-8i-Ra3">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nuv-8i-Ra3">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gb0-mE-XUZ"/>
+                        <segue destination="qOz-lB-MP1" kind="relationship" relationship="viewControllers" id="JJ2-AJ-bDd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kg-Eh-HJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
