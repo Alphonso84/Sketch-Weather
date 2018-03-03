@@ -11,6 +11,8 @@ import MapKit
 
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var weatherVariables: [AnyObject] = []
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
@@ -26,7 +28,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 19
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,25 +36,26 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.imageView?.image = #imageLiteral(resourceName: "Sunshine")
         
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = "\(String(describing: Int((now?.temperature)!)))"
-        
+        cell.textLabel?.text = String(describing: weatherVariables[indexPath.row])
+        //String(describing: Int((now?.temperature)!))
         return cell
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
         //getWeatherForecast()
-        
+         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject, now?.icon as AnyObject, now?.nearestStormDistance as AnyObject]
         reloadInputViews()
     }
     
     
     override func viewDidLoad() {
+       
+     
         
-      tableView.reloadData()
       summaryLabel.text = now?.summary
       temperatureLabel.text = "\(Int((now?.temperature)!))"
-  
+      tableView.reloadData()
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         
