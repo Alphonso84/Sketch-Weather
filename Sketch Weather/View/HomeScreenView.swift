@@ -55,6 +55,7 @@ class HomeScreenView: UIViewController {
     
     @IBAction func getWeather(_ sender: Any) {
         variableArray?.append(now as AnyObject)
+        //Networking().getWeatherForecast()
     }
     
     

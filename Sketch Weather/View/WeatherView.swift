@@ -13,6 +13,8 @@ import MapKit
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var weatherVariables: [AnyObject] = []
+    var weatherImages: [UIImage] = []
+    var weatherLabels: [String] = []
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
@@ -28,7 +30,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 6
+        return weatherVariables.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,7 +38,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.imageView?.image = #imageLiteral(resourceName: "Sunshine")
         
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = String(describing: weatherVariables[indexPath.row])
+        cell.textLabel?.text = " \(weatherLabels[indexPath.row]) \(String(describing: weatherVariables[indexPath.row]))"
         //String(describing: Int((now?.temperature)!))
         return cell
     }
@@ -44,7 +46,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         //getWeatherForecast()
-         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject, now?.icon as AnyObject, now?.nearestStormDistance as AnyObject]
+         weatherLabels = ["Feels Like      ","Wind Gust    ", "Wind Speed    ", "Cloud Cover     ", "Dew Point Temp     ", "Humidity     ", "Nearest Storm     "]
+        
+        
+         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject,  now?.nearestStormDistance as AnyObject]
         reloadInputViews()
     }
     
@@ -53,9 +58,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
        
      
         
-      summaryLabel.text = now?.summary
+      summaryLabel.text = now?.icon
       temperatureLabel.text = "\(Int((now?.temperature)!))"
       tableView.reloadData()
+     reloadInputViews()
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         
