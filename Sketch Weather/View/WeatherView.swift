@@ -49,9 +49,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         
-    tableView.reloadData()
+      tableView.reloadData()
       summaryLabel.text = now?.summary
-        temperatureLabel.text = "\(Int((now?.temperature)!))"
+      temperatureLabel.text = "\(Int((now?.temperature)!))"
   
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {

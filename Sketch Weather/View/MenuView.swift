@@ -20,6 +20,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = cities[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
+        
         return cell
     }
     
