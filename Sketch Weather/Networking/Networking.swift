@@ -52,12 +52,10 @@ class Networking: UIViewController {
             guard let unwrappedData = data else {return}
             do {
                 
-                
+//                let jsonDecoder = JSONDecoder()
+//                let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
                 let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: .allowFragments ) as! [String:AnyObject]
-                
-                //as? [String:AnyObject] else {return}
-                
-                
+            
                 let currentWeather = jsonData["currently"] as? [String : AnyObject]
                 
                 
@@ -76,9 +74,5 @@ class Networking: UIViewController {
         task.resume()
         
     }
-    
-    
-    //            let jsonDecoder = JSONDecoder()
-    //            let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
     
 }

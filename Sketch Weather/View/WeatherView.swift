@@ -35,7 +35,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-       
+        
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(weatherLabels[indexPath.row]) \(String(describing: weatherVariables[indexPath.row]))"
         
@@ -43,12 +43,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             && (cell.textLabel?.text?.contains("Cloud"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "Cloudy")) : (((cell.imageView?.image = nil) != nil))
             && (cell.textLabel?.text?.contains("Feels"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "thermometer")) : (((cell.imageView?.image = nil) != nil))
             && (cell.textLabel?.text?.contains("Rain"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "rain")) : (cell.imageView?.image = nil)
-            
         
-        
-        
-        
-        //String(describing: Int((now?.temperature)!))
+    
         return cell
     }
     
@@ -57,17 +53,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //getWeatherForecast()
         
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
-        weatherLabels = ["Feels Like      ","Rain Chance    ", "Wind Gust    ", "Wind Speed    ", "Cloud Cover     ", "Dew Point Temp     ", "Humidity     ", "Nearest Storm     "]
+        weatherLabels = ["Feels Like      ","Rain Chance    ", "Wind Gust    ", "Wind Speed    ", "Cloud Cover     ", "Dew Point Temp     ", "Humidity     ", "Nearest Storm     ", "Visibility    "]
         
         
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject,  now?.nearestStormDistance as AnyObject]
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject,  now?.nearestStormDistance as AnyObject, now?.visibility as AnyObject]
         reloadInputViews()
     }
     
     
     override func viewDidLoad() {
-        
-        
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -77,6 +71,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         
     }
+    
+    
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
         
