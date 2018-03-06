@@ -24,9 +24,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    //RELOAD BUTTON MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
+    //RELOAD BUTTON REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
     @IBAction func reloadData(_ sender: Any) {
+        updateUI()
+    }
+    
+    func updateUI() {
+        weatherVariables.removeAll()
         Networking().getWeatherForecast()
+        appendArray()
         tableView.refreshTable()
         
     }
@@ -53,15 +59,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    
+    //This Array Provides Data For TableView Rows
+    func appendArray() {
+         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, Int((now?.cloudCover)!) as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+    }
+    //Array is populated before view appears
     override func viewWillAppear(_ animated: Bool) {
-        //getWeatherForecast()
-        
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
         weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
-        
-        
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+        appendArray()
        reloadInputViews()
     }
     
@@ -70,9 +76,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        tableView.reloadData()
-        reloadInputViews()
-        tableView.reloadData()
+        tableView.refreshTable()
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         
