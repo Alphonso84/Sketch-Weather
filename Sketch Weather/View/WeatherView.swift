@@ -53,10 +53,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //getWeatherForecast()
         
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
-        weatherLabels = ["Feels Like      ","Rain Chance    ", "Wind Gust    ", "Wind Speed    ", "Cloud Cover     ", "Dew Point Temp     ", "Humidity     ", "Nearest Storm     ", "Visibility    "]
+        weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   ", "Visibility  "]
         
         
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, now?.humidity as AnyObject,  now?.nearestStormDistance as AnyObject, now?.visibility as AnyObject]
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject, now?.visibility as AnyObject]
         reloadInputViews()
     }
     
