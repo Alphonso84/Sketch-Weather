@@ -19,6 +19,14 @@ var variableArray: [AnyObject?]? = nil
 
 class HomeScreenView: UIViewController {
     
+    @objc func switchViews() {
+        DispatchQueue.main.async() {
+            self.performSegue(withIdentifier: "initialSegue", sender: self)
+            
+        }
+        
+        
+    }
     
     let myLocation = CLLocationCoordinate2D()
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) ->CLLocationCoordinate2D {
@@ -37,10 +45,19 @@ class HomeScreenView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         latitude = [manager.location!.coordinate.latitude]
         longitude = [manager.location!.coordinate.longitude]
+        
+    }
+    
+    func viewDidAppear() {
+        super.viewDidAppear(true)
+        
+        
+        
     }
     
     override func viewDidLoad() {
       super.viewDidLoad()
+        
         latitude = [manager.location!.coordinate.latitude]
         longitude = [manager.location!.coordinate.longitude]
         manager.delegate = self as? CLLocationManagerDelegate
@@ -48,15 +65,15 @@ class HomeScreenView: UIViewController {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-       Networking().getWeatherForecast()
+        Networking().getWeatherForecast()
+        
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: true)
+        
     }
     
     
     
-    @IBAction func getWeather(_ sender: Any) {
-        variableArray?.append(now as AnyObject)
-        //Networking().getWeatherForecast()
-    }
+    
     
     
 }
