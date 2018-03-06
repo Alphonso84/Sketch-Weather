@@ -24,11 +24,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    //RELOAD BUTTON REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
+    
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
     }
-    
+    //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherVariables.removeAll()
         Networking().getWeatherForecast()
@@ -61,14 +61,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //This Array Provides Data For TableView Rows
     func appendArray() {
-         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, Int((now?.cloudCover)!) as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, Int((now?.cloudCover)!) as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
     }
     //Array is populated before view appears
     override func viewWillAppear(_ animated: Bool) {
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
         weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
         appendArray()
-       reloadInputViews()
+        reloadInputViews()
     }
     
     
