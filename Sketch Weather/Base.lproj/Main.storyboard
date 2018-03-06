@@ -92,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="895" y="-848"/>
         </scene>
-        <!--Right Now-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,34 +137,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfW-ps-pJf">
-                                <rect key="frame" x="141" y="103" width="94" height="102"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="114" y="75" width="148" height="165"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BN-tp-JYy">
+                                <rect key="frame" x="321" y="25" width="38" height="37"/>
+                                <state key="normal" title="Button" image="reload"/>
+                                <connections>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qot-aF-0iD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0BN-tp-JYy" firstAttribute="trailing" secondItem="E8p-xv-LpB" secondAttribute="trailing" id="1vm-fO-oGk"/>
                             <constraint firstItem="IZq-w4-CRC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="248" id="2O4-Q2-u9C"/>
-                            <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="E8p-xv-LpB" secondAttribute="bottom" constant="36" id="3V4-6d-2Vt"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="7yM-6w-pPF"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="leading" secondItem="IZq-w4-CRC" secondAttribute="leading" id="BoF-fH-r86"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fdl-Yr-BBi"/>
+                            <constraint firstItem="RfW-ps-pJf" firstAttribute="centerX" secondItem="E8p-xv-LpB" secondAttribute="centerX" id="IRw-bw-YiH"/>
+                            <constraint firstItem="0BN-tp-JYy" firstAttribute="centerY" secondItem="E8p-xv-LpB" secondAttribute="centerY" id="Ijm-2w-cLW"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="centerX" secondItem="IZq-w4-CRC" secondAttribute="centerX" id="N7y-tA-YIJ"/>
                             <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Og7-6b-2IK"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="top" secondItem="RfW-ps-pJf" secondAttribute="bottom" constant="8" symbolic="YES" id="UqS-tg-i8K"/>
                             <constraint firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="W1Y-HF-Ixk"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="WAV-sR-56b"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="c2J-N8-tvt"/>
+                            <constraint firstItem="0BN-tp-JYy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="muc-sA-uAl"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="bottom" secondItem="IZq-w4-CRC" secondAttribute="bottom" id="nvI-pb-CHw"/>
+                            <constraint firstItem="0BN-tp-JYy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="321" id="ps7-Sy-A0Q"/>
                             <constraint firstItem="IZq-w4-CRC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pz7-kY-tYb"/>
-                            <constraint firstItem="IZq-w4-CRC" firstAttribute="top" secondItem="RfW-ps-pJf" secondAttribute="bottom" constant="43" id="qir-rM-Zy7"/>
-                            <constraint firstItem="RfW-ps-pJf" firstAttribute="centerX" secondItem="E8p-xv-LpB" secondAttribute="centerX" id="wHr-8B-QaJ"/>
+                            <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="E8p-xv-LpB" secondAttribute="bottom" constant="8" symbolic="YES" id="rd8-ds-Lv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="NOW" id="dmz-t9-aCb"/>
-                    <navigationItem key="navigationItem" title="Right Now" id="W4e-7Q-dXi">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Menu" id="dhJ-aW-0n2">
+                    <navigationItem key="navigationItem" title="Title" id="aRf-FJ-eg2">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" image="update-arrows" id="Zjj-PQ-Ief">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
@@ -289,7 +300,8 @@
     </scenes>
     <resources>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
-        <image name="Menu" width="85" height="85"/>
         <image name="Sketch Weather" width="266" height="266"/>
+        <image name="reload" width="256" height="256"/>
+        <image name="update-arrows" width="42" height="42"/>
     </resources>
 </document>

@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import MapKit
 
-
+var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var weatherVariables: [AnyObject] = []
+    
     var weatherImages: [UIImage] = []
     var weatherLabels: [String] = []
     @IBOutlet weak var summaryLabel: UILabel!
@@ -24,7 +24,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
-    
+    //RELOAD BUTTON MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
+    @IBAction func reloadData(_ sender: Any) {
+        Networking().getWeatherForecast()
+        tableView.refreshTable()
+        
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -44,7 +49,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             && (cell.textLabel?.text?.contains("Feels"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "thermometer")) : (((cell.imageView?.image = nil) != nil))
             && (cell.textLabel?.text?.contains("Rain"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "rain")) : (cell.imageView?.image = nil)
         
-    
+        
         return cell
     }
     
@@ -53,11 +58,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //getWeatherForecast()
         
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
-        weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   ", "Visibility  "]
+        weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
         
         
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject, now?.visibility as AnyObject]
-        reloadInputViews()
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, now?.cloudCover as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+       reloadInputViews()
     }
     
     
@@ -67,6 +72,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.reloadData()
         reloadInputViews()
+        tableView.reloadData()
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         
@@ -92,5 +98,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+}
+//Extending UITableView to include method for updating cells with animation
+extension UITableView {
+    func refreshTable(){
+        let indexPathForSection = NSIndexSet(index: 0)
+        self.reloadSections(indexPathForSection as IndexSet, with: UITableViewRowAnimation.bottom)
+    }
 }
 
