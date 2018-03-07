@@ -8,9 +8,26 @@
 import Foundation
 import UIKit
 
-class WeekWeatherViewController: UIViewController {
+class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var daysOfTheWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    var Week = [Day]()
+    var DaysArray = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return DaysArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+        
+        cell.name?.text = DaysArray[indexPath.row]
+        return cell
+    }
+    
+    
+    
     
     @IBAction func MenuButton(_ sender: Any) {
     }
