@@ -56,7 +56,7 @@ class HomeScreenView: UIViewController {
     }
     
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
         
         latitude = [manager.location!.coordinate.latitude]
         longitude = [manager.location!.coordinate.longitude]

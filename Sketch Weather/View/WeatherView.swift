@@ -48,13 +48,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(weatherLabels[indexPath.row]) \(String(describing: weatherVariables[indexPath.row]))"
         
-        (cell.textLabel?.text?.contains("Wind"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "wind")) : (((cell.imageView?.image = nil) != nil))
-            && (cell.textLabel?.text?.contains("Cloud"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "Cloudy")) : (((cell.imageView?.image = nil) != nil))
-            && (cell.textLabel?.text?.contains("Feels"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "thermometer")) : (((cell.imageView?.image = nil) != nil))
-            && (cell.textLabel?.text?.contains("Rain"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "rain")) : (cell.imageView?.image = nil)
+        
+        //LOGIC(USING TERNARY OPERATOR) FOR ASSIGNING IMAGE TO TABLEVIEW BASED ON LABEL STRING
+//        (cell.textLabel?.text?.contains("Wind"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "wind")) : (((cell.imageView?.image = nil) != nil))
+//            && (cell.textLabel?.text?.contains("Cloud"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "Cloudy")) : (((cell.imageView?.image = nil) != nil))
+//            && (cell.textLabel?.text?.contains("Feels"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "thermometer")) : (((cell.imageView?.image = nil) != nil))
+//            && (cell.textLabel?.text?.contains("Rain"))! ? (cell.imageView?.image = #imageLiteral(resourceName: "rain")) : (cell.imageView?.image = nil)
         
         
         return cell
@@ -62,7 +65,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //This Method Provides Data For TableView Rows
     func appendArray() {
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, Int((now?.cloudCover)!) as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, Int((now?.windGust)!) as AnyObject, Int((now?.windSpeed)!) as AnyObject, Int((now?.cloudCover)!) as AnyObject, Int((now?.dewPoint)!) as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
     }
     //The Array is populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
