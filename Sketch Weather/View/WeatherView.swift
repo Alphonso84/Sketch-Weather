@@ -59,7 +59,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    //This Array Provides Data For TableView Rows
+    //This Method Provides Data For TableView Rows
     func appendArray() {
         weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windGust as AnyObject, now?.windSpeed as AnyObject, Int((now?.cloudCover)!) as AnyObject, now?.dewPoint as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
     }
@@ -71,12 +71,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         reloadInputViews()
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+    }
     override func viewDidLoad() {
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
+        
     }
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         

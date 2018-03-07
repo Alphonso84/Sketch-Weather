@@ -10,7 +10,7 @@ import UIKit
 
 class WeekWeatherViewController: UIViewController {
     
-    var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
+    var daysOfTheWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     
     @IBAction func MenuButton(_ sender: Any) {
     }
