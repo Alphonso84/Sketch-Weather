@@ -23,6 +23,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         
         cell.name?.text = DaysArray[indexPath.row]
+        cell.weatherImage?.image = weatherImages[indexPath.row]
         return cell
     }
     
@@ -34,7 +35,9 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var CitySketch: UIImageView!
     
-   
+    func viewWillAppear() {
+        //weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain")]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
        

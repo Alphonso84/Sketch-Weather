@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 import MapKit
 
+var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    var weatherImages: [UIImage] = []
+   
     var weatherLabels: [String] = []
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -65,7 +66,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     //The Array is populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
-        weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy"),#imageLiteral(resourceName: "Cloudy")]
+        weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine")]
         weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
         appendArray()
         reloadInputViews()
