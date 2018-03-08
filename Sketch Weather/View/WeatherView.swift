@@ -65,12 +65,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //This Method Provides Data For TableView Rows
     func appendArray() {
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, Int((now?.windGust)!) as AnyObject, Int((now?.windSpeed)!) as AnyObject, Int((now?.cloudCover)!) as AnyObject, Int((now?.dewPoint)!) as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windBearing as AnyObject, Int((now?.windGust)!) as AnyObject, Int((now?.windSpeed)!) as AnyObject, Int((now?.cloudCover)!) as AnyObject, Int((now?.dewPoint)!) as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
     }
     //The Array is populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine")]
-        weatherLabels = ["Feels Like    ","Rain Chance  ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
+        weatherLabels = ["Feels Like    ","Rain Chance  ","Wind Direction   ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
         appendArray()
         reloadInputViews()
     }
