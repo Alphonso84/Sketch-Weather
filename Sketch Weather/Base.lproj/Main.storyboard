@@ -103,6 +103,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-MG-slp">
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" link="YES" image="YES" updatesFrequently="YES" startsMediaSession="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-w4-CRC">
                                 <rect key="frame" x="0.0" y="292" width="375" height="437"/>
@@ -110,7 +116,7 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="5B0-48-KL1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="5B0-48-KL1">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5B0-48-KL1" id="qaO-Er-erR">
@@ -249,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="537.93103448275861"/>
+            <point key="canvasLocation" x="2240" y="748"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="vID-Bj-ZPm">
@@ -298,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O98-lH-zbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-164.03940886699507"/>
+            <point key="canvasLocation" x="-441" y="-166"/>
         </scene>
         <!--Week Weather View Controller-->
         <scene sceneID="PiS-Ej-Nvy">
@@ -540,10 +546,10 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <exclude reference="ai6-dg-l0v"/>
-                                <exclude reference="u9E-K0-Mbj"/>
                                 <exclude reference="X2P-LI-rKt"/>
                                 <include reference="Zcl-AO-j6u"/>
+                                <exclude reference="ai6-dg-l0v"/>
+                                <exclude reference="u9E-K0-Mbj"/>
                                 <include reference="2dm-nR-XbJ"/>
                                 <include reference="7gz-iK-8dZ"/>
                                 <exclude reference="Hxd-5s-TsK"/>
@@ -616,6 +622,6 @@
         <image name="world-map-globe-icon-94057" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qyt-uw-Zc2"/>
+        <segue reference="Uir-WI-dwu"/>
     </inferredMetricsTieBreakers>
 </document>

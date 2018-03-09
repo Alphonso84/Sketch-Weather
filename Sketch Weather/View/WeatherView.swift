@@ -14,8 +14,10 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-   
+    
     var weatherLabels: [String] = []
+    
+    
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
@@ -29,13 +31,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
     }
-    //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, ANIMATES NEW DATA INTO TABLEVIEW
+    //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherVariables.removeAll()
         Networking().getWeatherForecast()
         appendArray()
         tableView.refreshTable()
-        
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        summaryLabel.text = now?.summary
+      
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -75,9 +79,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         reloadInputViews()
     }
     
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
     }
+    
+    
     override func viewDidLoad() {
         
         summaryLabel.text = now?.summary
@@ -85,9 +93,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         
     }
-    func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
-        
-    }
+    
+    
+    
     
     
     

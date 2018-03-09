@@ -20,9 +20,10 @@ var variableArray: [AnyObject?]? = nil
 class HomeScreenView: UIViewController {
     
     @objc func switchViews() {
+        
         DispatchQueue.main.async() {
             self.performSegue(withIdentifier: "initialSegue", sender: self)
-            
+           
         }
         
         
@@ -67,13 +68,14 @@ class HomeScreenView: UIViewController {
         
         Networking().getWeatherForecast()
         
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: true)
+       Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         
+      
     }
     
     
     
-    
+   
     
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890BD3FA20525C4000628875 /* Date Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890BD3F920525C4000628875 /* Date Logic.swift */; };
 		892FF1172003799B00C558E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1162003799B00C558E4 /* AppDelegate.swift */; };
 		892FF1192003799B00C558E4 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1182003799B00C558E4 /* WeatherView.swift */; };
 		892FF11C2003799B00C558E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11A2003799B00C558E4 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		890BD3F920525C4000628875 /* Date Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Logic.swift"; sourceTree = "<group>"; };
 		892FF1132003799B00C558E4 /* Sketch Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		892FF1162003799B00C558E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892FF1182003799B00C558E4 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		890BD3F820525C1800628875 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				890BD3F920525C4000628875 /* Date Logic.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		892FF10A2003799B00C558E4 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				892FF1162003799B00C558E4 /* AppDelegate.swift */,
+				890BD3F820525C1800628875 /* Controller */,
 				892FF12E200379EF00C558E4 /* View */,
 				892FF12B200379C800C558E4 /* Model */,
 				892FF128200379A800C558E4 /* Networking */,
@@ -190,6 +201,7 @@
 				892FF12A200379BA00C558E4 /* Networking.swift in Sources */,
 				894A4AFD2013029800AC22D2 /* DarkSkyError.swift in Sources */,
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
+				890BD3FA20525C4000628875 /* Date Logic.swift in Sources */,
 				89375E19203F60B300E3F402 /* HomeScreenView.swift in Sources */,
 				897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */,
 				898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */,
