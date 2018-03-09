@@ -14,7 +14,6 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
     var weatherLabels: [String] = []
     
     

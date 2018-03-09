@@ -17,35 +17,23 @@ let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
 
-class HomeScreenView: UIViewController {
+class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     @objc func switchViews() {
         
         DispatchQueue.main.async() {
-            self.performSegue(withIdentifier: "initialSegue", sender: self)
            
+            self.performSegue(withIdentifier: "initialSegue", sender: self)
+            
         }
         
         
     }
     
-    let myLocation = CLLocationCoordinate2D()
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) ->CLLocationCoordinate2D {
-        let location = locations[0]
-        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        
-        
-        return myLocation
-    }
-    
-    func returnUserLocation() -> CLLocationCoordinate2D {
-        let userLocation = manager.location!.coordinate
-        return userLocation
-    }
     
     override func viewWillAppear(_ animated: Bool) {
-        latitude = [manager.location!.coordinate.latitude]
-        longitude = [manager.location!.coordinate.longitude]
+       
+        
         
     }
     
@@ -58,19 +46,22 @@ class HomeScreenView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        latitude = [manager.location!.coordinate.latitude]
-        longitude = [manager.location!.coordinate.longitude]
-        manager.delegate = self as? CLLocationManagerDelegate
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        manager.requestAlwaysAuthorization()
         manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
         
-        Networking().getWeatherForecast()
+       
         
        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
-        
+         Networking().getWeatherForecast()
       
+    }
+    
+    func locationInit() {
+        latitude = [manager.location!.coordinate.latitude]
+        longitude = [manager.location!.coordinate.longitude]
     }
     
     

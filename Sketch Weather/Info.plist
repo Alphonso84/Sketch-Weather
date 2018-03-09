@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSLocationUsageDescription</key>
 	<string>Needs your location to retrieve weather data </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Needs your location to retrieve weather data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Needs your location to retrieve weather data</string>
 	<key>UILaunchStoryboardName</key>

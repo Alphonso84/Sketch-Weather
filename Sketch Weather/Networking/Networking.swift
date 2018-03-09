@@ -42,6 +42,7 @@ class Networking: UIViewController {
     
     
     public func getWeatherForecast() {
+       HomeScreenView().locationInit()
         let unwrappedURL = buildURL(constructedUrl: urlString)
         print(unwrappedURL)
         
