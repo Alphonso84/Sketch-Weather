@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-var week: Day? = nil
+var week = [Day?]()
 var now: Currently? = nil
 var location = ""
 var urlString = ""
@@ -61,6 +61,8 @@ class Networking: UIViewController {
                 
                 let dailyWeather = jsonData["daily"] as? [String : AnyObject]
                 
+                let weekForecast = dailyWeather!["data"] as? Day
+                
                 now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: currentWeather?["temperature"] as? Double, time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
                 
                 
@@ -69,7 +71,7 @@ class Networking: UIViewController {
                 
                 
                 print(Date().dayOfWeek()!)
-                print(dailyWeather)
+                print(dailyWeather!["data"])
                 
             } catch {
                 print(error)
