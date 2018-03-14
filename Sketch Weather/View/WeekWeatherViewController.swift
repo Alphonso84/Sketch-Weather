@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    var today = Date().dayOfWeek()
+    
     var Week = [Day]()
     var DaysArray = [ "\(Date().dayOfWeek()!)","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     
@@ -26,7 +26,13 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.name?.text = DaysArray[indexPath.row]
         cell.weatherImage?.image = weatherImages[indexPath.row]
         cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
-        cell.chanceOfRain?.text = weekForecast[indexPath.row]["precipProbability"] as? String
+        cell.chanceOfRain?.text = "\(String(describing: weekForecast[indexPath.row]["precipProbability"]))"
+            //String(Int(truncating:(weekForecast[indexPath.row]["precipProbability"]! as! NSNumber)) )
+        cell.chanceOfRain?.textColor = UIColor.white
+       
+        cell.HighTemp?.text = "Max Temp     " + String(Int(truncating: (weekForecast[indexPath.row]["temperatureMax"])! as! NSNumber))
+        
+        cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureLow"])! as! NSNumber))
         return cell
     }
     
