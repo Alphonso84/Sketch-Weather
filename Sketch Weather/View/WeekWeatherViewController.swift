@@ -7,11 +7,22 @@
 //
 import Foundation
 import UIKit
-
+var daysArray = [Date().dayOfWeek()]
+var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var Week = [Day]()
-    var DaysArray = [ "\(Date().dayOfWeek()!)","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    
+    func daysArrayLogic() {
+        if daysArray[0] == "Wednesday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday"]
+        }
+        if daysArray[0] == "Thursday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday", "Thursday"]
+        }
+        
+    }
+    
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,7 +34,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         
-        cell.name?.text = DaysArray[indexPath.row]
+        cell.name?.text = weekArray[indexPath.row]
         cell.weatherImage?.image = weatherImages[indexPath.row]
         cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
         cell.chanceOfRain?.text = "\(String(describing: weekForecast[indexPath.row]["precipProbability"]))"
@@ -46,6 +57,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func viewWillAppear() {
         //weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain")]
+       
     }
     override func viewDidLoad() {
         super.viewDidLoad()

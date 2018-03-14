@@ -90,6 +90,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
+      WeekWeatherViewController().daysArrayLogic()
         
     }
     
