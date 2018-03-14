@@ -9,14 +9,15 @@ import Foundation
 import UIKit
 
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+    var today = Date().dayOfWeek()
     var Week = [Day]()
-    var DaysArray = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    var DaysArray = [ "\(Date().dayOfWeek()!)","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DaysArray.count
+        return weekForecast.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -24,6 +25,8 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         
         cell.name?.text = DaysArray[indexPath.row]
         cell.weatherImage?.image = weatherImages[indexPath.row]
+        cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
+        cell.chanceOfRain?.text = weekForecast[indexPath.row]["precipProbability"] as? String
         return cell
     }
     

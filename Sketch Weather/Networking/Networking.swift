@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-
-var week = [Day?]()
+var weekForecast = [[String:AnyObject]]()
+var week: Day? = nil
 var now: Currently? = nil
 var location = ""
 var urlString = ""
@@ -61,17 +61,18 @@ class Networking: UIViewController {
                 
                 let dailyWeather = jsonData["daily"] as? [String : AnyObject]
                 
-                let weekForecast = dailyWeather!["data"] as? Day
+                weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
                 
                 now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: currentWeather?["temperature"] as? Double, time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
                 
                 
                 
-               // week = Day(name: <#T##String?#>, summary: <#T##String?#>, chanceOfRain: <#T##Double?#>, HighTemp: <#T##Double?#>, LowTemp: <#T##Double?#>, weatherImage: <#T##UIImage?#>)
+                week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureLow"] as? Double)
                 
                 
                 print(Date().dayOfWeek()!)
-                print(dailyWeather!["data"])
+                print(weekForecast.count)
+                print(weekForecast)
                 
             } catch {
                 print(error)
