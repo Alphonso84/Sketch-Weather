@@ -221,6 +221,7 @@
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <connections>
+                        <outlet property="locationLabel" destination="4gC-Xg-Xc1" id="nMa-2I-96S"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
                         <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                         <outlet property="temperatureLabel" destination="RfW-ps-pJf" id="Kuf-OO-kFE"/>
@@ -622,6 +623,6 @@
         <image name="world-map-globe-icon-94057" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uir-WI-dwu"/>
+        <segue reference="Qyt-uw-Zc2"/>
     </inferredMetricsTieBreakers>
 </document>

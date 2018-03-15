@@ -65,11 +65,13 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
+   
     
     
     
     @IBAction func MenuButton(_ sender: Any) {
     }
+    
     
     @IBOutlet weak var CitySketch: UIImageView!
     
@@ -99,10 +101,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         view.addMotionEffect(motionEffectGroup)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     
 }

@@ -70,7 +70,7 @@ class Networking: UIViewController {
                 week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureLow"] as? Double)
                 
               
-//                print(Date().dayOfWeek()!)
+               print(Date().dayOfWeek()!)
 //                print(weekForecast.count)
 //                print(weekForecast)
                 
