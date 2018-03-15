@@ -7,21 +7,35 @@
 //
 import Foundation
 import UIKit
-var daysArray = [Date().dayOfWeek()]
+var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var Week = [Day]()
+    
+    
+    //var Week = [Day]()
     //method to create different array values based upon what day of the week it is. This allows us to display a dynamic week forecast based on day of the week. Unfold to view full method.
     func daysArrayLogic() {
-        if daysArray[0] == "Tuesday" {
+        if todayArray[0] == "Sunday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+        }
+        if todayArray[0] == "Monday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday"]
+        }
+        if todayArray[0] == "Tuesday" {
             weekArray = ["\(Date().dayOfWeek()!)","Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday"]
         }
-        if daysArray[0] == "Wednesday" {
+        if todayArray[0] == "Wednesday" {
             weekArray = ["\(Date().dayOfWeek()!)","Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday"]
         }
-        if daysArray[0] == "Thursday" {
+        if todayArray[0] == "Thursday" {
             weekArray = ["\(Date().dayOfWeek()!)","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday", "Thursday"]
+        }
+        if todayArray[0] == "Friday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"]
+        }
+        if todayArray[0] == "Saturday" {
+            weekArray = ["\(Date().dayOfWeek()!)","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
         }
         
     }
@@ -35,12 +49,13 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let chanceOfRainPercentage = weekForecast[indexPath.row]["precipProbability"] as! Double * 100
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         
         cell.name?.text = weekArray[indexPath.row]
         cell.weatherImage?.image = weatherImages[indexPath.row]
         cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
-        cell.chanceOfRain?.text = "\(String(describing: weekForecast[indexPath.row]["precipProbability"]))"
+        cell.chanceOfRain?.text = "Rain Chance \(Int(chanceOfRainPercentage)   )%"
             //String(Int(truncating:(weekForecast[indexPath.row]["precipProbability"]! as! NSNumber)) )
         cell.chanceOfRain?.textColor = UIColor.white
        
