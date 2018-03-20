@@ -22,9 +22,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    
+
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     
     
@@ -41,6 +39,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         
     }
+    
+    
+        
+        
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -65,7 +68,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data For TableView Rows
     func appendArray() {
     
-        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Float((now?.precipProbability)!)) ","Wind Direction \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
+        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
         //appendArray()
         reloadInputViews()
     }
@@ -74,7 +77,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
-        
+        appendArray()
         
     }
     
@@ -84,7 +87,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func viewDidLoad() {
-        appendArray()
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
