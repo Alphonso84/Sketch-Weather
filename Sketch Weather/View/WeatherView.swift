@@ -33,20 +33,20 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
-        weatherVariables.removeAll()
+        weatherLabels.removeAll()
         Networking().getWeatherForecast()
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
-      
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return weatherVariables.count
+        return weatherLabels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +54,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = " \(weatherLabels[indexPath.row]) \(String(describing: weatherVariables[indexPath.row]))"
+        cell.textLabel?.text = " \(weatherLabels[indexPath.row])"
         
         
         
@@ -64,18 +64,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //This Method Provides Data For TableView Rows
     func appendArray() {
-        weatherVariables = [Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windBearing as AnyObject, Int((now?.windGust)!) as AnyObject, Int((now?.windSpeed)!) as AnyObject, Int((now?.cloudCover)!) as AnyObject, Int((now?.dewPoint)!) as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
-    }
-   
-    //The various Arrays are populated before view appears here
-    override func viewWillAppear(_ animated: Bool) {
-        weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
-        weatherLabels = ["Feels Like    ","Rain Chance  ","Wind Direction   ", "Wind Gust   ", "Wind Speed  ", "Cloud Cover ", "Dew Point Temp  ", "Humidity    ", "Nearest Storm   "]
-        appendArray()
+        //        weatherVariables = [ Int((now?.apparentTemperature)!) as AnyObject, now?.precipProbability as AnyObject, now?.windBearing as AnyObject, Int((now?.windGust)!) as AnyObject, Int((now?.windSpeed)!) as AnyObject, Int((now?.cloudCover)!) as AnyObject, Int((now?.dewPoint)!) as AnyObject, Int((now?.humidity)!) as AnyObject,  now?.nearestStormDistance as AnyObject]
+        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!)) ","Wind Direction \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
+        //appendArray()
         reloadInputViews()
     }
     
     
+    //The various Arrays are populated before view appears here
+    override func viewWillAppear(_ animated: Bool) {
+        weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
+        appendArray()
+        
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -87,7 +88,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
-      WeekWeatherViewController().daysArrayLogic()
+        WeekWeatherViewController().daysArrayLogic()
         
     }
     
