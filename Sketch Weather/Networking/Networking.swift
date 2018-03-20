@@ -42,7 +42,7 @@ class Networking: UIViewController {
     
     
     public func getWeatherForecast() {
-       HomeScreenView().locationInit()
+        HomeScreenView().locationInit()
         let unwrappedURL = buildURL(constructedUrl: urlString)
         print(unwrappedURL)
         
@@ -53,10 +53,10 @@ class Networking: UIViewController {
             guard let unwrappedData = data else {return}
             do {
                 
-//                let jsonDecoder = JSONDecoder()
-//                let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
+                //                let jsonDecoder = JSONDecoder()
+                //                let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
                 let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: .allowFragments ) as! [String:AnyObject]
-            
+                
                 let currentWeather = jsonData["currently"] as? [String : AnyObject]
                 
                 let dailyWeather = jsonData["daily"] as? [String : AnyObject]
@@ -69,13 +69,15 @@ class Networking: UIViewController {
                 now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: currentWeather?["temperature"] as? Double, time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
                 
                 
+                week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureMin"] as? Double)
                 
-                week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureLow"] as? Double)
                 
-              
-               print(Date().dayOfWeek()!)
-               
-//                print(weekForecast)
+                
+                
+                //PRINT DIFFERENT OUTPUTS HERE
+                print(Date().dayOfWeek()!)
+                
+                print(weekForecast)
                 
             } catch {
                 print(error)
@@ -83,7 +85,7 @@ class Networking: UIViewController {
         }
         
         task.resume()
-//       weatherVariables.append(now as AnyObject)
+        
     }
     
     

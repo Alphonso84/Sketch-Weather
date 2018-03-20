@@ -61,7 +61,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
        
         cell.HighTemp?.text = "Max Temp     " + String(Int(truncating: (weekForecast[indexPath.row]["temperatureMax"])! as! NSNumber))
         
-        cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureLow"])! as! NSNumber))
+        cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureMin"])! as! NSNumber))
         return cell
     }
     

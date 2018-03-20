@@ -56,7 +56,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         
        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
          Networking().getWeatherForecast()
-      
+       
     }
     
     func locationInit() {
