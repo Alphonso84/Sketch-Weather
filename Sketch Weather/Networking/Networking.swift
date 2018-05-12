@@ -40,7 +40,7 @@ class Networking: UIViewController {
     }
     
     
-    
+    //NEED TO REFACTOR CODE HERE. NOT CORRECTLY MAPPING JSON OBJECT TO SWIFT MODEL OBJECT.
     public func getWeatherForecast() {
         HomeScreenView().locationInit()
         let unwrappedURL = buildURL(constructedUrl: urlString)

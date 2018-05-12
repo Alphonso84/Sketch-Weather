@@ -11,24 +11,23 @@ import MapKit
 
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
+
+
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var locationLabel: UILabel!
-    
-    var weatherLabels: [String] = []
-    
-    
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
 
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
-    
+    var weatherLabels: [String] = []
     
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
     }
+    
+    
     //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherLabels.removeAll()
