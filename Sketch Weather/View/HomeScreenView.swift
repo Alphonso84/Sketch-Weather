@@ -58,7 +58,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
          Networking().getWeatherForecast()
        
     }
-    
+    //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     func locationInit() {
         latitude = [manager.location!.coordinate.latitude]
         longitude = [manager.location!.coordinate.longitude]

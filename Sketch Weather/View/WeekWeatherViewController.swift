@@ -79,6 +79,11 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         //weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain")]
        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

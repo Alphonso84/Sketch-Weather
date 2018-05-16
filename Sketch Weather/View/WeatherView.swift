@@ -75,7 +75,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
-        weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
+       
         appendArray()
         
     }

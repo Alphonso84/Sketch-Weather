@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Bodoni72.ttc">
-            <string>BodoniSvtyTwoITCTT-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Menu View-->
         <scene sceneID="OCx-X4-bfA">
@@ -234,7 +229,7 @@
         <!--MAP-->
         <scene sceneID="m7M-An-zoK">
             <objects>
-                <viewController id="r2e-QL-b5e" sceneMemberID="viewController">
+                <viewController id="r2e-QL-b5e" customClass="MapView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MS3-dC-wk8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,13 +237,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="X5k-BG-ghi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buj-U0-cmP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="buj-U0-cmP" firstAttribute="top" secondItem="X5k-BG-ghi" secondAttribute="top" id="0FL-gb-FoZ"/>
+                            <constraint firstItem="buj-U0-cmP" firstAttribute="bottom" secondItem="sFt-St-FmP" secondAttribute="bottom" id="GQH-Qf-O8v"/>
                             <constraint firstItem="X5k-BG-ghi" firstAttribute="top" secondItem="MS3-dC-wk8" secondAttribute="top" id="HVc-Iw-kbD"/>
                             <constraint firstItem="X5k-BG-ghi" firstAttribute="leading" secondItem="MS3-dC-wk8" secondAttribute="leading" id="IsT-hg-V7H"/>
                             <constraint firstAttribute="bottom" secondItem="X5k-BG-ghi" secondAttribute="bottom" id="RvC-bQ-OXu"/>
+                            <constraint firstItem="buj-U0-cmP" firstAttribute="leading" secondItem="X5k-BG-ghi" secondAttribute="leading" id="Utn-Ba-boN"/>
                             <constraint firstAttribute="trailing" secondItem="X5k-BG-ghi" secondAttribute="trailing" id="fY9-4P-GqK"/>
+                            <constraint firstItem="buj-U0-cmP" firstAttribute="trailing" secondItem="X5k-BG-ghi" secondAttribute="trailing" id="g33-aX-DAy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sFt-St-FmP"/>
                     </view>
@@ -256,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240" y="748"/>
+            <point key="canvasLocation" x="2239.1999999999998" y="747.78325123152717"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="vID-Bj-ZPm">

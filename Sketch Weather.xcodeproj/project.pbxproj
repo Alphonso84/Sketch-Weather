@@ -22,6 +22,7 @@
 		897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897D47672012AEB800CB68FD /* MenuViewTableCell.swift */; };
 		898FE83E204FC7F6002764D7 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83D204FC7F6002764D7 /* DayModel.swift */; };
 		898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83F204FCE8F002764D7 /* WeekCell.swift */; };
+		89FE153220ABFF50007F4DAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE153120ABFF50007F4DAE /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		897D47672012AEB800CB68FD /* MenuViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewTableCell.swift; sourceTree = "<group>"; };
 		898FE83D204FC7F6002764D7 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		898FE83F204FCE8F002764D7 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
+		89FE153120ABFF50007F4DAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				892FF1182003799B00C558E4 /* WeatherView.swift */,
 				892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */,
 				898FE83F204FCE8F002764D7 /* WeekCell.swift */,
+				89FE153120ABFF50007F4DAE /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				894A4AFD2013029800AC22D2 /* DarkSkyError.swift in Sources */,
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
 				890BD3FA20525C4000628875 /* Date Logic.swift in Sources */,
+				89FE153220ABFF50007F4DAE /* MapView.swift in Sources */,
 				89375E19203F60B300E3F402 /* HomeScreenView.swift in Sources */,
 				897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */,
 				898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */,

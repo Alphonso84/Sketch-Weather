@@ -7,7 +7,7 @@
 //
 import Foundation
 import UIKit
-var cities = ["San Francisco", "Oakland", "San Jose", "Sunnyvale", "Palo Alto", "Cupertino", "Hayward", "Fremont", "Sacramento"]
+var cities = ["San Francisco", "Oakland", "Concord", "San Jose", "Mountain View", "Cupertino", "Hayward", "Fremont", "Sacramento"]
 
 
 struct Currently: Codable {
