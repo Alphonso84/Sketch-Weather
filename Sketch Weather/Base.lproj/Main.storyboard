@@ -237,7 +237,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="X5k-BG-ghi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buj-U0-cmP">
+                            <wkWebView autoresizesSubviews="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="buj-U0-cmP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -260,6 +260,9 @@
                         <viewLayoutGuide key="safeArea" id="sFt-St-FmP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="MAP" image="world-map-globe-icon-94057" id="603-Tq-LKc"/>
+                    <connections>
+                        <outlet property="webView" destination="buj-U0-cmP" id="v3B-Is-ZSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
