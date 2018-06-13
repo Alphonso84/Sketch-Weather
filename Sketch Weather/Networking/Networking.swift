@@ -31,7 +31,7 @@ class Networking: UIViewController {
     
     public func buildURL(constructedUrl: String) -> URL {
         
-        let apiKey = "cf6f8b86040554591f1bf925e2a9d71b/"
+        let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
         let base = "https://api.darksky.net/forecast/"
         location = "\(latitude[0]),\(longitude[0])"
         urlString = "\(base)\(apiKey)\(location)"
