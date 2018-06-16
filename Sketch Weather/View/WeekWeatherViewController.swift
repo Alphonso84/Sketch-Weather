@@ -42,6 +42,8 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,11 +55,26 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         
         cell.name?.text = weekArray[indexPath.row]
-        cell.weatherImage?.image = weatherImages[indexPath.row]
+       // cell.weatherImage?.image = weatherImages[indexPath.row]
         cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
         cell.chanceOfRain?.text = "Rain Chance \(Int(chanceOfRainPercentage)   )%"
             //String(Int(truncating:(weekForecast[indexPath.row]["precipProbability"]! as! NSNumber)) )
         cell.chanceOfRain?.textColor = UIColor.white
+       
+        //THIS FUNCTION ASSIGNS IMAGE TO CELL BASED ON WEATHER SUMMARY STRING
+        func weekImageAssinmentLogic() {
+            if (weekForecast[indexPath.row]["summary"]?.contains("Partly cloudy"))! {
+                cell.weatherImage?.image = UIImage(named: "Partly Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Mostly cloudy"))! {
+                cell.weatherImage?.image = UIImage(named: "Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Clear throughout"))! {
+                cell.weatherImage?.image = UIImage(named: "Sunshine")
+            }
+        }
+        
+       weekImageAssinmentLogic()
        
         cell.HighTemp?.text = "Max Temp     " + String(Int(truncating: (weekForecast[indexPath.row]["temperatureMax"])! as! NSNumber))
         
@@ -82,6 +99,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewWillAppear(_ animated: Bool) {
          weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
+        print(weekForecast[0]["summary"])
     }
     
     override func viewDidLoad() {
