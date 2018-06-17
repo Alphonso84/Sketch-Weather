@@ -57,17 +57,43 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(weatherLabels[indexPath.row])"
-        
+       
         
         
         return cell
     }
     
+    //TRYING TO CREATE METHOD TO CREATE STRING FROM RANGE
+    func windBearingTry() {
+        var windDirection = [String:ClosedRange<Int>]()
+        let SouthWest = 225...269
+        let West = 270...314
+        let NorthWest = 315...359
+        let North = 0...44
+        let NorthEast = 45...89
+        let East = 90...134
+        let SouthEast = 135...179
+        let South = 180...224
+    
+    
+        
+    }
+    func windBearingToDirection() ->String{
+        var windString = ""
+        if now?.windBearing == 232 {
+            windString = "South West"
+        }
+        
+        return windString
+    }
+    
+    
+   //
     
     //This Method Provides Data For TableView Rows
     func appendArray() {
     
-        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
+        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction  \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
         //appendArray()
         reloadInputViews()
     }
