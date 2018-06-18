@@ -100,7 +100,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data For TableView Rows
     func appendArray() {
         
-        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
+        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
         //appendArray()
         reloadInputViews()
     }
