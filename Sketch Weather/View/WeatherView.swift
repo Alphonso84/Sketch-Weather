@@ -19,6 +19,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cityLabel: UILabel!
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
