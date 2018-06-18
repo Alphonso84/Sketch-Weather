@@ -16,6 +16,7 @@ var longitude = [Double]()
 let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
+var cityString = String()
 
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
@@ -28,6 +29,23 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         }
         
         
+    }
+    
+    func getCityFromCoordinate() ->String{
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: latitude[0], longitude: longitude[0])
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
+            guard let addressDict = placemarks?[0].addressDictionary else {
+                return
+            }
+            
+            if let city = addressDict["City"] as? String {
+                print(city)
+                cityString = city
+            }
+        })
+        return cityString
     }
     
     
@@ -56,6 +74,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         
        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
          Networking().getWeatherForecast()
+         getCityFromCoordinate()
        
     }
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE

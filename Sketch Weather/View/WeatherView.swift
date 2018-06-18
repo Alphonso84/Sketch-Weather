@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreLocation
 
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
@@ -15,6 +16,7 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+  
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -23,20 +25,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
-    
+   
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
     }
+    
     
     
     //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherLabels.removeAll()
         Networking().getWeatherForecast()
+        HomeScreenView().getCityFromCoordinate()
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
+        cityLabel.text = "Welcome to \(cityString)"
         
     }
     
@@ -114,17 +119,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         
         appendArray()
+       HomeScreenView().getCityFromCoordinate()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
+        cityLabel.text = "Welcome to \(cityString)"
+        
     }
     
     
     override func viewDidLoad() {
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
+        cityLabel.text = "Welcome to \(cityString)"
         tableView.refreshTable()
         WeekWeatherViewController().daysArrayLogic()
         
