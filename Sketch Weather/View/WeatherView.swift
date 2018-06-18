@@ -19,7 +19,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
+    
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
     
@@ -40,8 +40,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-        
-        
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -57,43 +57,50 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(weatherLabels[indexPath.row])"
-       
+        
         
         
         return cell
     }
     
-    //TRYING TO CREATE METHOD TO CREATE STRING FROM RANGE
-    func windBearingTry() {
-        var windDirection = [String:ClosedRange<Int>]()
-        let SouthWest = 225...269
-        let West = 270...314
-        let NorthWest = 315...359
-        let North = 0...44
-        let NorthEast = 45...89
-        let East = 90...134
-        let SouthEast = 135...179
-        let South = 180...224
+    //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
     
     
-        
-    }
-    func windBearingToDirection() ->String{
+    func windBearing() -> String{
         var windString = ""
-        if now?.windBearing == 232 {
+        if (225...269).contains(now!.windBearing!) {
             windString = "South West"
+        }
+        if (270...314).contains(now!.windBearing!) {
+            windString = "West"
+        }
+        if (315...359).contains(now!.windBearing!) {
+            windString = "North West"
+        }
+        if (0...44).contains(now!.windBearing!) {
+            windString = "North"
+        }
+        if (45...89).contains(now!.windBearing!) {
+            windString = "North East"
+        }
+        if (90...134).contains(now!.windBearing!) {
+            windString = "East"
+        }
+        if (135...179).contains(now!.windBearing!) {
+            windString = "South East"
+        }
+        if (180...224).contains(now!.windBearing!) {
+            windString = "South"
         }
         
         return windString
     }
     
     
-   //
-    
     //This Method Provides Data For TableView Rows
     func appendArray() {
-    
-        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction  \(Int((now?.windBearing)!))  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Cloud Cover \(Int((now?.cloudCover)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "Humidity   \(Int((now?.humidity)!)) ", "Nearest Storm   \(Int((now?.nearestStormDistance)!))"]
+        
+        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Rain Chance \(Int((now?.precipProbability)!*100)) %","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
         //appendArray()
         reloadInputViews()
     }
@@ -101,7 +108,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
-       
+        
         appendArray()
         
     }
