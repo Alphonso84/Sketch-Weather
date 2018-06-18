@@ -69,28 +69,31 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func windBearing() -> String{
         var windString = ""
-        if (225...269).contains(now!.windBearing!) {
+        if (206...245).contains(now!.windBearing!) {
             windString = "South West"
         }
-        if (270...314).contains(now!.windBearing!) {
+        if (246...295).contains(now!.windBearing!) {
             windString = "West"
         }
-        if (315...359).contains(now!.windBearing!) {
+        if (296...335).contains(now!.windBearing!) {
             windString = "North West"
         }
-        if (0...44).contains(now!.windBearing!) {
+        if (336...359).contains(now!.windBearing!) {
             windString = "North"
         }
-        if (45...89).contains(now!.windBearing!) {
+        if (0...25).contains(now!.windBearing!) {
+            windString = "North"
+        }
+        if (26...65).contains(now!.windBearing!) {
             windString = "North East"
         }
-        if (90...134).contains(now!.windBearing!) {
+        if (66...115).contains(now!.windBearing!) {
             windString = "East"
         }
-        if (135...179).contains(now!.windBearing!) {
+        if (116...154).contains(now!.windBearing!) {
             windString = "South East"
         }
-        if (180...224).contains(now!.windBearing!) {
+        if (155...205).contains(now!.windBearing!) {
             windString = "South"
         }
         

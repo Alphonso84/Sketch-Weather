@@ -75,9 +75,9 @@ class Networking: UIViewController {
                 
                 
                 //PRINT DIFFERENT OUTPUTS HERE
-                print(Date().dayOfWeek()!)
+               // print(Date().dayOfWeek()!)
                 
-                print(weekForecast)
+                print(now)
                 
             } catch {
                 print(error)
