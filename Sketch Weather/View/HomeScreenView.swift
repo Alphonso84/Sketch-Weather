@@ -23,7 +23,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @objc func switchViews() {
         
         DispatchQueue.main.async() {
-           
+            
             self.performSegue(withIdentifier: "initialSegue", sender: self)
             
         }
@@ -50,7 +50,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        
         
         
     }
@@ -70,12 +70,12 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
         
-       
         
-       Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
-         Networking().getWeatherForecast()
-         getCityFromCoordinate()
-       
+        
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
+        Networking().getWeatherForecast()
+        getCityFromCoordinate()
+        
     }
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     func locationInit() {
@@ -85,7 +85,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     
     
-   
+    
     
     
 }
