@@ -16,7 +16,9 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-  
+   
+    
+    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -43,6 +45,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         cityLabel.text = "Welcome to \(cityString)"
         
+        
     }
     
     
@@ -62,11 +65,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = " \(weatherLabels[indexPath.row])"
+        cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
+       
         
-        
-        
+    
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
@@ -117,23 +124,28 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(true)
         appendArray()
        HomeScreenView().getCityFromCoordinate()
+        cityLabel.textColor = .white
+        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        cityLabel.text = "Welcome to \(cityString)"
+       // cityLabel.text = "Welcome to \(cityString)"
         
     }
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         cityLabel.text = "Welcome to \(cityString)"
+        
+        
         tableView.refreshTable()
         WeekWeatherViewController().daysArrayLogic()
         
