@@ -127,7 +127,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewWillAppear(true)
         appendArray()
        HomeScreenView().getCityFromCoordinate()
-        cityLabel.textColor = .white
+       animate()
         
         
     }
@@ -137,6 +137,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
        // cityLabel.text = "Welcome to \(cityString)"
         
     }
+
+
+func animate() {
+    UIView.transition(with: cityLabel, duration: 5.0, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+        self.cityLabel.textColor = UIColor.white
+    }, completion:nil)
+}
     
     
     override func viewDidLoad() {
