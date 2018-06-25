@@ -18,12 +18,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
    
     
+    @IBOutlet weak var currentWeatherImage: UIImageView!
     
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var cityLabel: UILabel!
+   
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
@@ -43,7 +44,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
-        cityLabel.text = "Welcome to \(cityString)"
+        
+        
         
         
     }
@@ -74,6 +76,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    func CurrentWeatherImageAssinmentLogic() {
+        if (summaryLabel.text?.contains("Partly cloudy"))! {
+            currentWeatherImage?.image = UIImage(named: "Partly Cloudy")
+        }
+        if (summaryLabel.text?.contains("Mostly cloudy"))! {
+            currentWeatherImage?.image = UIImage(named: "Cloudy")
+        }
+        if (summaryLabel.text?.contains("Clear throughout"))! {
+            currentWeatherImage?.image = UIImage(named: "Sunshine")
+        }
+        if (summaryLabel.text?.contains("Rain"))! {
+            currentWeatherImage?.image = UIImage(named: "Rainy")
+        }
+        if (summaryLabel.text?.contains("Drizzle"))! {
+            currentWeatherImage?.image = UIImage(named: "drizzle")
+        }
     }
     
     //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
@@ -116,7 +135,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data For TableView Rows
     func appendArray() {
         
-        weatherLabels = [ "\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
+        weatherLabels = [ "Welcome to \(cityString)","\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
         //appendArray()
         reloadInputViews()
     }
@@ -127,7 +146,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewWillAppear(true)
         appendArray()
        HomeScreenView().getCityFromCoordinate()
-       animate()
+       
         
         
     }
@@ -139,21 +158,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
 
-func animate() {
-    UIView.transition(with: cityLabel, duration: 5.0, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-        self.cityLabel.textColor = UIColor.white
-    }, completion:nil)
-}
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        cityLabel.text = "Welcome to \(cityString)"
-        
-        
         tableView.refreshTable()
+        CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         
     }
