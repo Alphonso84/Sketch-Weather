@@ -44,7 +44,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
-        
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         
         
         
@@ -77,22 +77,30 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    func CurrentWeatherImageAssinmentLogic() {
-        if (summaryLabel.text?.contains("Partly cloudy"))! {
-            currentWeatherImage?.image = UIImage(named: "Partly Cloudy")
+    func CurrentWeatherImageAssinmentLogic() -> UIImage{
+        var weatherBottomImage = UIImage()
+        if (summaryLabel.text?.contains("Partly Cloudy"))! {
+            weatherBottomImage = UIImage(named: "Partly Cloudy")!
         }
-        if (summaryLabel.text?.contains("Mostly cloudy"))! {
-            currentWeatherImage?.image = UIImage(named: "Cloudy")
+        if (summaryLabel.text?.contains("Mostly Cloudy"))! {
+            weatherBottomImage = UIImage(named: "Cloudy")!
         }
         if (summaryLabel.text?.contains("Clear throughout"))! {
-            currentWeatherImage?.image = UIImage(named: "Sunshine")
+            weatherBottomImage = UIImage(named: "Sunshine")!
+        }
+        if (summaryLabel.text?.contains("Clear"))! {
+            weatherBottomImage = UIImage(named: "Sunshine")!
+        }
+        if (summaryLabel.text?.contains("Light Rain"))! {
+            weatherBottomImage = UIImage(named: "Rainy")!
         }
         if (summaryLabel.text?.contains("Rain"))! {
-            currentWeatherImage?.image = UIImage(named: "Rainy")
+            weatherBottomImage = UIImage(named: "Rainy")!
         }
         if (summaryLabel.text?.contains("Drizzle"))! {
-            currentWeatherImage?.image = UIImage(named: "drizzle")
+            weatherBottomImage = UIImage(named: "drizzle")!
         }
+        return weatherBottomImage
     }
     
     //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
@@ -135,7 +143,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data For TableView Rows
     func appendArray() {
         
-        weatherLabels = [ "Welcome to \(cityString)","\(nextHour)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
+        weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
         //appendArray()
         reloadInputViews()
     }
@@ -166,7 +174,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
-        CurrentWeatherImageAssinmentLogic()
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         
     }
