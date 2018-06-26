@@ -46,8 +46,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         
-        
-        
     }
     
     
@@ -143,7 +141,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data For TableView Rows
     func appendArray() {
         
-        weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
+        weatherLabels = [ "Welcome to \(cityString)", "","","", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
         //appendArray()
         reloadInputViews()
     }
@@ -154,7 +152,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewWillAppear(true)
         appendArray()
        HomeScreenView().getCityFromCoordinate()
-       
+       UIView.animate(withDuration: 7, animations: {self.currentWeatherImage.center = self.view.center})
         
         
     }
@@ -176,6 +174,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
+        myMotionEffect(view: currentWeatherImage, min: 30, max: -30)
         
     }
     
