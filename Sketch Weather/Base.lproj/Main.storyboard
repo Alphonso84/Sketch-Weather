@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-fP-Saj">
-                                <rect key="frame" x="18" y="153" width="241" height="519"/>
+                                <rect key="frame" x="18" y="153" width="241" height="553"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-MG-slp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-MG-slp">
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" link="YES" image="YES" updatesFrequently="YES" startsMediaSession="YES"/>
@@ -104,7 +104,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-w4-CRC">
-                                <rect key="frame" x="0.0" y="292" width="375" height="437"/>
+                                <rect key="frame" x="0.0" y="292" width="375" height="402"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +179,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.097096122801303864" green="0.18823403120040894" blue="0.35012239217758179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="leading" secondItem="E8p-xv-LpB" secondAttribute="leading" id="21H-jN-z7N"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="centerX" secondItem="RfW-ps-pJf" secondAttribute="centerX" id="6os-b7-NeX"/>
@@ -187,7 +187,7 @@
                             <constraint firstItem="SqS-MG-slp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AEw-b6-KXT"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DHq-nj-nMN"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="E1d-bd-3CJ"/>
-                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Kog-fC-hJ2"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-35" id="Kog-fC-hJ2"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="leading" secondItem="IZq-w4-CRC" secondAttribute="leading" id="LOw-YK-PEr"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="E8p-xv-LpB" secondAttribute="bottom" constant="3" id="Mct-4R-Nmt"/>
                             <constraint firstItem="0BN-tp-JYy" firstAttribute="trailing" secondItem="E8p-xv-LpB" secondAttribute="trailing" constant="2" id="R6T-iP-kRF"/>
@@ -201,7 +201,7 @@
                             <constraint firstItem="0BN-tp-JYy" firstAttribute="leading" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="56" id="fou-B8-A5b">
                                 <variation key="heightClass=regular-widthClass=compact" constant="28"/>
                             </constraint>
-                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" id="g9t-aQ-26s"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" constant="-35" id="g9t-aQ-26s"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="17" id="iW6-XU-DdS"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="top" secondItem="0BN-tp-JYy" secondAttribute="top" id="jjV-WY-NAI"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="top" id="qdG-TI-a8Y"/>
@@ -211,7 +211,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Day" id="dmz-t9-aCb">
-                        <color key="badgeColor" red="0.097096122800000004" green="0.18823403120000001" blue="0.35012239220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="badgeColor" red="0.29800295829772949" green="0.29806005954742432" blue="0.29799938201904297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Title" id="aRf-FJ-eg2">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" image="update-arrows" id="Zjj-PQ-Ief">
@@ -220,6 +220,7 @@
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <connections>
+                        <outlet property="backGroundImageView" destination="SqS-MG-slp" id="fjh-EQ-qrq"/>
                         <outlet property="currentWeatherImage" destination="XIu-rL-42M" id="fOJ-sf-mCd"/>
                         <outlet property="locationLabel" destination="4gC-Xg-Xc1" id="nMa-2I-96S"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
@@ -281,7 +282,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-aU-D4W">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-aU-D4W">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="hHV-ud-jB3">
@@ -299,7 +300,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.097096122800000004" green="0.18823403120000001" blue="0.35012239220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bPT-aU-D4W" secondAttribute="bottom" id="E7I-46-fMt"/>
                             <constraint firstItem="hHV-ud-jB3" firstAttribute="top" secondItem="M9k-xH-eLO" secondAttribute="top" constant="103" id="FT1-gy-kFb"/>
@@ -330,11 +331,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-k1-SUK">
-                                <rect key="frame" x="0.0" y="114" width="430" height="584"/>
+                                <rect key="frame" x="0.0" y="114" width="430" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="854" id="gVQ-ge-Y1e"/>
@@ -347,7 +348,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xif-h6-2qL" customClass="MyCell" customModule="Sketch_Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14.666666666666666" width="303" height="555"/>
+                                        <rect key="frame" x="0.0" y="31.666666666666668" width="303" height="555"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
@@ -359,7 +360,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" alpha="0.96999999999999997" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
+                                                            <imageView userInteractionEnabled="NO" alpha="0.96999999999999997" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="574"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdv-Hz-LaI">
@@ -612,7 +613,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.38462239503860474" green="0.66059571504592896" blue="0.81078678369522095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.29800295829772949" green="0.29806005954742432" blue="0.29799938201904297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -627,7 +628,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blueback" width="471" height="312"/>
         <image name="Day" width="42" height="42"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="Menu" width="85" height="85"/>
@@ -639,6 +639,6 @@
         <image name="world-map-globe-icon-94057" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uir-WI-dwu"/>
+        <segue reference="Qyt-uw-Zc2"/>
     </inferredMetricsTieBreakers>
 </document>

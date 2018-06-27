@@ -16,7 +16,8 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+    
+    @IBOutlet weak var backGroundImageView: UIImageView!
     
     @IBOutlet weak var currentWeatherImage: UIImageView!
     
@@ -24,11 +25,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-   
+    
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
-   
+    
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
     }
@@ -65,16 +66,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
-       
+       // cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
         
-    
+        
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    
+    
     func CurrentWeatherImageAssinmentLogic() -> UIImage{
         var weatherBottomImage = UIImage()
         if (summaryLabel.text?.contains("Partly Cloudy"))! {
@@ -106,31 +110,31 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func windBearing() -> String{
         var windString = ""
-        if (206...245).contains(now!.windBearing!) {
+        if (203...247).contains(now!.windBearing!) {
             windString = "South West"
         }
-        if (246...295).contains(now!.windBearing!) {
+        if (248...291).contains(now!.windBearing!) {
             windString = "West"
         }
-        if (296...335).contains(now!.windBearing!) {
+        if (292...337).contains(now!.windBearing!) {
             windString = "North West"
         }
-        if (336...359).contains(now!.windBearing!) {
+        if (338...359).contains(now!.windBearing!) {
             windString = "North"
         }
-        if (0...25).contains(now!.windBearing!) {
+        if (0...21).contains(now!.windBearing!) {
             windString = "North"
         }
-        if (26...65).contains(now!.windBearing!) {
+        if (22...67).contains(now!.windBearing!) {
             windString = "North East"
         }
-        if (66...115).contains(now!.windBearing!) {
+        if (68...111).contains(now!.windBearing!) {
             windString = "East"
         }
-        if (116...154).contains(now!.windBearing!) {
+        if (112...157).contains(now!.windBearing!) {
             windString = "South East"
         }
-        if (155...205).contains(now!.windBearing!) {
+        if (158...202).contains(now!.windBearing!) {
             windString = "South"
         }
         
@@ -151,20 +155,24 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         appendArray()
-       HomeScreenView().getCityFromCoordinate()
-       UIView.animate(withDuration: 7, animations: {self.currentWeatherImage.center = self.view.center})
+        
+        HomeScreenView().getCityFromCoordinate()
+        
+        UIView.animate(withDuration: 7, animations: {
+            
+            self.currentWeatherImage.center = self.view.center})
         
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-       // cityLabel.text = "Welcome to \(cityString)"
+        // cityLabel.text = "Welcome to \(cityString)"
         
     }
-
-
-
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -174,7 +182,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-        myMotionEffect(view: currentWeatherImage, min: 30, max: -30)
+        myMotionEffect(view: currentWeatherImage, min: 10, max: -10)
         
     }
     
