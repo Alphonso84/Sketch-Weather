@@ -17,6 +17,7 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var landScapeView: UIImageView!
     @IBOutlet weak var backGroundImageView: UIImageView!
     
     @IBOutlet weak var currentWeatherImage: UIImageView!
@@ -74,6 +75,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.currentWeatherImage.center = CGPoint(x: 390, y: 800)
+            self.currentWeatherImage.alpha = 0.0
+        })
         
     }
     
@@ -159,15 +167,20 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         HomeScreenView().getCityFromCoordinate()
        
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
+      
+        backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
+      
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 800)
-        UIView.animate(withDuration: 5, animations: {
+        UIView.animate(withDuration: 4.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             
         })
         
         UIView.animate(withDuration: 7, animations: {
             self.currentWeatherImage.alpha = 1.0
+            
+           
             
         })
         
