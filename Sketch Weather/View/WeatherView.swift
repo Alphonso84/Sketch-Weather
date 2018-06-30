@@ -76,15 +76,36 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        animateOut()
+        animateIn()
         
         
-        UIView.animate(withDuration: 1.5, animations: {
-            self.currentWeatherImage.center = CGPoint(x: 390, y: 800)
-            self.currentWeatherImage.alpha = 0.0
-        })
+        
+        
+        
+        
+        
         
     }
     
+    func animateIn() {
+        UIView.animate(withDuration: 0.5, animations: {
+            //self.currentWeatherImage.isHidden = false
+            self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
+            self.currentWeatherImage.alpha = 1.0
+            //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.5, delay: 0.6, animations: {
+            self.currentWeatherImage.center = CGPoint(x: 190, y: 800)
+            self.currentWeatherImage.alpha = 0.0
+            //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 4.0, y: 4.0)
+            //self.currentWeatherImage.isHidden = true
+            
+        })
+    }
     
     
     func CurrentWeatherImageAssinmentLogic() -> UIImage{
@@ -171,17 +192,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
         
         self.currentWeatherImage.alpha = 0.0
-        self.currentWeatherImage.center = CGPoint(x: 190, y: 800)
+        self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
+        //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
-        UIView.animate(withDuration: 5.0, animations: {
-            
-            self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
-        })
+       
         
         
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
+            self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
+            
             
         })
         
