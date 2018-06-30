@@ -169,20 +169,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
       
         backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
-      
+        
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 800)
-        UIView.animate(withDuration: 4.5, animations: {
+        self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
+        UIView.animate(withDuration: 5.0, animations: {
+            
+            self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
+        })
+        
+        
+        UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
+            self.currentWeatherImage.alpha = 1.0
             
         })
         
-        UIView.animate(withDuration: 7, animations: {
-            self.currentWeatherImage.alpha = 1.0
-            
-           
-            
-        })
+        
         
         
     }
