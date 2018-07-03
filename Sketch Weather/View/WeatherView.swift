@@ -109,6 +109,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func CurrentWeatherImageAssinmentLogic() -> UIImage{
+        //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        print("This is the time of day \(hour)")
+        
+        
         var weatherBottomImage = UIImage()
         if (summaryLabel.text?.contains("Partly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Partly Cloudy")!
@@ -122,8 +130,26 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (summaryLabel.text?.contains("Clear"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
         }
+        if (summaryLabel.text?.contains("Clear"))! && (21...24).contains(hour) {
+            weatherBottomImage = UIImage(named: "clearNight")!
+        }
+        if (summaryLabel.text?.contains("Clear"))! && (0...5).contains(hour) {
+            weatherBottomImage = UIImage(named: "clearNight")!
+        }
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...5).contains(hour) {
+            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+        }
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (21...24).contains(hour) {
+            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+        }
         if (summaryLabel.text?.contains("Light Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
+        }
+        if (summaryLabel.text?.contains("Rain"))! && (0...5).contains(hour) {
+            weatherBottomImage = UIImage(named: "nightRain")!
+        }
+        if (summaryLabel.text?.contains("Rain"))! && (21...24).contains(hour) {
+            weatherBottomImage = UIImage(named: "nightRain")!
         }
         if (summaryLabel.text?.contains("Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
