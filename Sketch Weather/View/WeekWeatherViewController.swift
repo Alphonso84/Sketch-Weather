@@ -42,6 +42,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     
+    var scrollingTimer = Timer()
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -82,9 +83,24 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.HighTemp?.text = "Max Temp     " + String(Int(truncating: (weekForecast[indexPath.row]["temperatureMax"])! as! NSNumber))
         
         cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureMin"])! as! NSNumber))
+        
+//        var indexRow = indexPath.row
+//        let numberOfItems = weekForecast.count - 1
+//        if (indexRow < numberOfItems){
+//            indexRow = (indexRow + 1)
+//        } else {
+//            indexRow = 0
+//        }
+//        
+//        scrollingTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(WeekWeatherViewController.startTimer(theTimer:)), userInfo: indexRow, repeats: true)
         return cell
     }
     
+    @objc func startTimer(theTimer: Timer) {
+        UIView.animate(withDuration: 1, delay:0, options:.curveEaseOut, animations: {
+            self.collectionView.scrollToItem(at: IndexPath(row: theTimer.userInfo! as! Int,section:0), at: .centeredHorizontally, animated: false)
+        })
+    }
    
     
     

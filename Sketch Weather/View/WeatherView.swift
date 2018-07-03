@@ -133,10 +133,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (summaryLabel.text?.contains("Clear"))! && (21...24).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
         }
-        if (summaryLabel.text?.contains("Clear"))! && (0...5).contains(hour) {
+        if (summaryLabel.text?.contains("Clear"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
         }
-        if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...5).contains(hour) {
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (21...24).contains(hour) {
@@ -145,7 +145,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (summaryLabel.text?.contains("Light Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
         }
-        if (summaryLabel.text?.contains("Rain"))! && (0...5).contains(hour) {
+        if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "nightRain")!
         }
         if (summaryLabel.text?.contains("Rain"))! && (21...24).contains(hour) {
