@@ -165,6 +165,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (summaryLabel.text?.contains("Drizzle"))! {
             weatherBottomImage = UIImage(named: "drizzle")!
         }
+        if (summaryLabel.text?.contains("Drizzle"))! && (0...4).contains(hour) {
+            weatherBottomImage = UIImage(named: "nightRain")!
+        }
+        if (summaryLabel.text?.contains("Drizzle"))! && (21...24).contains(hour) {
+            weatherBottomImage = UIImage(named:"nightRain")!
+        }
         return weatherBottomImage
     }
     

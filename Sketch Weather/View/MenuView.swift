@@ -22,11 +22,13 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        view.backgroundColor = .clear
-        let label = UILabel(frame: CGRect(x: 29, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        label.font = UIFont.boldSystemFont(ofSize: 29)
-        label.textColor = UIColor.lightGray
+        view.backgroundColor = .black
+        let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
+        label.font = UIFont.boldSystemFont(ofSize: 26)
+        label.textAlignment = .left
+        label.textColor = UIColor.lightText
         label.text = bayArea[section]
+        
         view.addSubview(label)
         return view
     }
@@ -37,7 +39,8 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = cities[indexPath.row]
+        cell.textLabel?.textAlignment = .left
+        cell.textLabel?.text = cities[indexPath.section][indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         
         return cell
@@ -50,22 +53,22 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         
         func tap() {
             self.dismiss(animated: true)
-    }
+        }
         tap()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     
-   
+    
     
     
 }
-    
-    
-    
+
+
+
 
