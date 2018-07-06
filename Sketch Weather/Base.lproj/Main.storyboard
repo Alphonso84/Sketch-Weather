@@ -52,15 +52,26 @@
                                     <outlet property="delegate" destination="gyf-1m-ouo" id="BB0-HI-g03"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4q-99-XBQ">
+                                <rect key="frame" x="241" y="73" width="36" height="37"/>
+                                <state key="normal" title="Button" image="close icon white"/>
+                                <connections>
+                                    <action selector="closeMenuButton:" destination="gyf-1m-ouo" eventType="touchUpInside" id="yCU-4x-p6x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="b4q-99-XBQ" firstAttribute="top" secondItem="xYV-2S-ws9" secondAttribute="top" id="2Ao-X1-Jfd"/>
                             <constraint firstItem="oJ0-fP-Saj" firstAttribute="centerX" secondItem="xYV-2S-ws9" secondAttribute="centerX" id="5gM-Wy-5jK"/>
                             <constraint firstItem="xYV-2S-ws9" firstAttribute="top" secondItem="TAn-S4-5Xx" secondAttribute="top" constant="29" id="I65-7v-MfK"/>
                             <constraint firstItem="TAn-S4-5Xx" firstAttribute="trailing" secondItem="Lea-4W-sVu" secondAttribute="trailing" constant="242" id="K9E-DK-RBX"/>
+                            <constraint firstItem="b4q-99-XBQ" firstAttribute="trailing" secondItem="xYV-2S-ws9" secondAttribute="trailing" id="LBY-1A-Xfi"/>
+                            <constraint firstItem="oJ0-fP-Saj" firstAttribute="top" secondItem="b4q-99-XBQ" secondAttribute="bottom" constant="43" id="QCh-Ar-FIo"/>
                             <constraint firstItem="TAn-S4-5Xx" firstAttribute="bottom" secondItem="oJ0-fP-Saj" secondAttribute="bottom" constant="106" id="W72-9c-bYC"/>
                             <constraint firstItem="xYV-2S-ws9" firstAttribute="leading" secondItem="gP5-ZV-OWm" secondAttribute="leading" id="eAn-Nm-ABY"/>
+                            <constraint firstItem="b4q-99-XBQ" firstAttribute="leading" secondItem="TAn-S4-5Xx" secondAttribute="leading" constant="241" id="f7k-O9-2cQ"/>
                             <constraint firstItem="xYV-2S-ws9" firstAttribute="centerY" secondItem="gP5-ZV-OWm" secondAttribute="centerY" id="fhm-Yi-daG"/>
                             <constraint firstItem="oJ0-fP-Saj" firstAttribute="top" secondItem="Lea-4W-sVu" secondAttribute="bottom" constant="8" symbolic="YES" id="gxU-17-tS2"/>
                             <constraint firstItem="oJ0-fP-Saj" firstAttribute="leading" secondItem="TAn-S4-5Xx" secondAttribute="leading" constant="18" id="ifp-eW-xN1"/>
@@ -69,22 +80,14 @@
                             <constraint firstItem="Lea-4W-sVu" firstAttribute="leading" secondItem="gP5-ZV-OWm" secondAttribute="leadingMargin" id="xAB-AZ-4Gs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TAn-S4-5Xx"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="DU2-k9-pSx" appends="YES" id="8QT-24-2Fs"/>
-                        </connections>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="188" height="812"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="812"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUm-ta-R5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="DU2-k9-pSx">
-                    <connections>
-                        <action selector="tap:" destination="gyf-1m-ouo" id="c29-2g-5Ka"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="895" y="-848"/>
+            <point key="canvasLocation" x="893.60000000000002" y="-848.27586206896558"/>
         </scene>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
@@ -652,6 +655,7 @@
         <image name="Menu" width="85" height="85"/>
         <image name="Sketch Weather" width="266" height="266"/>
         <image name="calendar-512" width="42" height="42"/>
+        <image name="close icon white" width="85" height="85"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
         <image name="reload" width="256" height="256"/>
         <image name="update-arrows" width="42" height="42"/>

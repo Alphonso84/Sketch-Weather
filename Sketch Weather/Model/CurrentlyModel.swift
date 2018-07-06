@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 var cities = ["San Francisco", "Oakland", "Concord", "San Jose", "Mountain View", "Cupertino", "Hayward", "Fremont", "Sacramento"]
+let northBay = ["San Rafael","Napa","Novato","Rohnert Park","Vallejo","Fairfield."]
+let southBay = ["Cupertino","Milpitas","Mountain View", "Palo Alto", "San Jose","Santa Clara", "Sunnyvale"]
+let eastBay = ["Oakland","Alameda","Berkeley","Emeryville","Lafayette","Walnut Creek","Concord"]
+
+let bayArea = ["North Bay", "East Bay", "West Bay", "South Bay"]
 
 
 struct Currently: Codable {
