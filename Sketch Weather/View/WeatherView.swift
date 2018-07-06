@@ -17,6 +17,13 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    
+    @IBOutlet weak var lowerBackground: UIImageView!
+    
+    
+    @IBOutlet weak var backGroundWeather: UIImageView!
+    
+    
     @IBOutlet weak var landScapeView: UIImageView!
     @IBOutlet weak var backGroundImageView: UIImageView!
     
@@ -93,7 +100,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             //self.currentWeatherImage.isHidden = false
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
-            //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            
         })
     }
     
@@ -114,7 +121,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        print("This is the time of day \(hour)")
+        let seconds = calendar.component(.second, from: date)
+        print("This is the time of day \(hour):\(minutes):\(seconds)")
         
         
         var weatherBottomImage = UIImage()
@@ -209,10 +217,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
         appendArray()
         
         HomeScreenView().getCityFromCoordinate()
-       
+        
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
       
         backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
