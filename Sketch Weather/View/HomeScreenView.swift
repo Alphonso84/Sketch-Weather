@@ -19,6 +19,7 @@ var variableArray: [AnyObject?]? = nil
 var cityString = String()
 
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     @objc func switchViews() {
         
@@ -50,7 +51,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        backgroundImage.image = UIImage(named:"dark")!
         
         
     }

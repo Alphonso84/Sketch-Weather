@@ -246,8 +246,10 @@
                         <outlet property="locationLabel" destination="4gC-Xg-Xc1" id="nMa-2I-96S"/>
                         <outlet property="lowerBackground" destination="G9Z-nh-EFb" id="ywi-0b-upa"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
+                        <outlet property="tabBar" destination="dmz-t9-aCb" id="0pg-bC-Ifr"/>
                         <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                         <outlet property="temperatureLabel" destination="RfW-ps-pJf" id="Kuf-OO-kFE"/>
+                        <outlet property="topView" destination="8bC-Xf-vdC" id="5De-5Q-pRu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -338,6 +340,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LRE-xY-ceF"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="bPT-aU-D4W" id="7jf-Pd-13a"/>
                         <segue destination="ITF-S4-ZZm" kind="presentation" identifier="initialSegue" id="Ac2-Vu-hEl"/>
                     </connections>
                 </viewController>
@@ -376,7 +379,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-6o-53n">
+                                                <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-6o-53n">
                                                     <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mdl-qn-7Qb">
                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
@@ -473,7 +476,7 @@
                                                         </constraints>
                                                     </view>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <blurEffect style="light"/>
+                                                    <blurEffect style="dark"/>
                                                 </visualEffectView>
                                             </subviews>
                                         </view>
@@ -601,6 +604,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="calendar-512" id="Q4m-qD-3pK"/>
                     <connections>
+                        <outlet property="backgroundWeekView" destination="Rc7-9O-b07" id="BYX-Zh-vA2"/>
                         <outlet property="collectionView" destination="Yki-k1-SUK" id="Ywc-C7-f6T"/>
                     </connections>
                 </viewController>
@@ -662,6 +666,6 @@
         <image name="world-map-globe-icon-94057" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uir-WI-dwu"/>
+        <segue reference="Qyt-uw-Zc2"/>
     </inferredMetricsTieBreakers>
 </document>

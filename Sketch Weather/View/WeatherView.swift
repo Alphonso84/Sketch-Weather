@@ -16,6 +16,8 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var topView: UIView!
+    @IBOutlet weak var tabBar: UITabBarItem!
     
     
     @IBOutlet weak var lowerBackground: UIImageView!
@@ -131,6 +133,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundImageView.image = UIImage(named: "Blueback")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            tabBar.badgeColor = .blue
         
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
@@ -162,6 +165,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundImageView.image = UIImage(named: "dark")
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
@@ -255,7 +259,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
        
         
-        
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
@@ -286,6 +289,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
+        
         myMotionEffect(view: currentWeatherImage, min: 10, max: -10)
         myMotionEffect(view: backGroundWeather, min: -10, max: 10)
     }

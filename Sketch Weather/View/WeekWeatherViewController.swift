@@ -11,6 +11,7 @@ var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var backgroundWeekView: UIImageView!
     
     
     //var Week = [Day]()
@@ -118,7 +119,9 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewWillAppear(_ animated: Bool) {
          weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
-        print(weekForecast[0]["summary"])
+        backgroundWeekView.image = UIImage(named: "dark")!
+        
+        print(weekForecast[0]["summary"]!)
     }
     
     override func viewDidLoad() {
