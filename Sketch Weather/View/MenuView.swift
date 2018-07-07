@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+import CoreLocation
+var citySelection = String()
 class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     
@@ -17,6 +18,8 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         
         return bayArea.count
     }
+    
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int, indexPath: IndexPath) -> String? {
         return bayArea[section]
     }
@@ -49,12 +52,39 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     @IBAction func closeMenuButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
+        func returnCitySelection() ->String {
+            let citySelection = cities[indexPath.section][indexPath.row].description
+            
+            return citySelection
+        }
+        //METHOD TAKES CITY STRING AS PARAMETER AND RETURNS LAT&LONG
+        func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+            CLGeocoder().geocodeAddressString(address) { placemarks, error in
+                completion(placemarks?.first?.location?.coordinate, error)
+            }
+        }
+        //METHOD DISMISSES SELF VIEW
         func tap() {
             self.dismiss(animated: true)
         }
+        
+        //MAKE METHOD CALLS HERE
+        citySelection = returnCitySelection()
+        print(citySelection)
+        getCoordinateFrom(address: citySelection) { coordinate, error in
+            guard let coordinate = coordinate, error == nil else { return }
+            // don't forget to update the UI from the main thread
+            DispatchQueue.main.async {
+                print(coordinate) // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
+            }
+            
+        }
+        
         tap()
+        
         
     }
     

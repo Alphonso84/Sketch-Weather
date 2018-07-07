@@ -30,7 +30,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         
         
     }
-    
+    //FUNCTION TAKES LAT&LONG AND OUTPUTS CITY NAME
     func getCityFromCoordinate() ->String{
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: latitude[0], longitude: longitude[0])
@@ -81,6 +81,10 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     func locationInit() {
         latitude = [manager.location!.coordinate.latitude]
         longitude = [manager.location!.coordinate.longitude]
+    }
+    
+    func locationInitWithSelection() {
+        
     }
     
     

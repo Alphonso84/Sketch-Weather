@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 var weekForecast = [[String:AnyObject]]()
 var week: Day? = nil
@@ -38,6 +39,11 @@ class Networking: UIViewController {
         let url = URL(string: urlString)
         return url!
     }
+    
+   
+    
+   
+    
     
     
     //NEED TO REFACTOR CODE HERE. NOT CORRECTLY MAPPING JSON OBJECT TO SWIFT MODEL OBJECT.
