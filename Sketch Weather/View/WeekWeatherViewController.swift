@@ -40,7 +40,21 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
     }
-    
+    func setBackgroundForTimeOfDay() {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        _ = calendar.component(.minute, from: date)
+        _ = calendar.component(.second, from: date)
+        
+        if (21...23).contains(hour) {
+            backgroundWeekView.image = UIImage(named: "dark")
+        }else if (0...4).contains(hour) {
+            backgroundWeekView.image = UIImage(named:"dark")
+        }else{
+            backgroundWeekView.image = UIImage(named:"Blueback")
+        }
+    }
     
     
     var scrollingTimer = Timer()
@@ -60,8 +74,25 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
        // cell.weatherImage?.image = weatherImages[indexPath.row]
         cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
         cell.chanceOfRain?.text = "Rain Chance \(Int(chanceOfRainPercentage)   )%"
-            //String(Int(truncating:(weekForecast[indexPath.row]["precipProbability"]! as! NSNumber)) )
+            
         cell.chanceOfRain?.textColor = UIColor.white
+        
+        //The Cells Background ImageView is assigne based on time of day here
+            let date = Date()
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: date)
+            _ = calendar.component(.minute, from: date)
+            _ = calendar.component(.second, from: date)
+            
+            if (21...23).contains(hour) {
+                cell.backgroundCellImage.image = UIImage(named: "dark")
+            }else if (0...4).contains(hour) {
+                cell.backgroundCellImage.image = UIImage(named:"dark")
+            }else{
+                cell.backgroundCellImage.image = UIImage(named:"Blueback")
+            }
+    
+        
        
         //THIS FUNCTION ASSIGNS IMAGE TO CELL BASED ON WEATHER SUMMARY STRING
         func weekImageAssinmentLogic() {
@@ -120,7 +151,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewWillAppear(_ animated: Bool) {
          weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
         backgroundWeekView.image = UIImage(named: "dark")!
-        
+        setBackgroundForTimeOfDay()
         print(weekForecast[0]["summary"]!)
     }
     

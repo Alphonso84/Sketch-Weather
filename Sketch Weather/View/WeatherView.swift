@@ -17,7 +17,7 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var topView: UIView!
-    @IBOutlet weak var tabBar: UITabBarItem!
+   
     
     
     @IBOutlet weak var lowerBackground: UIImageView!
@@ -36,12 +36,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
+    lazy var date = Date()
+    lazy var calendar = Calendar.current
+    lazy var hour = calendar.component(.hour, from: date)
+    lazy var minutes = calendar.component(.minute, from: date)
+    lazy var seconds = calendar.component(.second, from: date)
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
     
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
+        CurrentWeatherImageAssinmentLogic()
     }
     
     
@@ -118,12 +125,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func CurrentWeatherImageAssinmentLogic() -> UIImage{
-        //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
+        
         print("This is the time of day \(hour):\(minutes):\(seconds)")
         
         
@@ -133,7 +135,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundImageView.image = UIImage(named: "Blueback")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
-            tabBar.badgeColor = .blue
+           
         
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
@@ -150,13 +152,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Clear"))! && (21...24).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
+            backGroundWeather.image = UIImage(named: "Stars")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Clear"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
-            backGroundImageView.image = UIImage(named: "dark")
+            
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
@@ -236,15 +240,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         reloadInputViews()
     }
     
+    func setBackgroundForTimeOfDay() {
+        if (21...24).contains(hour) {
+            backGroundImageView.image = UIImage(named: "dark")
+        }else if (0...4).contains(hour) {
+            backGroundImageView.image = UIImage(named:"dark")
+        }else{
+            backGroundImageView.image = UIImage(named:"Blueback")
+            tabBarController?.tabBarItem.badgeColor = .white
+            UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
+        }
+    }
+    
     
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
+       
         appendArray()
         
         HomeScreenView().getCityFromCoordinate()
@@ -252,7 +264,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
       
         //backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
-        
+       setBackgroundForTimeOfDay()
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
         //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -266,6 +278,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
         })
+        
         
         
         

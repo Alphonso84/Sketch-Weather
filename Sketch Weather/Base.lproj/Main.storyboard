@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-2S-ws9">
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-2S-ws9">
                                 <rect key="frame" x="0.0" y="73" width="277" height="666"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -94,7 +94,7 @@
             <objects>
                 <viewController modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-nh-EFb">
@@ -102,7 +102,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-MG-slp">
-                                <rect key="frame" x="0.0" y="44" width="375" height="719"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" link="YES" image="YES" updatesFrequently="YES" startsMediaSession="YES"/>
                                 </accessibility>
@@ -213,25 +213,25 @@
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="CLC-kn-BP8" secondAttribute="trailing" constant="54" id="ZWX-uc-fdO">
                                 <variation key="heightClass=regular-widthClass=compact" constant="26"/>
                             </constraint>
-                            <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ak2-Yj-nNT"/>
+                            <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="ak2-Yj-nNT"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="cZ2-D5-Ugt"/>
                             <constraint firstItem="4vm-eC-4Iq" firstAttribute="leading" secondItem="IZq-w4-CRC" secondAttribute="leading" id="ccJ-4r-tjD"/>
                             <constraint firstItem="IZq-w4-CRC" firstAttribute="top" secondItem="RfW-ps-pJf" secondAttribute="bottom" constant="186" id="fNd-MV-GVR"/>
                             <constraint firstItem="0BN-tp-JYy" firstAttribute="leading" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="56" id="fou-B8-A5b">
                                 <variation key="heightClass=regular-widthClass=compact" constant="28"/>
                             </constraint>
-                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" constant="-35" id="g9t-aQ-26s"/>
+                            <constraint firstItem="IZq-w4-CRC" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" constant="-84" id="g9t-aQ-26s"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="17" id="iW6-XU-DdS"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="top" secondItem="0BN-tp-JYy" secondAttribute="top" id="jjV-WY-NAI"/>
                             <constraint firstItem="4vm-eC-4Iq" firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="kqx-Pc-Quh"/>
-                            <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="top" id="qdG-TI-a8Y"/>
+                            <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="top" constant="-44" id="qdG-TI-a8Y"/>
                             <constraint firstAttribute="trailing" secondItem="SqS-MG-slp" secondAttribute="trailing" id="rQu-z4-9MN"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="bottom" secondItem="0BN-tp-JYy" secondAttribute="bottom" id="yhj-Dg-TPT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Day" id="dmz-t9-aCb">
-                        <color key="badgeColor" red="0.29800295829772949" green="0.29806005954742432" blue="0.29799938201904297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <tabBarItem key="tabBarItem" title="Current Weather" image="Day" id="dmz-t9-aCb">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Title" id="aRf-FJ-eg2">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" image="update-arrows" id="Zjj-PQ-Ief">
@@ -246,7 +246,6 @@
                         <outlet property="locationLabel" destination="4gC-Xg-Xc1" id="nMa-2I-96S"/>
                         <outlet property="lowerBackground" destination="G9Z-nh-EFb" id="ywi-0b-upa"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
-                        <outlet property="tabBar" destination="dmz-t9-aCb" id="0pg-bC-Ifr"/>
                         <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                         <outlet property="temperatureLabel" destination="RfW-ps-pJf" id="Kuf-OO-kFE"/>
                         <outlet property="topView" destination="8bC-Xf-vdC" id="5De-5Q-pRu"/>
@@ -261,14 +260,14 @@
             <objects>
                 <viewController id="r2e-QL-b5e" customClass="MapView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MS3-dC-wk8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="X5k-BG-ghi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                             </imageView>
                             <wkWebView autoresizesSubviews="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="buj-U0-cmP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -307,7 +306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-aU-D4W">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="hHV-ud-jB3">
                                 <rect key="frame" x="54.666666666666657" y="147" width="266" height="266"/>
@@ -331,7 +330,7 @@
                             <constraint firstItem="hHV-ud-jB3" firstAttribute="centerX" secondItem="WFS-A2-WZR" secondAttribute="centerX" id="VNJ-RG-20l"/>
                             <constraint firstAttribute="trailing" secondItem="bPT-aU-D4W" secondAttribute="trailing" id="cPF-Mi-PFA"/>
                             <constraint firstItem="WFS-A2-WZR" firstAttribute="leading" secondItem="M9k-xH-eLO" secondAttribute="leading" constant="67" id="cj9-LM-PPk"/>
-                            <constraint firstItem="bPT-aU-D4W" firstAttribute="top" secondItem="M9k-xH-eLO" secondAttribute="top" id="icx-AX-dVp"/>
+                            <constraint firstItem="bPT-aU-D4W" firstAttribute="top" secondItem="M9k-xH-eLO" secondAttribute="top" constant="-44" id="icx-AX-dVp"/>
                             <constraint firstItem="bPT-aU-D4W" firstAttribute="centerX" secondItem="hHV-ud-jB3" secondAttribute="centerX" id="tfJ-4j-enG"/>
                             <constraint firstItem="bPT-aU-D4W" firstAttribute="leading" secondItem="gMK-dW-J7E" secondAttribute="leading" id="xkH-b0-fxN"/>
                             <constraint firstItem="WFS-A2-WZR" firstAttribute="top" secondItem="hHV-ud-jB3" secondAttribute="bottom" constant="63" id="zRu-xB-D5h"/>
@@ -346,14 +345,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O98-lH-zbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="-166"/>
+            <point key="canvasLocation" x="-442.39999999999998" y="-166.25615763546799"/>
         </scene>
-        <!--Week Weather View Controller-->
+        <!--View Controller-->
+        <scene sceneID="Qo4-ZW-CMO">
+            <objects>
+                <viewController id="BaB-03-20T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lee-7b-Gvd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="hzr-DM-9HI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="24V-qv-Zap"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7T-F3-vq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442" y="526"/>
+        </scene>
+        <!--Forecast-->
         <scene sceneID="PiS-Ej-Nvy">
             <objects>
                 <viewController id="qOz-lB-MP1" customClass="WeekWeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h3f-ZI-A0J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
@@ -385,7 +405,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" alpha="0.96999999999999997" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
+                                                            <imageView userInteractionEnabled="NO" alpha="0.96999999999999997" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="574"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdv-Hz-LaI">
@@ -489,6 +509,7 @@
                                         <connections>
                                             <outlet property="HighTemp" destination="oEA-9G-4iD" id="8Cn-M6-BHh"/>
                                             <outlet property="LowTemp" destination="ge9-MM-GEj" id="yS7-e4-eov"/>
+                                            <outlet property="backgroundCellImage" destination="Viz-jR-snv" id="1SC-f7-tL8"/>
                                             <outlet property="chanceOfRain" destination="H4f-dT-0XC" id="uHw-yW-2Wd"/>
                                             <outlet property="name" destination="7Yo-aF-QEc" id="php-yn-hbv"/>
                                             <outlet property="summary" destination="o0O-M1-0jO" id="ybO-M7-BsG"/>
@@ -602,7 +623,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="calendar-512" id="Q4m-qD-3pK"/>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="calendar-512" id="Q4m-qD-3pK">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="backgroundWeekView" destination="Rc7-9O-b07" id="BYX-Zh-vA2"/>
                         <outlet property="collectionView" destination="Yki-k1-SUK" id="Ywc-C7-f6T"/>
@@ -634,13 +657,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ITF-S4-ZZm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nuv-8i-Ra3">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nuv-8i-Ra3">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.29800295829772949" green="0.29806005954742432" blue="0.29799938201904297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.44476437568664551" green="0.70848172903060913" blue="0.82150334119796753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.41176470588235292" green="0.67843137254901964" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gb0-mE-XUZ"/>
@@ -654,12 +677,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Blueback" width="471" height="312"/>
         <image name="Day" width="42" height="42"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="Menu" width="85" height="85"/>
         <image name="Sketch Weather" width="266" height="266"/>
         <image name="calendar-512" width="42" height="42"/>
         <image name="close icon white" width="85" height="85"/>
+        <image name="dark" width="106" height="160"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
         <image name="reload" width="256" height="256"/>
         <image name="update-arrows" width="42" height="42"/>

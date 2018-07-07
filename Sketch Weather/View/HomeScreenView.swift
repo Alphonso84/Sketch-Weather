@@ -21,6 +21,7 @@ var cityString = String()
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    
     @objc func switchViews() {
         
         DispatchQueue.main.async() {
@@ -48,10 +49,24 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         })
         return cityString
     }
-    
+    func setBackgroundForTimeOfDay() {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        _ = calendar.component(.minute, from: date)
+        _ = calendar.component(.second, from: date)
+        
+        if (21...23).contains(hour) {
+            backgroundImage.image = UIImage(named: "dark")
+        }else if (0...4).contains(hour) {
+            backgroundImage.image = UIImage(named:"dark")
+        }else{
+            backgroundImage.image = UIImage(named:"Blueback")
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        backgroundImage.image = UIImage(named:"dark")!
+       setBackgroundForTimeOfDay()
         
         
     }
