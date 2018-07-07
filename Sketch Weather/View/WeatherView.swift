@@ -128,12 +128,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         var weatherBottomImage = UIImage()
         if (summaryLabel.text?.contains("Partly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Partly Cloudy")!
+            backGroundImageView.image = UIImage(named: "Blueback")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+        
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Cloudy")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Clear throughout"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
+            backGroundImageView.image = UIImage(named: "Blueback")!
         }
         if (summaryLabel.text?.contains("Clear"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
@@ -146,9 +153,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+            backGroundImageView.image = UIImage(named: "dark")
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (21...24).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+            backGroundImageView.image = UIImage(named: "dark")
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
@@ -234,7 +247,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
       
-        backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
+        //backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
         
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
@@ -274,7 +287,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         myMotionEffect(view: currentWeatherImage, min: 10, max: -10)
-        
+        myMotionEffect(view: backGroundWeather, min: -10, max: 10)
     }
     
     
