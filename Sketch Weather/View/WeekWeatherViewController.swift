@@ -86,10 +86,13 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             
             if (21...23).contains(hour) {
                 cell.backgroundCellImage.image = UIImage(named: "dark")
+                cell.backgroundCellImage.alpha = 0.40
             }else if (0...4).contains(hour) {
                 cell.backgroundCellImage.image = UIImage(named:"dark")
+                cell.backgroundCellImage.alpha = 0.40
             }else{
                 cell.backgroundCellImage.image = UIImage(named:"Blueback")
+                cell.backgroundCellImage.alpha = 0.40
             }
     
         

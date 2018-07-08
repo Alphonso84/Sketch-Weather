@@ -12,8 +12,27 @@ import CoreLocation
 var citySelection = String()
 class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     let SectionHeaderHeight: CGFloat = 25
+    
+    func setBackgroundForTimeOfDay() {
+        //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        if (21...24).contains(hour) {
+            backgroundImage.image = UIImage(named: "dark")
+        }else if (0...4).contains(hour) {
+            backgroundImage.image = UIImage(named:"dark")
+        }else{
+            backgroundImage.image = UIImage(named:"Blueback")
+//            tabBarController?.tabBarItem.badgeColor = .white
+//            UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return bayArea.count
@@ -25,7 +44,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red:0.08, green:0.13, blue:0.16, alpha:1.0)
         let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textAlignment = .left
@@ -88,6 +107,10 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+     setBackgroundForTimeOfDay()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -17,7 +17,7 @@ var weatherVariables: [AnyObject] = []
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var topView: UIView!
-   
+    
     
     
     @IBOutlet weak var lowerBackground: UIImageView!
@@ -36,12 +36,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
-    lazy var date = Date()
-    lazy var calendar = Calendar.current
-    lazy var hour = calendar.component(.hour, from: date)
-    lazy var minutes = calendar.component(.minute, from: date)
-    lazy var seconds = calendar.component(.second, from: date)
+   
     
     var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
@@ -84,6 +79,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
+       cell.textLabel?.font = UIFont.systemFont(ofSize: 28)
         
         
         
@@ -125,7 +121,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func CurrentWeatherImageAssinmentLogic() -> UIImage{
-        
+        //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
         print("This is the time of day \(hour):\(minutes):\(seconds)")
         
         
@@ -135,8 +136,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundImageView.image = UIImage(named: "Blueback")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
-           
-        
+            
+            
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Cloudy")!
@@ -196,8 +197,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
-    
-    
     func windBearing() -> String{
         var windString = ""
         if (203...247).contains(now!.windBearing!) {
@@ -232,7 +231,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    //This Method Provides Data For TableView Rows
+    //This Method Provides Data Layout For TableView Rows
     func appendArray() {
         
         weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
@@ -241,14 +240,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setBackgroundForTimeOfDay() {
+        //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
         if (21...24).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backGroundImageView.image = UIImage(named:"dark")
         }else{
             backGroundImageView.image = UIImage(named:"Blueback")
-            tabBarController?.tabBarItem.badgeColor = .white
-            UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
+            
+            //UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
         }
     }
     
@@ -256,32 +262,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-       
-        appendArray()
         
+        appendArray()
         HomeScreenView().getCityFromCoordinate()
+        setBackgroundForTimeOfDay()
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
-      
-        //backGroundImageView.image = UIImage(named: "HowToStylishAlphaGrad")
-       setBackgroundForTimeOfDay()
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
-        //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
-       
-        
+        //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
-            self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
-            
+           // self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
             
         })
-        
-        
-        
-        
         
     }
     
@@ -307,11 +302,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         myMotionEffect(view: backGroundWeather, min: -10, max: 10)
     }
     
-    
-    
-    
-    
-    
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
         
         let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
@@ -327,10 +317,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.addMotionEffect(motionEffectGroup)
     }
     
-    
-    
-    
 }
+
 //Extending UITableView to include method for updating cells with animation
 extension UITableView {
     func refreshTable(){
