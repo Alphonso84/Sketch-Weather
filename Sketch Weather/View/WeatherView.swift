@@ -79,7 +79,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
-       cell.textLabel?.font = UIFont.systemFont(ofSize: 28)
+       cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         
         
         
@@ -249,8 +249,27 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (21...24).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
+            lowerBackground.image = UIImage(named:"Stars")
+            lowerBackground.alpha = 0
+            backGroundWeather.alpha = 0
+            
+            UIView.animate(withDuration: 10, animations: {
+                self.lowerBackground.alpha = 0.50
+                self.backGroundWeather.alpha = 0.50
+               
+                
+            })
         }else if (0...4).contains(hour) {
             backGroundImageView.image = UIImage(named:"dark")
+            lowerBackground.image = UIImage(named:"dark")
+            lowerBackground.alpha = 0
+            backGroundWeather.alpha = 0
+          
+            UIView.animate(withDuration: 10, animations: {
+                self.lowerBackground.alpha = 0.50
+                self.backGroundWeather.alpha = 0.50
+              
+            })
         }else{
             backGroundImageView.image = UIImage(named:"Blueback")
             
@@ -298,8 +317,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         
-        myMotionEffect(view: currentWeatherImage, min: 10, max: -10)
-        myMotionEffect(view: backGroundWeather, min: -10, max: 10)
+        myMotionEffect(view: summaryLabel, min: -10, max: 10)
+        myMotionEffect(view: temperatureLabel, min: -10, max: 10)
+        myMotionEffect(view: lowerBackground, min: 10, max: -10)
+        myMotionEffect(view: currentWeatherImage, min: -10, max: 10)
+        myMotionEffect(view: backGroundWeather, min: 10, max: -10)
+        myMotionEffect(view: tableView, min: -10, max: 10)
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
