@@ -247,7 +247,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        if (21...24).contains(hour) {
+        if (20...24).contains(hour) && (summaryLabel.text?.contains("Clear"))! {
             backGroundImageView.image = UIImage(named: "dark")
             lowerBackground.image = UIImage(named:"Stars")
             lowerBackground.alpha = 0
@@ -259,9 +259,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                
                 
             })
-        }else if (0...4).contains(hour) {
+        }else if (0...4).contains(hour) && (summaryLabel.text?.contains("Clear"))! {
             backGroundImageView.image = UIImage(named:"dark")
-            lowerBackground.image = UIImage(named:"dark")
+            lowerBackground.image = UIImage(named:"Stars")
             lowerBackground.alpha = 0
             backGroundWeather.alpha = 0
           

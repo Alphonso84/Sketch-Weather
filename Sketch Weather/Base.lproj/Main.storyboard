@@ -131,7 +131,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stars" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-nh-EFb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-nh-EFb">
                                 <rect key="frame" x="3" y="0.0" width="367" height="272"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="272" id="gmK-DA-DqH"/>
@@ -414,20 +414,20 @@
             <objects>
                 <viewController id="qOz-lB-MP1" customClass="WeekWeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h3f-ZI-A0J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="763"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
-                                <rect key="frame" x="0.0" y="564" width="377" height="200"/>
+                                <rect key="frame" x="0.0" y="530" width="377" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="k6y-hk-2SS"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-k1-SUK">
-                                <rect key="frame" x="0.0" y="114" width="430" height="618"/>
+                                <rect key="frame" x="0.0" y="114" width="430" height="584"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="854" id="gVQ-ge-Y1e"/>
@@ -440,7 +440,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xif-h6-2qL" customClass="MyCell" customModule="Sketch_Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666668" width="303" height="555"/>
+                                        <rect key="frame" x="0.0" y="14.666666666666666" width="303" height="555"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
@@ -733,7 +733,6 @@
         <image name="Menu" width="85" height="85"/>
         <image name="San Francisco" width="633" height="156"/>
         <image name="Sketch Weather" width="266" height="266"/>
-        <image name="Stars" width="997" height="833"/>
         <image name="calendar-512" width="42" height="42"/>
         <image name="close icon white" width="85" height="85"/>
         <image name="dark" width="106" height="160"/>
