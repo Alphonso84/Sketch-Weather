@@ -55,9 +55,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             backgroundWeekView.image = UIImage(named:"Blueback")
         }
     }
-    
-    
-    var scrollingTimer = Timer()
+   
     
     
     @IBOutlet weak var collectionView: UICollectionView!
