@@ -252,12 +252,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
                
                 
-            })
+            
         }else if (0...4).contains(hour) {
             backGroundImageView.image = UIImage(named:"dark")
             
               
-            })
+            
         }else{
             backGroundImageView.image = UIImage(named:"Blueback")
             
