@@ -15,30 +15,19 @@ var weatherVariables: [AnyObject] = []
 
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var cityImage: UIImageView!
     
     @IBOutlet var topView: UIView!
-    
-    
-    
     @IBOutlet weak var lowerBackground: UIImageView!
-    
-    
     @IBOutlet weak var backGroundWeather: UIImageView!
-    
-    
     @IBOutlet weak var landScapeView: UIImageView!
     @IBOutlet weak var backGroundImageView: UIImageView!
-    
     @IBOutlet weak var currentWeatherImage: UIImageView!
-    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-   
-    
-    var citiesBackgrounds = [#imageLiteral(resourceName: "SF")]
     var weatherLabels: [String] = []
     
     @IBAction func reloadData(_ sender: Any) {
@@ -64,7 +53,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    
+    //TABLEVIEW FUNCTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -79,7 +68,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
-       cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         
         
         
@@ -91,14 +80,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         animateOut()
         animateIn()
         
-        
-        
-        
-        
-        
-        
-        
     }
+    
+    
+    
+    //METHODS
     
     func animateIn() {
         UIView.animate(withDuration: 0.5, animations: {
@@ -133,7 +119,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         var weatherBottomImage = UIImage()
         if (summaryLabel.text?.contains("Partly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Partly Cloudy")!
-            backGroundImageView.image = UIImage(named: "Blueback")!
+            
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
@@ -146,15 +132,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Clear throughout"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
-            backGroundImageView.image = UIImage(named: "Blueback")!
+            
         }
         if (summaryLabel.text?.contains("Clear"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
         }
-        if (summaryLabel.text?.contains("Clear"))! && (21...24).contains(hour) {
+        if (summaryLabel.text?.contains("Clear"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
-            backGroundWeather.image = UIImage(named: "Stars")!
-            backGroundWeather.alpha = 0.5
+            
         }
         if (summaryLabel.text?.contains("Clear"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
@@ -165,9 +150,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
-        if (summaryLabel.text?.contains("Partly Cloudy"))! && (21...24).contains(hour) {
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
-            backGroundImageView.image = UIImage(named: "dark")
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
@@ -235,7 +219,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func appendArray() {
         
         weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
-        //appendArray()
+        
         reloadInputViews()
     }
     
@@ -247,16 +231,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        if (20...24).contains(hour) {
+        if (20...23).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
-            
-               
-                
             
         }else if (0...4).contains(hour) {
             backGroundImageView.image = UIImage(named:"dark")
-            
-              
             
         }else{
             backGroundImageView.image = UIImage(named:"Blueback")
@@ -273,23 +252,29 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         appendArray()
         HomeScreenView().getCityFromCoordinate()
         setBackgroundForTimeOfDay()
+        cityImage.image = UIImage(named: "TreesAndBird")
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
-        self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
+        self.currentWeatherImage.center = CGPoint(x: 190, y: 900)
+        tableView.alpha = 0.0
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
-           // self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
+            // self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
             
         })
+        UIView.animate(withDuration: 3, animations: {
+            self.tableView.alpha = 1
+        })
+        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        // cityLabel.text = "Welcome to \(cityString)"
+        
         
     }
     

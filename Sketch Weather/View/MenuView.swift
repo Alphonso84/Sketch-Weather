@@ -23,7 +23,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        if (21...24).contains(hour) {
+        if (20...23).contains(hour) {
             backgroundImage.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backgroundImage.image = UIImage(named:"dark")
@@ -44,7 +44,8 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        view.backgroundColor = UIColor(red:0.08, green:0.13, blue:0.16, alpha:1.0)
+        view.backgroundColor = UIColor.black
+        //(red:0.08, green:0.13, blue:0.16, alpha:1.0)
         let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textAlignment = .left

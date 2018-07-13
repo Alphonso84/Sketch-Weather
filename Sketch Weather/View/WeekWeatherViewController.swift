@@ -47,7 +47,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         _ = calendar.component(.minute, from: date)
         _ = calendar.component(.second, from: date)
         
-        if (21...23).contains(hour) {
+        if (20...23).contains(hour) {
             backgroundWeekView.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backgroundWeekView.image = UIImage(named:"dark")
