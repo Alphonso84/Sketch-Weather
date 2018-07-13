@@ -253,10 +253,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         HomeScreenView().getCityFromCoordinate()
         setBackgroundForTimeOfDay()
         cityImage.image = UIImage(named: "TreesAndBird")
+        CurrentWeatherImageAssinmentLogic()
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
-        self.currentWeatherImage.center = CGPoint(x: 190, y: 900)
+        self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
         tableView.alpha = 0.0
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
