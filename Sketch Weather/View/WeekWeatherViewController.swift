@@ -11,10 +11,11 @@ var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
     @IBOutlet weak var backgroundWeekView: UIImageView!
     
     
-    //var Week = [Day]()
+   
     //method to create different array values based upon what day of the week it is. This allows us to display a dynamic week forecast based on day of the week. Unfold to view full method.
     func daysArrayLogic() {
         if todayArray[0] == "Sunday" {
@@ -75,6 +76,8 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             
         cell.chanceOfRain?.textColor = UIColor.white
         
+        cell.layer.cornerRadius = 25
+        
         //The Cells Background ImageView is assigne based on time of day here
             let date = Date()
             let calendar = Calendar.current
@@ -117,15 +120,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         
         cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureMin"])! as! NSNumber))
         
-//        var indexRow = indexPath.row
-//        let numberOfItems = weekForecast.count - 1
-//        if (indexRow < numberOfItems){
-//            indexRow = (indexRow + 1)
-//        } else {
-//            indexRow = 0
-//        }
-//        
-//        scrollingTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(WeekWeatherViewController.startTimer(theTimer:)), userInfo: indexRow, repeats: true)
+
         return cell
     }
     
@@ -145,8 +140,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var CitySketch: UIImageView!
     
     func viewWillAppear() {
-        //weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain")]
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,7 +153,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
         
     }
     

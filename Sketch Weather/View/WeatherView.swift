@@ -252,7 +252,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         appendArray()
         HomeScreenView().getCityFromCoordinate()
         setBackgroundForTimeOfDay()
-        cityImage.image = UIImage(named: "TreesAndBird")
+        cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
