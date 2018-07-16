@@ -122,8 +122,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
-            
-            
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Cloudy")!
@@ -158,24 +156,38 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
-        if (summaryLabel.text?.contains("Rain"))! && (21...24).contains(hour) {
+        if (summaryLabel.text?.contains("Rain"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! {
             weatherBottomImage = UIImage(named: "Rainy")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! {
             weatherBottomImage = UIImage(named: "drizzle")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (21...24).contains(hour) {
             weatherBottomImage = UIImage(named:"nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
         }
         return weatherBottomImage
     }
@@ -240,7 +252,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }else{
             backGroundImageView.image = UIImage(named:"Blueback")
             
-            //UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
         }
     }
     
@@ -263,12 +274,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
             self.currentWeatherImage.alpha = 1.0
-            // self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: .pi * 20)
+            
             
         })
-        UIView.animate(withDuration: 3, animations: {
-            self.tableView.alpha = 1
-        })
+        
         
         
     }
