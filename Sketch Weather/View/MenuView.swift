@@ -62,7 +62,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.textAlignment = .left
+        cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = cities[indexPath.section][indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         

@@ -29,6 +29,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var weatherLabels: [String] = []
+    let SectionHeaderHeight: CGFloat = 25
     
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
@@ -55,19 +56,35 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //TABLEVIEW FUNCTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return bayArea.count
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int, indexPath: IndexPath) -> String? {
+        return bayArea[section]
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
+        view.backgroundColor = UIColor.black
+        //(red:0.08, green:0.13, blue:0.16, alpha:1.0)
+        let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
+        label.font = UIFont.boldSystemFont(ofSize: 36)
+        label.textAlignment = .left
+        label.textColor = UIColor.lightText
+       // label.text = bayArea[section]
+        
+        view.addSubview(label)
+        return view
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return weatherLabels.count
+        return cities[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+    
         cell.textLabel?.textAlignment = .center
+        cell.textLabel?.text = cities[indexPath.section][indexPath.row]
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = " \(self.weatherLabels[indexPath.row])"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         
         
@@ -230,7 +247,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //This Method Provides Data Layout For TableView Rows
     func appendArray() {
         
-        weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))"]
+        weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "UV Index  \(Int((now?.uvIndex)!))"]
         
         reloadInputViews()
     }
@@ -269,7 +286,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
-        tableView.alpha = 0.0
+       
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
