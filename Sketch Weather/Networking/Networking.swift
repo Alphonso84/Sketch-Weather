@@ -31,7 +31,7 @@ public func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
     }
 }
 class Networking: UIViewController {
-    
+    //USED FOR LOCATION BASED CALL
     public func buildURL(constructedUrl: String) -> URL {
         
         let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
@@ -41,6 +41,8 @@ class Networking: UIViewController {
         let url = URL(string: urlString)
         return url!
     }
+    
+    //USED FOR CITY SELECTION BASED CALL IN WEATHEVIEWCONTROLLER
     public func buildSelectedURL(constructedUrl: String) -> URL {
         
         let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
@@ -51,7 +53,7 @@ class Networking: UIViewController {
         return url!
     }
     
-    
+    //USED FOR CITY SELECTION BASED CALL IN WEATHEVIEWCONTROLLER
     public func getSelectedWeatherForecast() {
        
         let unwrappedURL = buildSelectedURL(constructedUrl: selectedUrlString)
@@ -101,7 +103,7 @@ class Networking: UIViewController {
    
     
     
-    
+    //USED FOR LOCATION BASED CALL
     //NEED TO REFACTOR CODE HERE. NOT CORRECTLY MAPPING JSON OBJECT TO SWIFT MODEL OBJECT.
     public func getWeatherForecast() {
         HomeScreenView().locationInit()

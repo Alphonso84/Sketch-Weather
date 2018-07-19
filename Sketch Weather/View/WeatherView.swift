@@ -48,6 +48,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        locationLabel.text = cityString
         
     }
     func updateSelectedUI() {
@@ -142,7 +143,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         Networking().getSelectedWeatherForecast()
         updateSelectedUI()
         CurrentWeatherImageAssinmentLogic()
-        
+        locationLabel.text = citySelection
     }
     //METHODS
     
@@ -329,6 +330,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         setBackgroundForTimeOfDay()
         cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
+        locationLabel.text = cityString
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
