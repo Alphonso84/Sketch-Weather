@@ -50,6 +50,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         
     }
+    func updateSelectedUI() {
+        weatherLabels.removeAll()
+        Networking().getSelectedWeatherForecast()
+        HomeScreenView().getCityFromCoordinate()
+        appendArray()
+        tableView.refreshTable()
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        summaryLabel.text = now?.summary
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        
+    }
     
     
     
@@ -106,22 +117,33 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 completion(placemarks?.first?.location?.coordinate, error)
             }
         }
-        //MAKE METHOD CALLS HERE
+        //Print City Name Tapped and City's Lat and Long
         citySelection = returnCitySelection()
         print(citySelection)
         getCoordinateFrom(address: citySelection) { coordinate, error in
             guard let coordinate = coordinate, error == nil else { return }
             // don't forget to update the UI from the main thread
             DispatchQueue.main.async {
-                print(coordinate) // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
+                print(coordinate)
+                var coordString = "\(coordinate)"
+                print(coordString)
+               let test = coordString.replacingOccurrences(of: "CLLocationCoordinate2D(latitude:" , with: "")
+                let test2 = test.replacingOccurrences(of: "longitude:", with: "")
+                let testselectedLocation = test2.replacingOccurrences(of: ")", with: "")
+                selectedLocation = testselectedLocation.replacingOccurrences(of: " ", with: "")
+            
+                print(selectedLocation)
+                
+                // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
             }
             
         }
         
+        Networking().getSelectedWeatherForecast()
+        updateSelectedUI()
+        CurrentWeatherImageAssinmentLogic()
+        
     }
-    
-    
-    
     //METHODS
     
     func animateIn() {
@@ -168,17 +190,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Clear throughout"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
-            
+            backGroundWeather.image = nil
         }
         if (summaryLabel.text?.contains("Clear"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
+            backGroundWeather.image = nil
         }
         if (summaryLabel.text?.contains("Clear"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
+            backGroundWeather.image = nil
             
         }
         if (summaryLabel.text?.contains("Clear"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
+            backGroundWeather.image = nil
+            
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
