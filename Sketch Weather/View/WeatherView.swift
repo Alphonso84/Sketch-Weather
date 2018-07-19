@@ -201,7 +201,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
-        if (summaryLabel.text?.contains("Drizzle"))! && (21...24).contains(hour) {
+        if (summaryLabel.text?.contains("Drizzle"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named:"nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
