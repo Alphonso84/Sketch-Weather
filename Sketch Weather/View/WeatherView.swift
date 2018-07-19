@@ -63,8 +63,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        view.backgroundColor = UIColor.black
-        //(red:0.08, green:0.13, blue:0.16, alpha:1.0)
+       // view.backgroundColor = UIColor.black
         let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
         label.font = UIFont.boldSystemFont(ofSize: 36)
         label.textAlignment = .left
@@ -93,9 +92,31 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         animateOut()
         animateIn()
+        //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
+        func returnCitySelection() ->String {
+            let citySelection = cities[indexPath.section][indexPath.row].description
+            
+            return citySelection
+        }
+        //METHOD TAKES CITY STRING AS PARAMETER AND RETURNS LAT&LONG
+        func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+            CLGeocoder().geocodeAddressString(address) { placemarks, error in
+                completion(placemarks?.first?.location?.coordinate, error)
+            }
+        }
+        //MAKE METHOD CALLS HERE
+        citySelection = returnCitySelection()
+        print(citySelection)
+        getCoordinateFrom(address: citySelection) { coordinate, error in
+            guard let coordinate = coordinate, error == nil else { return }
+            // don't forget to update the UI from the main thread
+            DispatchQueue.main.async {
+                print(coordinate) // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
+            }
+            
+        }
         
     }
     
