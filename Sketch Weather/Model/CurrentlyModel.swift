@@ -7,10 +7,10 @@
 //
 import Foundation
 import UIKit
-var cities = [["San Rafael","Napa","Novato","Rohnert Park","Vallejo","Fairfield."],["Oakland","Alameda","Berkeley","Emeryville","Lafayette","Walnut Creek","Concord"],["San Francisco","Daly City", "Pacifica","San Bruno"],["Cupertino","Milpitas","Mountain View", "Palo Alto", "San Jose","Santa Clara", "Sunnyvale"]]
+var cities = ["San Rafael","Napa","Novato","Rohnert Park","Vallejo","Fairfield.","Oakland","Alameda","Berkeley","Emeryville","Lafayette","Walnut Creek","Concord", "Antioch","San Francisco","Daly City", "Pacifica","San Bruno","Cupertino","Milpitas","Mountain View", "Palo Alto", "San Jose","Santa Clara", "Sunnyvale"]
 
 
-let bayArea = ["North Bay", "East Bay", "West Bay", "South Bay"]
+
 
 
 struct Currently: Codable {

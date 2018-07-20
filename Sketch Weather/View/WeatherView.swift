@@ -63,38 +63,20 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    
-    
-    
     //TABLEVIEW FUNCTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
-        return bayArea.count
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int, indexPath: IndexPath) -> String? {
-        return bayArea[section]
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-       // view.backgroundColor = UIColor.black
-        let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        label.font = UIFont.boldSystemFont(ofSize: 36)
-        label.textAlignment = .left
-        label.textColor = UIColor.lightText
-       // label.text = bayArea[section]
-        
-        view.addSubview(label)
-        return view
+        return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cities[section].count
+        return cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = cities[indexPath.section][indexPath.row]
+        cell.textLabel?.text = cities[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         
@@ -108,7 +90,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         animateIn()
         //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
         func returnCitySelection() ->String {
-            let citySelection = cities[indexPath.section][indexPath.row].description
+            let citySelection = cities[indexPath.row].description
             
             return citySelection
         }
@@ -126,7 +108,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             // don't forget to update the UI from the main thread
             DispatchQueue.main.async {
                 print(coordinate)
-                var coordString = "\(coordinate)"
+                let coordString = "\(coordinate)"
                 print(coordString)
                let test = coordString.replacingOccurrences(of: "CLLocationCoordinate2D(latitude:" , with: "")
                 let test2 = test.replacingOccurrences(of: "longitude:", with: "")

@@ -35,35 +35,18 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return bayArea.count
+        return 1
     }
     
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int, indexPath: IndexPath) -> String? {
-        return bayArea[section]
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        view.backgroundColor = UIColor.black
-        //(red:0.08, green:0.13, blue:0.16, alpha:1.0)
-        let label = UILabel(frame: CGRect(x: 26, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
-        label.font = UIFont.boldSystemFont(ofSize: 26)
-        label.textAlignment = .left
-        label.textColor = UIColor.lightText
-        label.text = bayArea[section]
-        
-        view.addSubview(label)
-        return view
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities[section].count
+        return cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = cities[indexPath.section][indexPath.row]
+        cell.textLabel?.text = cities[indexPath.row].description
         cell.textLabel?.textColor = UIColor.white
         
         return cell
@@ -76,7 +59,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         
         //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
         func returnCitySelection() ->String {
-            let citySelection = cities[indexPath.section][indexPath.row].description
+            let citySelection = cities[indexPath.row].description
             
             return citySelection
         }
