@@ -149,7 +149,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    func CurrentWeatherImageAssinmentLogic() -> UIImage{
+    func CurrentWeatherImageAssinmentLogic() ->UIImage {
         //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
         let date = Date()
         let calendar = Calendar.current
