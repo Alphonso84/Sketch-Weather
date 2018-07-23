@@ -17,7 +17,7 @@ let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
 var cityString = String()
-//TEST COMMENT
+
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     
