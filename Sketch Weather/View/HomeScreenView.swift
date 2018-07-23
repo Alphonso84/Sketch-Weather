@@ -34,6 +34,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     }
     //FUNCTION TAKES LAT&LONG AND OUTPUTS CITY NAME
     func getCityFromCoordinate() ->String{
+        var cityName = String()
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: latitude[0], longitude: longitude[0])
         
@@ -45,9 +46,11 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             if let city = addressDict["City"] as? String {
                 print(city)
                 cityString = city
+                cityName = cityString
+            
             }
         })
-        return cityString
+        return cityName
     }
     func setBackgroundForTimeOfDay() {
         let date = Date()
@@ -90,7 +93,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getWeatherForecast()
-        getCityFromCoordinate()
+        cityString = getCityFromCoordinate()
+        
         
     }
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE

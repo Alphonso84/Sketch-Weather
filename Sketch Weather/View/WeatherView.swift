@@ -33,7 +33,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
-        CurrentWeatherImageAssinmentLogic()
+        
     }
     
     
@@ -42,7 +42,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateUI() {
         weatherLabels.removeAll()
         Networking().getWeatherForecast()
-        HomeScreenView().getCityFromCoordinate()
+       locationLabel.text = HomeScreenView().getCityFromCoordinate()
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -50,11 +50,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         locationLabel.text = cityString
         
+        
+        
     }
     func updateSelectedUI() {
         weatherLabels.removeAll()
         Networking().getSelectedWeatherForecast()
-        HomeScreenView().getCityFromCoordinate()
+        locationLabel.text = HomeScreenView().getCityFromCoordinate()
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -117,7 +119,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
                 print(selectedLocation)
                 
-                // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
+               
             }
             
         }
@@ -287,8 +289,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
         
         if (20...23).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
@@ -308,11 +308,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewWillAppear(true)
         
         appendArray()
-        HomeScreenView().getCityFromCoordinate()
+        locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
-        locationLabel.text = cityString
+       // locationLabel.text = cityString
+        
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0

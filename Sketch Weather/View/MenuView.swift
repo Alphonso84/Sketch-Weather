@@ -21,16 +21,14 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
+
         if (20...23).contains(hour) {
             backgroundImage.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backgroundImage.image = UIImage(named:"dark")
         }else{
             backgroundImage.image = UIImage(named:"Blueback")
-//            tabBarController?.tabBarItem.badgeColor = .white
-//            UITabBar.appearance().barTintColor = UIColor(red:0.41, green:0.68, blue:0.82, alpha:1.0)
+
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,7 +79,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
             guard let coordinate = coordinate, error == nil else { return }
             // don't forget to update the UI from the main thread
             DispatchQueue.main.async {
-                print(coordinate) // CLLocationCoordinate2D(latitude: -22.910863800000001, longitude: -43.204543600000001)
+                print(coordinate) 
             }
             
         }
