@@ -12,7 +12,7 @@ import CoreLocation
 
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
-
+//HELLO THIS IS A TEST
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cityImage: UIImageView!
