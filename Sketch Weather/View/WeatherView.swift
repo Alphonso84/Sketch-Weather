@@ -71,14 +71,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cities.count
+        return weatherLabels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = cities[indexPath.row]
+        cell.textLabel?.text = weatherLabels[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         
@@ -88,46 +88,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        animateOut()
-        animateIn()
-        //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
-        func returnCitySelection() ->String {
-            let citySelection = cities[indexPath.row].description
-            
-            return citySelection
-        }
-        //METHOD TAKES CITY STRING AS PARAMETER AND RETURNS LAT&LONG
-        func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
-            CLGeocoder().geocodeAddressString(address) { placemarks, error in
-                completion(placemarks?.first?.location?.coordinate, error)
-            }
-        }
-        //Print City Name Tapped and City's Lat and Long
-        citySelection = returnCitySelection()
-        print(citySelection)
-        getCoordinateFrom(address: citySelection) { coordinate, error in
-            guard let coordinate = coordinate, error == nil else { return }
-            // don't forget to update the UI from the main thread
-            DispatchQueue.main.async {
-                print(coordinate)
-                let coordString = "\(coordinate)"
-                print(coordString)
-               let test = coordString.replacingOccurrences(of: "CLLocationCoordinate2D(latitude:" , with: "")
-                let test2 = test.replacingOccurrences(of: "longitude:", with: "")
-                let testselectedLocation = test2.replacingOccurrences(of: ")", with: "")
-                selectedLocation = testselectedLocation.replacingOccurrences(of: " ", with: "")
-            
-                print(selectedLocation)
-                
-               
-            }
-            
-        }
         
-        Networking().getSelectedWeatherForecast()
-        updateSelectedUI()
-        CurrentWeatherImageAssinmentLogic()
-        locationLabel.text = citySelection
+    
     }
     //METHODS
     

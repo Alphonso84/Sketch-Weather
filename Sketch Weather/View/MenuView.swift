@@ -21,14 +21,14 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-
+        
         if (20...23).contains(hour) {
             backgroundImage.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backgroundImage.image = UIImage(named:"dark")
         }else{
             backgroundImage.image = UIImage(named:"Blueback")
-
+            
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,6 +55,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+       
         //METHOD RETURNS CITY STRING SELECTED FROM TABLEVIEW
         func returnCitySelection() ->String {
             let citySelection = cities[indexPath.row].description
@@ -67,39 +68,43 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
                 completion(placemarks?.first?.location?.coordinate, error)
             }
         }
-        //METHOD DISMISSES SELF VIEW
-        func tap() {
-            self.dismiss(animated: true)
-        }
-        
-        //MAKE METHOD CALLS HERE
+        //Print City Name Tapped and City's Lat and Long
         citySelection = returnCitySelection()
         print(citySelection)
         getCoordinateFrom(address: citySelection) { coordinate, error in
             guard let coordinate = coordinate, error == nil else { return }
             // don't forget to update the UI from the main thread
             DispatchQueue.main.async {
-                print(coordinate) 
+                print(coordinate)
+                let coordString = "\(coordinate)"
+                print(coordString)
+                let test = coordString.replacingOccurrences(of: "CLLocationCoordinate2D(latitude:" , with: "")
+                let test2 = test.replacingOccurrences(of: "longitude:", with: "")
+                let testselectedLocation = test2.replacingOccurrences(of: ")", with: "")
+                selectedLocation = testselectedLocation.replacingOccurrences(of: " ", with: "")
+                
+                print(selectedLocation)
+                
+                
             }
             
         }
         
-        tap()
-        
-        
+        Networking().getSelectedWeatherForecast()
+        //WeatherViewController().updateSelectedUI()
+       // WeatherViewController().CurrentWeatherImageAssinmentLogic()
+       // WeatherViewController().locationLabel.text = citySelection
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-     setBackgroundForTimeOfDay()
+        setBackgroundForTimeOfDay()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
-    
-    
     
     
 }
