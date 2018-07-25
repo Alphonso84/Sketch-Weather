@@ -91,9 +91,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         }
         
         Networking().getSelectedWeatherForecast()
-        //WeatherViewController().updateSelectedUI()
-       // WeatherViewController().CurrentWeatherImageAssinmentLogic()
-       // WeatherViewController().locationLabel.text = citySelection
+       
         self.dismiss(animated: true, completion: nil)
     }
     
