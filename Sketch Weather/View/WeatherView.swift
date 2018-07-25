@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import AVKit
+
 
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
@@ -16,6 +18,8 @@ var weatherVariables: [AnyObject] = []
 //Hello 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cityImage: UIImageView!
+    var windDirection = ""
+    let synthesizer = AVSpeechSynthesizer()
     
     @IBOutlet var topView: UIView!
     @IBOutlet weak var lowerBackground: UIImageView!
@@ -274,6 +278,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         setBackgroundForTimeOfDay()
         cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
+        windDirection = windBearing()
+        let utterance = AVSpeechUtterance(string: "Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
+        synthesizer.speak(utterance)
        // locationLabel.text = cityString
         
         
