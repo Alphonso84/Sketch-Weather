@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="272" id="gmK-DA-DqH"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
                                 <rect key="frame" x="0.0" y="530" width="377" height="200"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-w4-CRC">
@@ -385,7 +385,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="hzr-DM-9HI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Blueback" translatesAutoresizingMaskIntoConstraints="NO" id="hzr-DM-9HI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -413,7 +413,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
                                 <rect key="frame" x="0.0" y="530" width="377" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="k6y-hk-2SS"/>
@@ -441,11 +441,11 @@
                                             <subviews>
                                                 <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-6o-53n">
                                                     <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
-                                                    <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mdl-qn-7Qb">
+                                                    <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mdl-qn-7Qb">
                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="555"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Viz-jR-snv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="574"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdv-Hz-LaI">
@@ -720,6 +720,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Blueback" width="1059.75" height="702.75"/>
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="Menu" width="204.80000305175781" height="204.80000305175781"/>
@@ -734,6 +735,6 @@
         <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qyt-uw-Zc2"/>
+        <segue reference="Uir-WI-dwu"/>
     </inferredMetricsTieBreakers>
 </document>
