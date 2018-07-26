@@ -91,6 +91,7 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
         }
         
         Networking().getSelectedWeatherForecast()
+      
        
         self.dismiss(animated: true, completion: nil)
     }
@@ -98,6 +99,10 @@ class MenuView: UIViewController, UIGestureRecognizerDelegate, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         setBackgroundForTimeOfDay()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+     
     }
     override func viewDidLoad() {
         super.viewDidLoad()

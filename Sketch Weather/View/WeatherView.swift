@@ -40,35 +40,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         updateUI()
         
     }
-    //METHOD DETERMINES SPEECH OF WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
-    func speechUtterance() {
-        
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        
-       //This block determines the greeting based on time of day
-        if (17...23).contains(hour) {
-            timeGreeting = "Good Evening"
-        }else if (0...11).contains(hour) {
-            timeGreeting = "Good Morning"
-            
-        }else{
-            timeGreeting = "Good Afternoon"
-        }
-            
-        //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
-        synthesizer.speak(utterance)
-    }
-    
     
     
     //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherLabels.removeAll()
         Networking().getWeatherForecast()
-       locationLabel.text = HomeScreenView().getCityFromCoordinate()
+        locationLabel.text = HomeScreenView().getCityFromCoordinate()
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -102,7 +80,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    
+        
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = weatherLabels[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
@@ -115,7 +93,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    
+        
     }
     //METHODS
     
@@ -263,8 +241,32 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return windString
     }
     
+    //METHOD DETERMINES SPEECH OF WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
+    func speechUtterance() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        
+        //This block determines the greeting based on time of day
+        if (17...23).contains(hour) {
+            timeGreeting = "Good Evening"
+        }else if (0...11).contains(hour) {
+            timeGreeting = "Good Morning"
+            
+        }else{
+            timeGreeting = "Good Afternoon"
+        }
+        
+        //This block contructs the actual speech utterance
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
+        
+        synthesizer.speak(utterance)
+    }
     
-    //This Method Provides Data Layout For TableView Rows
+    
+   
+    //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
     func appendArray() {
         
         weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "UV Index  \(Int((now?.uvIndex)!))"]
@@ -290,6 +292,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func updateAfterCitySelect() {
+        
+    }
     
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
@@ -301,14 +306,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
+        
+        summaryLabel.text = now?.summary
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        tableView.refreshTable()
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        WeekWeatherViewController().daysArrayLogic()
         speechUtterance()
-       // locationLabel.text = cityString
+        
+        // locationLabel.text = cityString
         
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
-       
+        
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
