@@ -18,6 +18,7 @@ var weatherVariables: [AnyObject] = []
 //Hello 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cityImage: UIImageView!
+    var timeGreeting = ""
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
     
@@ -38,6 +39,27 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func reloadData(_ sender: Any) {
         updateUI()
         
+    }
+    //METHOD DETERMINES SPEECH OF WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
+    func speechUtterance() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        
+       //This block determines the greeting based on time of day
+        if (17...23).contains(hour) {
+            timeGreeting = "Good Evening"
+        }else if (0...11).contains(hour) {
+            timeGreeting = "Good Morning"
+            
+        }else{
+            timeGreeting = "Good Afternoon"
+        }
+            
+        //This block contructs the actual speech utterance
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
+        synthesizer.speak(utterance)
     }
     
     
@@ -279,8 +301,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
-        let utterance = AVSpeechUtterance(string: "Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
-        synthesizer.speak(utterance)
+        speechUtterance()
        // locationLabel.text = cityString
         
         
