@@ -24,7 +24,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         guard previousIndex >= 0
             else{
-            return orderedViewControllers.last
+           // return orderedViewControllers.last
+                return nil
         }
         
         guard orderedViewControllers.count > previousIndex
@@ -43,7 +44,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         guard orderedViewControllers.count != nextIndex
             else{
-                return orderedViewControllers.first
+//                return orderedViewControllers.first
+                return nil
         }
         
         guard orderedViewControllers.count > nextIndex
@@ -53,11 +55,28 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         return orderedViewControllers[nextIndex]
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        let pageContentViewController = pageViewController.viewControllers![0]
+        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+    }
     
     
+    var pageControl = UIPageControl()
+    
+    func configurePageControl() {
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 100, width: UIScreen.main.bounds.width, height: 50))
+        pageControl.numberOfPages = orderedViewControllers.count
+        pageControl.currentPage = 0
+        pageControl.tintColor = .black
+        pageControl.pageIndicatorTintColor = .gray
+        pageControl.currentPageIndicatorTintColor = .white
+        self.view.addSubview(pageControl)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
+        self.delegate = self
+        configurePageControl()
        if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
