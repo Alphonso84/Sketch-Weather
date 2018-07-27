@@ -7,11 +7,12 @@
 //
 import Foundation
 import UIKit
+import AVKit
 var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
+    let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var backgroundWeekView: UIImageView!
     
     
@@ -124,11 +125,14 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
-    @objc func startTimer(theTimer: Timer) {
-        UIView.animate(withDuration: 1, delay:0, options:.curveEaseOut, animations: {
-            self.collectionView.scrollToItem(at: IndexPath(row: theTimer.userInfo! as! Int,section:0), at: .centeredHorizontally, animated: false)
-        })
+    //SPEAKING THE WEEKSUMMARY FROM NETWORKING 
+    func speech() {
+    let utterance = AVSpeechUtterance(string: weekSummary)
+
+    synthesizer.speak(utterance)
     }
+    
+   
    
     
     
@@ -147,7 +151,9 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
          weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
         backgroundWeekView.image = UIImage(named: "dark")!
         setBackgroundForTimeOfDay()
+        speech()
         print(weekForecast[0]["summary"]!)
+        
     }
     
     override func viewDidLoad() {

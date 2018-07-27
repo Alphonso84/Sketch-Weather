@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 
 var weekForecast = [[String:AnyObject]]()
+var weekSummary = ""
 var week: Day? = nil
 var now: Currently? = nil
 var location = ""
@@ -135,13 +136,14 @@ class Networking: UIViewController {
                 
                 week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureMin"] as? Double)
                 
-                
+                weekSummary = "\(dailyWeather!["summary"]!)"
                 
                 
                 //PRINT DIFFERENT OUTPUTS HERE
                // print(Date().dayOfWeek()!)
                 
-                print(now!)
+                //print(now!)
+                print(dailyWeather!["summary"]!)
                 
             } catch {
                 print(error)

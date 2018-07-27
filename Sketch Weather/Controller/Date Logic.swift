@@ -29,4 +29,10 @@ extension Date {
     }
 }
 
+//@objc func startTimer(theTimer: Timer) {
+//    UIView.animate(withDuration: 1, delay:0, options:.curveEaseOut, animations: {
+//        self.collectionView.scrollToItem(at: IndexPath(row: theTimer.userInfo! as! Int,section:0), at: .centeredHorizontally, animated: false)
+//    })
+//}
+
 
