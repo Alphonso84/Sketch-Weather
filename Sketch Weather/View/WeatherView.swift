@@ -259,7 +259,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe to the left to get a Forecast for the coming week")
         
         synthesizer.speak(utterance)
     }

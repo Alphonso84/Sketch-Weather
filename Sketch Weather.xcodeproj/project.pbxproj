@@ -22,6 +22,7 @@
 		897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897D47672012AEB800CB68FD /* MenuViewTableCell.swift */; };
 		898FE83E204FC7F6002764D7 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83D204FC7F6002764D7 /* DayModel.swift */; };
 		898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83F204FCE8F002764D7 /* WeekCell.swift */; };
+		899AB72B210A94CC0082E8A7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AB72A210A94CC0082E8A7 /* PageViewController.swift */; };
 		89FE153220ABFF50007F4DAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE153120ABFF50007F4DAE /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		897D47672012AEB800CB68FD /* MenuViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewTableCell.swift; sourceTree = "<group>"; };
 		898FE83D204FC7F6002764D7 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		898FE83F204FCE8F002764D7 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
+		899AB72A210A94CC0082E8A7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		89FE153120ABFF50007F4DAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				892FF12B200379C800C558E4 /* Model */,
 				892FF128200379A800C558E4 /* Networking */,
 				892FF11A2003799B00C558E4 /* Main.storyboard */,
+				899AB72A210A94CC0082E8A7 /* PageViewController.swift */,
 				892FF11D2003799B00C558E4 /* Assets.xcassets */,
 				892FF11F2003799B00C558E4 /* LaunchScreen.storyboard */,
 				892FF1222003799B00C558E4 /* Info.plist */,
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				892FF12A200379BA00C558E4 /* Networking.swift in Sources */,
+				899AB72B210A94CC0082E8A7 /* PageViewController.swift in Sources */,
 				894A4AFD2013029800AC22D2 /* DarkSkyError.swift in Sources */,
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
 				890BD3FA20525C4000628875 /* Date Logic.swift in Sources */,
