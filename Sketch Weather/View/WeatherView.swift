@@ -267,10 +267,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         if (85...125).contains(Int((now?.temperature)!)) {
-            hot = "Try to stay cool!"
+            hot = "It's Hot! Try to stay cool!"
         
         }else if (0...34).contains(Int((now?.temperature)!)) {
-            cold = "Bring a Jacket!"
+            cold = "Bring a Jacket! It's rather cold."
         }else{
             hot = ""
             cold = ""
