@@ -145,7 +145,7 @@
                                     <constraint firstAttribute="height" constant="272" id="gmK-DA-DqH"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
                                 <rect key="frame" x="0.0" y="468" width="375" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="uxw-Qd-UfT"/>
@@ -423,7 +423,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="701"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
                                 <rect key="frame" x="0.0" y="468" width="377" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="k6y-hk-2SS"/>

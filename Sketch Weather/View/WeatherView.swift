@@ -250,7 +250,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //METHOD DETERMINES SPEECH OF WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
     func speechUtterance() {
-        
+        var hot = ""
+        var cold = ""
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
@@ -265,8 +266,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             timeGreeting = "Good Afternoon"
         }
         
+        if (85...125).contains(Int((now?.temperature)!)) {
+            hot = "Try to stay cool!"
+        
+        }else if (0...34).contains(Int((now?.temperature)!)) {
+            cold = "Bring a Jacket!"
+        }else{
+            hot = ""
+            cold = ""
+        }
+        
+        
+    
+        
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString). The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe to the left to get a Forecast for the coming week")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe to the left to get a Forecast for the coming week")
         
         synthesizer.speak(utterance)
     }
