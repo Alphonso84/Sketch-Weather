@@ -466,7 +466,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="gZW-SU-erJ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -475,7 +475,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="TSW-aY-oap"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -484,7 +484,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="C3D-HC-ZTT"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -502,7 +502,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="558-nQ-EmN"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>

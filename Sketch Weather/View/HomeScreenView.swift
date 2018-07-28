@@ -42,7 +42,6 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             guard let addressDict = placemarks?[0].addressDictionary else {
                 return
             }
-            
             if let city = addressDict["City"] as? String {
                 print(city)
                 cityString = city

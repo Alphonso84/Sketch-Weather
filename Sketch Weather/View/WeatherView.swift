@@ -170,36 +170,43 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
+            summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "Rainy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
+            summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! && (20...23).contains(hour) {
+            summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! {
+            summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "Rainy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! {
+            summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "drizzle")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (0...4).contains(hour) {
+            summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (20...23).contains(hour) {
+            summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named:"nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
