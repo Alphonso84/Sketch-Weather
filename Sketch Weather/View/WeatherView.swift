@@ -15,7 +15,7 @@ import AVKit
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
 
-//Hello 
+
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cityImage: UIImageView!
     var timeGreeting = ""
