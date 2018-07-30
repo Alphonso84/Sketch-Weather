@@ -125,7 +125,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         print("This is the time of day \(hour):\(minutes):\(seconds)")
-        
+        backGroundWeather.center = self.view.center
         
         var weatherBottomImage = UIImage()
         if (summaryLabel.text?.contains("Partly Cloudy"))! {
@@ -133,11 +133,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
         }
         if (summaryLabel.text?.contains("Mostly Cloudy"))! {
             weatherBottomImage = UIImage(named: "Cloudy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
         }
         if (summaryLabel.text?.contains("Clear throughout"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
@@ -162,11 +164,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
         }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
             
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
@@ -174,12 +178,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             weatherBottomImage = UIImage(named: "Rainy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            
         }
         if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
             summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "nightRain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
+            backGroundWeather.center = self.view.center
         }
         if (summaryLabel.text?.contains("Rain"))! && (20...23).contains(hour) {
             summaryLabel.text = "Raining"
@@ -330,6 +336,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
+       
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
@@ -340,11 +347,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
-        self.currentWeatherImage.center = CGPoint(x: 190, y: 0)
+        self.currentWeatherImage.center = CGPoint(x: 200, y: 0)
+        backGroundWeather.center = self.view.center
         
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
-            self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
+            self.currentWeatherImage.center = self.view.center
             self.currentWeatherImage.alpha = 1.0
             
             

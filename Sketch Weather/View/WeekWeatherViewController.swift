@@ -104,13 +104,22 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             if (weekForecast[indexPath.row]["summary"]?.contains("Partly cloudy"))! {
                 cell.weatherImage?.image = UIImage(named: "Partly Cloudy")
             }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Humid"))! {
+                cell.weatherImage?.image = UIImage(named: "Partly Cloudy")
+            }
             if (weekForecast[indexPath.row]["summary"]?.contains("Mostly cloudy"))! {
+                cell.weatherImage?.image = UIImage(named: "Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Overcast"))! {
                 cell.weatherImage?.image = UIImage(named: "Cloudy")
             }
             if (weekForecast[indexPath.row]["summary"]?.contains("Clear throughout"))! {
                 cell.weatherImage?.image = UIImage(named: "Sunshine")
             }
             if (weekForecast[indexPath.row]["summary"]?.contains("Rain"))! {
+                cell.weatherImage?.image = UIImage(named: "Rainy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Light rain"))! {
                 cell.weatherImage?.image = UIImage(named: "Rainy")
             }
         }
