@@ -42,6 +42,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    
+    
     //UPDATEUI METHOD REMOVES OLD DATA FROM ARRAY, MAKES NEW NETWORK CALL, UPDATES ARRAY WITH NEW DATA, UPDATES LABELS, & ANIMATES NEW DATA INTO TABLEVIEW
     func updateUI() {
         weatherLabels.removeAll()
@@ -286,7 +288,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe to the left to get a Forecast for the coming week")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see conditions for the rest of the day. Or, Swipe to the left to get a Forecast for the coming week")
         
         synthesizer.speak(utterance)
     }
@@ -296,7 +298,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
     func appendArray() {
         
-        weatherLabels = [ "Welcome to \(cityString)", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))", "UV Index  \(Int((now?.uvIndex)!))"]
+        weatherLabels = [ "UV Index  \(Int((now?.uvIndex)!))", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))" ]
         
         reloadInputViews()
     }
