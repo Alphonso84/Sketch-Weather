@@ -87,10 +87,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.text = weatherLabels[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
-        
-        
-        
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
