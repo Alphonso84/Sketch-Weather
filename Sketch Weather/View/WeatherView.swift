@@ -319,6 +319,33 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    
+    //GESTURES TO SHOW AND HIDE TABLEVIEW
+    @IBAction func swipeUpGesture(_ sender: Any) {
+        UIView.animate(withDuration: 1, animations: {
+        self.tableView.alpha = 1
+            self.currentWeatherImage.alpha = 0.20
+            self.backGroundWeather.alpha = 0.20
+            self.temperatureLabel.alpha = 0.20
+            self.summaryLabel.alpha = 0.20
+            let utterance = AVSpeechUtterance(string: "")
+            
+            self.synthesizer.speak(utterance)
+        
+    })
+    }
+    @IBAction func tapGesture(_ sender: Any) {
+        UIView.animate(withDuration: 1, animations: {
+            self.tableView.alpha = 0
+            self.currentWeatherImage.alpha = 1
+            self.backGroundWeather.alpha = 1
+            self.temperatureLabel.alpha = 1
+            self.summaryLabel.alpha = 1
+           
+        })
+    }
+    
+    
     func updateAfterCitySelect() {
         
     }
@@ -336,7 +363,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-       
+        tableView.alpha = 0
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
