@@ -26,6 +26,16 @@ extension Date {
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self).capitalized
         // or use capitalized(with: locale) if you want
+    
+        
+    }
+    func timeOfDay() -> Int {
+        var timeOfDay = Int()
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        timeOfDay = hour
+        return timeOfDay
     }
 }
 

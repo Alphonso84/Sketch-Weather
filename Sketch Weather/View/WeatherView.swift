@@ -21,6 +21,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var timeGreeting = ""
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
+    var timeOfDay = [Date().timeOfDay()]
+    var timeOfDayArray = [String]()
     
     
     @IBOutlet var topView: UIView!
@@ -80,27 +82,94 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         reloadInputViews()
     }
     
+    
     //TABLEVIEW FUNCTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return hourlyData.count
+        return 12
     }
     
+    //Assigns TableView time of day based on current time of day
+    func timeOfDayArrayAssignment() -> [String] {
+        if timeOfDay[0] == 0 {
+            timeOfDayArray = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
+        }
+        if timeOfDay[0] == 1 {
+            timeOfDayArray = ["1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM"]
+        }
+        if timeOfDay[0] == 2 {
+            timeOfDayArray = ["2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM"]
+        }
+        if timeOfDay[0] == 3 {
+            timeOfDayArray = ["3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM"]
+        }
+        if timeOfDay[0] == 4 {
+            timeOfDayArray = ["4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM"]
+        }
+        if timeOfDay[0] == 5 {
+            timeOfDayArray = ["5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM"]
+        }
+        if timeOfDay[0] == 6 {
+            timeOfDayArray = ["6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+        }
+        if timeOfDay[0] == 7 {
+            timeOfDayArray = ["7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM"]
+        }
+        if timeOfDay[0] == 8 {
+            timeOfDayArray = ["8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM"]
+        }
+        if timeOfDay[0] == 9 {
+            timeOfDayArray = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM"]
+        }
+        if timeOfDay[0] == 10 {
+            timeOfDayArray = ["10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM"]
+        }
+        if timeOfDay[0] == 11 {
+            timeOfDayArray = ["11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM"]
+        }
+        if timeOfDay[0] == 12 {
+            timeOfDayArray = ["12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]
+        }
+        if timeOfDay[0] == 13 {
+            timeOfDayArray = ["1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM"]
+        }
+        
+        return timeOfDayArray
+    }
+    func hourlyImageAssignment() {
+        
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = "\(hourlyData[indexPath.row]["temperature"]!)"
-       
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherCell
+        
+        if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Sunshine")
+        }else if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
+        }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
+        }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
+        }
+        cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
+        cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
+        // cell.hourlyWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        
+        //cell.imageView?.image = 
+        cell.timeLabel.textColor = UIColor.white
+        cell.hourlyTempLabel.textColor = UIColor.white
+        cell.timeLabel.font = UIFont.systemFont(ofSize: 27)
+        cell.hourlyTempLabel.font = UIFont.systemFont(ofSize: 27)
+        
+        
+        
         return cell
         
     }
@@ -136,9 +205,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        print("This is the time of day \(hour):\(minutes):\(seconds)")
+        // let minutes = calendar.component(.minute, from: date)
+        // let seconds = calendar.component(.second, from: date)
+        // print("This is the time of day \(hour):\(minutes):\(seconds)")
         backGroundWeather.center = self.view.center
         
         var weatherBottomImage = UIImage()
@@ -288,7 +357,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (85...125).contains(Int((now?.temperature)!)) {
             hot = "It's Hot! Try to stay cool!"
-        
+            
         }else if (0...34).contains(Int((now?.temperature)!)) {
             cold = "Bring a Jacket! It's rather cold."
         }else{
@@ -297,17 +366,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         
-    
+        
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see conditions for the rest of the day. Or, Swipe to the left to get a Forecast for the coming week")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week")
         
         synthesizer.speak(utterance)
     }
     
     
-   
-   
+    
+    
     
     func setBackgroundForTimeOfDay() {
         //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
@@ -331,16 +400,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
         UIView.animate(withDuration: 0.5, animations: {
-        self.tableView.alpha = 1
+            self.tableView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
             self.summaryLabel.alpha = 0.20
-            let utterance = AVSpeechUtterance(string: "")
+            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 24 hours. Tap any where to dismiss")
             
             self.synthesizer.speak(utterance)
-        
-    })
+            
+        })
     }
     @IBAction func tapGesture(_ sender: Any) {
         UIView.animate(withDuration: 0.5, animations: {
@@ -349,7 +418,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
-           
+            
         })
     }
     

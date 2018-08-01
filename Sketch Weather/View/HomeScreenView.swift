@@ -58,7 +58,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         _ = calendar.component(.minute, from: date)
         _ = calendar.component(.second, from: date)
         
-        if (21...23).contains(hour) {
+        if (20...23).contains(hour) {
             backgroundImage.image = UIImage(named: "dark")
         }else if (0...4).contains(hour) {
             backgroundImage.image = UIImage(named:"dark")

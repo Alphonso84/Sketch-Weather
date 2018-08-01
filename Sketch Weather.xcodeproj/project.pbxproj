@@ -23,6 +23,7 @@
 		898FE83E204FC7F6002764D7 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83D204FC7F6002764D7 /* DayModel.swift */; };
 		898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FE83F204FCE8F002764D7 /* WeekCell.swift */; };
 		899AB72B210A94CC0082E8A7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AB72A210A94CC0082E8A7 /* PageViewController.swift */; };
+		89EE5FA72111B4B40028ADB5 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE5FA62111B4B40028ADB5 /* WeatherCell.swift */; };
 		89FE153220ABFF50007F4DAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE153120ABFF50007F4DAE /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		898FE83D204FC7F6002764D7 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		898FE83F204FCE8F002764D7 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
 		899AB72A210A94CC0082E8A7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		89EE5FA62111B4B40028ADB5 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		89FE153120ABFF50007F4DAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				897D47672012AEB800CB68FD /* MenuViewTableCell.swift */,
 				892FF1182003799B00C558E4 /* WeatherView.swift */,
 				892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */,
+				89EE5FA62111B4B40028ADB5 /* WeatherCell.swift */,
 				898FE83F204FCE8F002764D7 /* WeekCell.swift */,
 				89FE153120ABFF50007F4DAE /* MapView.swift */,
 			);
@@ -206,6 +209,7 @@
 			files = (
 				892FF12A200379BA00C558E4 /* Networking.swift in Sources */,
 				899AB72B210A94CC0082E8A7 /* PageViewController.swift in Sources */,
+				89EE5FA72111B4B40028ADB5 /* WeatherCell.swift in Sources */,
 				894A4AFD2013029800AC22D2 /* DarkSkyError.swift in Sources */,
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
 				890BD3FA20525C4000628875 /* Date Logic.swift in Sources */,
