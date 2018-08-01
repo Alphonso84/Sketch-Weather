@@ -138,6 +138,36 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if timeOfDay[0] == 13 {
             timeOfDayArray = ["1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM"]
         }
+        if timeOfDay[0] == 14 {
+            timeOfDayArray = ["2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM",]
+        }
+        if timeOfDay[0] == 15 {
+            timeOfDayArray = ["3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM"]
+        }
+        if timeOfDay[0] == 16 {
+            timeOfDayArray = ["4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM"]
+        }
+        if timeOfDay[0] == 17 {
+            timeOfDayArray = ["5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM"]
+        }
+        if timeOfDay[0] == 18 {
+            timeOfDayArray = ["6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM"]
+        }
+        if timeOfDay[0] == 19 {
+            timeOfDayArray = ["7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM"]
+        }
+        if timeOfDay[0] == 20 {
+            timeOfDayArray = ["8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM"]
+        }
+        if timeOfDay[0] == 21 {
+            timeOfDayArray = ["9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM"]
+        }
+        if timeOfDay[0] == 22 {
+            timeOfDayArray = ["10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM"]
+        }
+        if timeOfDay[0] == 23 {
+            timeOfDayArray = ["11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM"]
+        }
         
         return timeOfDayArray
     }
@@ -405,7 +435,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
             self.summaryLabel.alpha = 0.20
-            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 24 hours. Tap any where to dismiss")
+            self.cityImage.alpha = 0.20
+            
+            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. Tap any where to dismiss")
             
             self.synthesizer.speak(utterance)
             
@@ -418,6 +450,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
+            self.cityImage.alpha = 1
+           
             
         })
     }
@@ -434,7 +468,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         appendArray()
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
-        cityImage.image = UIImage(named: "San Francisco")
+        //cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         

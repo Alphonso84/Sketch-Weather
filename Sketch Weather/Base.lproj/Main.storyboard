@@ -120,7 +120,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gt8-NR-0yh" customClass="PageViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slY-82-kfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="-166"/>
+            <point key="canvasLocation" x="-9" y="-384"/>
         </scene>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
@@ -145,10 +145,10 @@
                                     <constraint firstAttribute="height" constant="272" id="gmK-DA-DqH"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
-                                <rect key="frame" x="0.0" y="468" width="375" height="233"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="TreesAndBird" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
+                                <rect key="frame" x="-5" y="427" width="380" height="275"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="uxw-Qd-UfT"/>
+                                    <constraint firstAttribute="height" constant="275" id="uxw-Qd-UfT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-xv-LpB">
@@ -263,7 +263,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="leading" secondItem="E8p-xv-LpB" secondAttribute="leading" id="21H-jN-z7N"/>
-                            <constraint firstItem="KiA-C6-Lkt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="5hM-LQ-hvg"/>
+                            <constraint firstItem="KiA-C6-Lkt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="35" id="5hM-LQ-hvg"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="centerX" secondItem="RfW-ps-pJf" secondAttribute="centerX" id="6os-b7-NeX"/>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="centerX" secondItem="E8p-xv-LpB" secondAttribute="centerX" id="89W-NP-032"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AEw-b6-KXT"/>
@@ -294,8 +294,8 @@
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="top" secondItem="0BN-tp-JYy" secondAttribute="top" id="jjV-WY-NAI"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="top" constant="-44" id="qdG-TI-a8Y"/>
                             <constraint firstAttribute="trailing" secondItem="SqS-MG-slp" secondAttribute="trailing" id="rQu-z4-9MN"/>
-                            <constraint firstItem="KiA-C6-Lkt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="t8P-HY-SDE"/>
-                            <constraint firstItem="tAm-uC-3aR" firstAttribute="leading" secondItem="KiA-C6-Lkt" secondAttribute="leading" id="wwg-g4-9ua"/>
+                            <constraint firstItem="KiA-C6-Lkt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-21" id="t8P-HY-SDE"/>
+                            <constraint firstItem="tAm-uC-3aR" firstAttribute="leading" secondItem="KiA-C6-Lkt" secondAttribute="leading" constant="5" id="wwg-g4-9ua"/>
                             <constraint firstItem="CLC-kn-BP8" firstAttribute="bottom" secondItem="0BN-tp-JYy" secondAttribute="bottom" id="yhj-Dg-TPT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -451,7 +451,7 @@
         <!--Week Weather View Controller-->
         <scene sceneID="PiS-Ej-Nvy">
             <objects>
-                <viewController storyboardIdentifier="WeekView" id="qOz-lB-MP1" customClass="WeekWeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeekView" modalPresentationStyle="formSheet" id="qOz-lB-MP1" customClass="WeekWeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h3f-ZI-A0J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,10 +459,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="701"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-nE-CwS">
-                                <rect key="frame" x="0.0" y="468" width="377" height="233"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="TreesAndBird" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-gm-tMN">
+                                <rect key="frame" x="36" y="427" width="339" height="275"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="k6y-hk-2SS"/>
+                                    <constraint firstAttribute="height" constant="275" id="yTY-5N-HFo"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-k1-SUK">
@@ -478,7 +478,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xif-h6-2qL" customClass="MyCell" customModule="Sketch_Weather" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" reuseIdentifier="cell" id="xif-h6-2qL" customClass="MyCell" customModule="Sketch_Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19.5" width="322" height="497"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -662,12 +662,12 @@
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="centerX" secondItem="RBp-6x-cWd" secondAttribute="centerX" id="7gz-iK-8dZ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-0.5"/>
                             </constraint>
-                            <constraint firstAttribute="bottomMargin" secondItem="bzb-nE-CwS" secondAttribute="bottom" constant="-34" id="F3g-yV-aMV"/>
+                            <constraint firstItem="FRr-gm-tMN" firstAttribute="trailing" secondItem="Rc7-9O-b07" secondAttribute="trailing" id="Dsk-Vl-8Ff"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FRr-gm-tMN" secondAttribute="bottom" constant="-35" id="E7w-gD-E8E"/>
                             <constraint firstItem="vcM-Yg-ahf" firstAttribute="top" secondItem="RBp-6x-cWd" secondAttribute="bottom" constant="-12" id="FVt-V6-Gdz"/>
                             <constraint firstItem="RBp-6x-cWd" firstAttribute="top" secondItem="29V-Iw-4r6" secondAttribute="top" id="Fc7-Nm-jXh"/>
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="top" secondItem="29V-Iw-4r6" secondAttribute="top" constant="70" id="Hxd-5s-TsK"/>
                             <constraint firstItem="vcM-Yg-ahf" firstAttribute="width" secondItem="VfA-cO-EXT" secondAttribute="width" id="Iut-yx-Rkh"/>
-                            <constraint firstItem="bzb-nE-CwS" firstAttribute="leading" secondItem="Yki-k1-SUK" secondAttribute="leading" id="Pc2-BE-c2u"/>
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="top" secondItem="h3f-ZI-A0J" secondAttribute="top" id="Vq0-Rp-XSI"/>
                             <constraint firstItem="29V-Iw-4r6" firstAttribute="bottom" secondItem="Yki-k1-SUK" secondAttribute="bottom" constant="31" id="X2P-LI-rKt"/>
                             <constraint firstItem="29V-Iw-4r6" firstAttribute="trailing" secondItem="VfA-cO-EXT" secondAttribute="trailing" constant="14" id="X4R-VS-Vb2"/>
@@ -682,12 +682,12 @@
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="leading" secondItem="h3f-ZI-A0J" secondAttribute="leading" id="nXV-oO-HTT"/>
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="top" secondItem="vcM-Yg-ahf" secondAttribute="bottom" constant="8" id="qIF-Uc-jNl"/>
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="bottom" secondItem="29V-Iw-4r6" secondAttribute="bottom" constant="34" id="s90-Bm-abd"/>
+                            <constraint firstItem="FRr-gm-tMN" firstAttribute="leading" secondItem="Yki-k1-SUK" secondAttribute="leading" constant="36" id="sfb-64-4jf"/>
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="trailing" secondItem="Yki-k1-SUK" secondAttribute="trailing" constant="-55" id="u9E-K0-Mbj"/>
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="top" secondItem="VfA-cO-EXT" secondAttribute="bottom" constant="8" id="ugW-hJ-r5V"/>
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="trailing" secondItem="Rc7-9O-b07" secondAttribute="trailing" id="z7Y-If-Qe7">
                                 <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="bzb-nE-CwS" secondAttribute="trailing" constant="-18" id="zqX-Lz-cxZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="29V-Iw-4r6"/>
                         <variation key="default">
@@ -701,10 +701,10 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <exclude reference="X2P-LI-rKt"/>
-                                <include reference="Zcl-AO-j6u"/>
                                 <exclude reference="ai6-dg-l0v"/>
                                 <exclude reference="u9E-K0-Mbj"/>
+                                <exclude reference="X2P-LI-rKt"/>
+                                <include reference="Zcl-AO-j6u"/>
                                 <include reference="2dm-nR-XbJ"/>
                                 <include reference="7gz-iK-8dZ"/>
                                 <exclude reference="Hxd-5s-TsK"/>
@@ -718,14 +718,16 @@
                     <tabBarItem key="tabBarItem" title="" image="hot" id="Q4m-qD-3pK">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <connections>
                         <outlet property="backgroundWeekView" destination="Rc7-9O-b07" id="BYX-Zh-vA2"/>
+                        <outlet property="cityBackgroundImage" destination="FRr-gm-tMN" id="mMg-Sf-KUb"/>
                         <outlet property="collectionView" destination="Yki-k1-SUK" id="Ywc-C7-f6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsK-jJ-Pmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792.8" y="-164.16791604197903"/>
+            <point key="canvasLocation" x="2160.8000000000002" y="-167.76611694152925"/>
         </scene>
     </scenes>
     <resources>
@@ -735,6 +737,7 @@
         <image name="Menu" width="204.80000305175781" height="204.80000305175781"/>
         <image name="San Francisco" width="1900" height="470"/>
         <image name="Sketch Weather" width="600" height="600"/>
+        <image name="TreesAndBird" width="960" height="644"/>
         <image name="close icon white" width="256" height="256"/>
         <image name="dark" width="320" height="480"/>
         <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
@@ -744,6 +747,6 @@
         <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uir-WI-dwu"/>
+        <segue reference="Qyt-uw-Zc2"/>
     </inferredMetricsTieBreakers>
 </document>

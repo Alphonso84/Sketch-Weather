@@ -72,13 +72,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         pageControl.currentPageIndicatorTintColor = .white
         self.view.addSubview(pageControl)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
         configurePageControl()
        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+            setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
         }
     }
     

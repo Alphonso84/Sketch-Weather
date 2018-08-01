@@ -11,6 +11,7 @@ import AVKit
 var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var cityBackgroundImage: UIImageView!
     
     let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var backgroundWeekView: UIImageView!
@@ -42,6 +43,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
     }
+    
     func setBackgroundForTimeOfDay() {
         let date = Date()
         let calendar = Calendar.current
@@ -69,6 +71,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let chanceOfRainPercentage = weekForecast[indexPath.row]["precipProbability"] as! Double * 100
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+       
         
         cell.name?.text = weekArray[indexPath.row]
        // cell.weatherImage?.image = weatherImages[indexPath.row]
