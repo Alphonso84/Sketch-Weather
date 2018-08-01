@@ -22,6 +22,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
     
+    
     @IBOutlet var topView: UIView!
     @IBOutlet weak var lowerBackground: UIImageView!
     @IBOutlet weak var backGroundWeather: UIImageView!
@@ -71,20 +72,33 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
+    func appendArray() {
+        
+        weatherLabels = [ "UV Index  \(Int((now?.uvIndex)!))", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))" ]
+        
+        reloadInputViews()
+    }
+    
     //TABLEVIEW FUNCTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return weatherLabels.count
+        return hourlyData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = weatherLabels[indexPath.row]
+        cell.textLabel?.text = "\(hourlyData[indexPath.row]["temperature"]!)"
+       
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         return cell
@@ -293,13 +307,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
    
-    //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
-    func appendArray() {
-        
-        weatherLabels = [ "UV Index  \(Int((now?.uvIndex)!))", "Feels Like  \(Int((now?.apparentTemperature)!))","Wind Direction  \(windBearing())  ", "Wind Gust  \(Int((now?.windGust)!)) ", "Wind Speed  \(Int((now?.windSpeed)!))", "Dew Point Temp  \(Int((now?.dewPoint)!))" ]
-        
-        reloadInputViews()
-    }
+   
     
     func setBackgroundForTimeOfDay() {
         //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
@@ -322,7 +330,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
         self.tableView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
@@ -335,10 +343,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     })
     }
     @IBAction func tapGesture(_ sender: Any) {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
             self.currentWeatherImage.alpha = 1
-            self.backGroundWeather.alpha = 1
+            self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
            

@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 
 var weekForecast = [[String:AnyObject]]()
+var hourlyData = [[String:AnyObject]]()
 var weekSummary = ""
 var week: Day? = nil
 var now: Currently? = nil
@@ -90,7 +91,7 @@ class Networking: UIViewController {
                 //PRINT DIFFERENT OUTPUTS HERE
                 // print(Date().dayOfWeek()!)
                 
-                print(now!)
+               // print(now!)
                 
             } catch {
                 print(error)
@@ -127,9 +128,10 @@ class Networking: UIViewController {
                 let dailyWeather = jsonData["daily"] as? [String : AnyObject]
                 
                 let hourlyWeather = jsonData["hourly"] as? [String: AnyObject]
+                let hourlyForecast = hourlyWeather?["data"]
                 
                 let minutelyWeather = jsonData["minutely"] as? [String:AnyObject]
-                
+                hourlyData = hourlyForecast as! [[String:AnyObject]]
                 nextHour = minutelyWeather!["summary"] as! String
                 weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
                 
@@ -140,15 +142,19 @@ class Networking: UIViewController {
                 
                 weekSummary = "\(dailyWeather!["summary"]!)"
                 
-                
+                let date = Date(timeIntervalSince1970: 1533078000)
                 //PRINT DIFFERENT OUTPUTS HERE
                // print(Date().dayOfWeek()!)
                 
                 //print(now!)
-                print(dailyWeather!["summary"]!)
-                print(nextHour)
-                print(hourlyWeather)
+                //print(dailyWeather!["summary"]!)
+               // print(nextHour)
                 
+                //Hour by hour for the next 48 hours
+                //print(hourlyWeather!["data"]!)
+                print(hourlyData[0]["time"]!)
+                print(hourlyData.count)
+               print(date)
             } catch {
                 print(error)
             }
