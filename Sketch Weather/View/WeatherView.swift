@@ -187,6 +187,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
         }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
             cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
+        }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
+        }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
+            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
+            cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
+            cell.hourlyWeatherImage.image = UIImage(named: "wind")
         }
         cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
         cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
