@@ -35,6 +35,8 @@ class MyCell: UICollectionViewCell {
         }
     }
     
+    
+    
    
     
 }

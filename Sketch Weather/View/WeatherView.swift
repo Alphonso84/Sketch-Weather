@@ -16,7 +16,89 @@ var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
 
 
-class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+   
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBAction func hourlyButtonAction(_ sender: Any) {
+    }
+    @IBAction func weeklyButtonAction(_ sender: Any) {
+    }
+    @IBOutlet weak var hourlyButton: UIButton!
+    @IBOutlet weak var weeklyButton: UIButton!
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weekForecast.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+        let chanceOfRainPercentage = weekForecast[indexPath.row]["precipProbability"] as! Double * 100
+        
+        cell.name?.text = weekArray[indexPath.row]
+        // cell.weatherImage?.image = weatherImages[indexPath.row]
+        cell.summary?.text = weekForecast[indexPath.row]["summary"] as? String
+        cell.chanceOfRain?.text = "Rain Chance \(Int(chanceOfRainPercentage)   )%"
+        
+        cell.chanceOfRain?.textColor = UIColor.white
+        
+        cell.layer.cornerRadius = 25
+        
+        //The Cells Background ImageView is assigne based on time of day here
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        _ = calendar.component(.minute, from: date)
+        _ = calendar.component(.second, from: date)
+        
+        if (20...23).contains(hour) {
+            cell.backgroundCellImage.image = UIImage(named: "dark")
+            //cell.backgroundCellImage.alpha = 0
+        }else if (0...4).contains(hour) {
+            cell.backgroundCellImage.image = UIImage(named:"dark")
+            //cell.backgroundCellImage.alpha = 0
+        }else{
+            cell.backgroundCellImage.image = UIImage(named:"Blueback")
+            //cell.backgroundCellImage.alpha = 0
+        }
+        
+        
+        
+        //THIS FUNCTION ASSIGNS IMAGE TO CELL BASED ON WEATHER SUMMARY STRING
+        func weekImageAssinmentLogic() {
+            if (weekForecast[indexPath.row]["summary"]?.contains("Partly cloudy"))! {
+                cell.weatherImage?.image = UIImage(named: "Partly Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Humid"))! {
+                cell.weatherImage?.image = UIImage(named: "Partly Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Mostly cloudy"))! {
+                cell.weatherImage?.image = UIImage(named: "Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Overcast"))! {
+                cell.weatherImage?.image = UIImage(named: "Cloudy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Clear throughout"))! {
+                cell.weatherImage?.image = UIImage(named: "Sunshine")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Rain"))! {
+                cell.weatherImage?.image = UIImage(named: "Rainy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Light rain"))! {
+                cell.weatherImage?.image = UIImage(named: "Rainy")
+            }
+        }
+        
+        weekImageAssinmentLogic()
+        
+        cell.HighTemp?.text = "Max Temp     " + String(Int(truncating: (weekForecast[indexPath.row]["temperatureMax"])! as! NSNumber))
+        
+        cell.LowTemp?.text = "Low Temp      " + String(Int(truncating:(weekForecast[indexPath.row]["temperatureMin"])! as! NSNumber))
+        
+        
+        return cell
+    }
+    
     @IBOutlet weak var cityImage: UIImageView!
     var timeGreeting = ""
     var windDirection = ""
@@ -434,6 +516,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func swipeLeftGesture(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.collectionView.alpha = 1
+            self.currentWeatherImage.alpha = 0.20
+            self.backGroundWeather.alpha = 0.20
+            self.temperatureLabel.alpha = 0.20
+            self.summaryLabel.alpha = 0.20
+            //self.cityImage.alpha = 0.20
+        })
+    }
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
@@ -454,6 +546,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func tapGesture(_ sender: Any) {
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
+            self.collectionView.alpha = 0
             self.currentWeatherImage.alpha = 1
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
@@ -483,6 +576,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.alpha = 0
+        collectionView.alpha = 0
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
@@ -514,7 +608,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    
+   
     
     
     
@@ -532,6 +626,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         myMotionEffect(view: currentWeatherImage, min: -10, max: 10)
         myMotionEffect(view: backGroundWeather, min: 10, max: -10)
         myMotionEffect(view: tableView, min: -10, max: 10)
+        myMotionEffect(view: collectionView, min: -20, max: 20)
+       
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {

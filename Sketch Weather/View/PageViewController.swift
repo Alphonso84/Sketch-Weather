@@ -77,13 +77,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     }
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.dataSource = self
-        self.delegate = self
-        configurePageControl()
-       if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
-        }
+//        super.viewDidLoad()
+//        self.dataSource = self
+//        self.delegate = self
+//        configurePageControl()
+//       if let firstViewController = orderedViewControllers.first {
+//            setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
+//        }
     }
     
     func newVC(viewController: String) ->UIViewController {

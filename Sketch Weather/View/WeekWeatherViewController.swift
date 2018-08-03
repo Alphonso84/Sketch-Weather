@@ -163,6 +163,10 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
          weatherImages = [#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "Cloudy"),#imageLiteral(resourceName: "rain"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Sunshine"),#imageLiteral(resourceName: "Rainy")]
         backgroundWeekView.image = UIImage(named: "dark")!
         setBackgroundForTimeOfDay()
+        collectionView.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.collectionView.alpha = 1
+        })
         speech()
         print(weekForecast[0]["summary"]!)
         
