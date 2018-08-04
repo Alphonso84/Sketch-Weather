@@ -348,6 +348,12 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = view.center
         }
+        if (summaryLabel.text?.contains("Humid"))! {
+            weatherBottomImage = UIImage(named: "Cloudy")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
+        }
         if (summaryLabel.text?.contains("Clear throughout"))! {
             weatherBottomImage = UIImage(named: "Sunshine")!
             backGroundWeather.image = nil
@@ -523,6 +529,23 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
             
         }
     }
+    func cityImageAssignment() {
+        if cityString == "Oakland" {
+            cityImage.image = UIImage(named: "Oakland")
+        }else if cityString == "San Francisco" {
+            cityImage.image = UIImage(named: "San Francisco")
+        }else if cityString == "New York" {
+            cityImage.image = UIImage(named: "NY")
+        }else if cityString == "Seattle" {
+            cityImage.image = UIImage(named: "Seattle")
+        }else if cityString == "Portland" {
+            cityImage.image = UIImage(named:"Portland")
+        }else if cityString == "Los Angeles" {
+            cityImage.image = UIImage(named:"Los Angeles")
+        }else if cityString == "Houston" {
+            cityImage.image = UIImage(named: "Houston")
+        }
+    }
     
     @IBAction func swipeLeftGesture(_ sender: Any) {
         swipeUpGesture.isEnabled = false
@@ -580,11 +603,14 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
         super.viewWillAppear(true)
         
         appendArray()
+        //cityString = "Los Angeles"
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         //cityImage.image = UIImage(named: "San Francisco")
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
+        
+        cityImageAssignment()
         
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -617,6 +643,7 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
+       
         
         
     }

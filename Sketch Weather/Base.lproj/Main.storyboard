@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="272" id="gmK-DA-DqH"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="TreesAndBird" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="TreesAndBird" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-C6-Lkt">
                                 <rect key="frame" x="-5" y="538" width="380" height="275"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="275" id="uxw-Qd-UfT"/>
@@ -812,7 +812,7 @@
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="Menu" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="San Francisco" width="1900" height="470"/>
+        <image name="San Francisco" width="451" height="451"/>
         <image name="Sketch Weather" width="600" height="600"/>
         <image name="TreesAndBird" width="960" height="644"/>
         <image name="close icon white" width="256" height="256"/>
