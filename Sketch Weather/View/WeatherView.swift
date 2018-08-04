@@ -18,15 +18,12 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
    
+    @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     
+    @IBOutlet var swipeUpGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func hourlyButtonAction(_ sender: Any) {
-    }
-    @IBAction func weeklyButtonAction(_ sender: Any) {
-    }
-    @IBOutlet weak var hourlyButton: UIButton!
-    @IBOutlet weak var weeklyButton: UIButton!
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weekForecast.count
     }
@@ -85,6 +82,9 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
                 cell.weatherImage?.image = UIImage(named: "Rainy")
             }
             if (weekForecast[indexPath.row]["summary"]?.contains("Light rain"))! {
+                cell.weatherImage?.image = UIImage(named: "Rainy")
+            }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Heavy rain"))! {
                 cell.weatherImage?.image = UIImage(named: "Rainy")
             }
         }
@@ -265,6 +265,10 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
             cell.hourlyWeatherImage.image = UIImage(named: "Sunshine")
         }else if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
             cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
+            
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
+            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
+            
         }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
             cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
         }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
@@ -493,7 +497,11 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
         
         synthesizer.speak(utterance)
     }
-    
+    func speech() {
+        let utterance = AVSpeechUtterance(string: "Here is your forecast for the week! \(weekSummary). Tap anywhere to dismiss.")
+        
+        synthesizer.speak(utterance)
+    }
     
     
     
@@ -517,6 +525,7 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
     }
     
     @IBAction func swipeLeftGesture(_ sender: Any) {
+        swipeUpGesture.isEnabled = false
         UIView.animate(withDuration: 0.5, animations: {
             self.collectionView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
@@ -525,10 +534,12 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
             self.summaryLabel.alpha = 0.20
             //self.cityImage.alpha = 0.20
         })
+        speech()
     }
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
+        swipeLeftGesture.isEnabled = false
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
@@ -544,6 +555,8 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
         })
     }
     @IBAction func tapGesture(_ sender: Any) {
+        swipeLeftGesture.isEnabled = true
+        swipeUpGesture.isEnabled = true
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
             self.collectionView.alpha = 0
