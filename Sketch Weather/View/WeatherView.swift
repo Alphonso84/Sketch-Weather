@@ -660,6 +660,8 @@ class WeatherViewController: UIViewController,UICollectionViewDelegate, UICollec
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         
+        
+        
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
         myMotionEffect(view: lowerBackground, min: 10, max: -10)

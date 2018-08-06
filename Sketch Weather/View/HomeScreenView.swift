@@ -17,7 +17,7 @@ let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
 var cityString = String()
-
+let status = CLLocationManager.authorizationStatus()
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -46,7 +46,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
                 print(city)
                 cityString = city
                 cityName = cityString
-            
+                
             }
         })
         return cityName
@@ -66,9 +66,36 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             backgroundImage.image = UIImage(named:"Blueback")
         }
     }
+    func startApp() {
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
+        Networking().getWeatherForecast()
+        cityString = getCityFromCoordinate()
+    }
+    
+    func locationPermissions() {
+       
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+            let locationAlert = UIAlertController(title: "Location Alert", message: "Sketch Weather will need to use your location to work properly", preferredStyle: UIAlertControllerStyle.alert)
+            locationAlert.addAction(UIAlertAction(title: "Allow", style: UIAlertActionStyle.cancel, handler: nil))
+            self.dismiss(animated: true)
+            present(locationAlert, animated: true, completion: nil)
+            
+            
+            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.startUpdatingLocation()
+            
+          
+            
+        }else if status == .authorizedAlways {
+           startApp()
+        }
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-       setBackgroundForTimeOfDay()
+        setBackgroundForTimeOfDay()
         
         
     }
@@ -83,19 +110,14 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self
-        manager.requestAlwaysAuthorization()
-        manager.requestWhenInUseAuthorization()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.startUpdatingLocation()
-        
-        
-        
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
-        Networking().getWeatherForecast()
-        cityString = getCityFromCoordinate()
-        
+        //let locationManager = CLLocationManager()
+    
+        locationPermissions()
         
     }
+    
+    
+    
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
