@@ -152,7 +152,7 @@ class Networking: UIViewController {
                // print(nextHour)
                 
                 //Hour by hour for the next 48 hours
-                //print(hourlyWeather!["data"]!)
+                print(hourlyWeather!["data"]!)
                 print(hourlyData[8]["summary"]!)
                 print(hourlyData.count)
                print(date)

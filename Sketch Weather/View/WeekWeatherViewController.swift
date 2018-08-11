@@ -125,6 +125,9 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             if (weekForecast[indexPath.row]["summary"]?.contains("Light rain"))! {
                 cell.weatherImage?.image = UIImage(named: "Rainy")
             }
+            if (weekForecast[indexPath.row]["summary"]?.contains("Heavy rain"))! {
+                cell.weatherImage?.image = UIImage(named: "Rainy")
+            }
         }
         
        weekImageAssinmentLogic()

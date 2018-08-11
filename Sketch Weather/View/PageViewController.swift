@@ -24,7 +24,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         guard previousIndex >= 0
             else{
-           // return orderedViewControllers.last
+          // return orderedViewControllers.last
                 return nil
         }
         
@@ -44,8 +44,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         guard orderedViewControllers.count != nextIndex
             else{
-//                return orderedViewControllers.first
-                return nil
+               //return orderedViewControllers.first
+               return nil
         }
         
         guard orderedViewControllers.count > nextIndex
@@ -77,13 +77,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     }
     override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.dataSource = self
-//        self.delegate = self
-//        configurePageControl()
-//       if let firstViewController = orderedViewControllers.first {
-//            setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
-//        }
+        super.viewDidLoad()
+        self.dataSource = self
+        self.delegate = self
+        configurePageControl()
+       if let firstViewController = orderedViewControllers.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
     }
     
     func newVC(viewController: String) ->UIViewController {
