@@ -76,31 +76,27 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
             startApp()
+        }else if status == .denied || status == .restricted {
+            let locationAlert = UIAlertController(title: "Location is Disabled", message: "Sketch Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
+            locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.dismiss(animated: true)
+            DispatchQueue.main.async {
+                self.present(locationAlert, animated: true, completion: nil)
+            }
         }
     }
     func locationPermissions() {
        
-        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+        if status == .notDetermined || status == .denied  {
             manager.requestAlwaysAuthorization()
             manager.requestWhenInUseAuthorization()
             
-            let locationAlert = UIAlertController(title: "Location Alert", message: "Sketch Weather will need to use your location to work properly", preferredStyle: UIAlertControllerStyle.alert)
-            locationAlert.addAction(UIAlertAction(title: "Allow", style: UIAlertActionStyle.cancel, handler: nil))
-            self.dismiss(animated: true)
-            DispatchQueue.main.async {
-                 self.present(locationAlert, animated: true, completion: nil)
-            }
+//
            
-            
-            
-           
-           
-            
-          
-            
-        }else if status == .authorizedAlways {
+        }else if status == .authorizedAlways || status == .authorizedWhenInUse {
            startApp()
         }
+        
         
     }
     
