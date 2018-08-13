@@ -480,10 +480,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
-            self.summaryLabel.alpha = 0.20
+            
+            self.summaryLabel.text = daySummary
             self.cityImage.alpha = 0.20
             
-            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. Tap any where to dismiss")
+            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
             
             self.synthesizer.speak(utterance)
             
@@ -498,6 +499,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
+            self.summaryLabel.text = now?.summary
             self.cityImage.alpha = 1
            
             

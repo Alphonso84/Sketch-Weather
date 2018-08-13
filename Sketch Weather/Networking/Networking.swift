@@ -13,6 +13,7 @@ import CoreLocation
 var weekForecast = [[String:AnyObject]]()
 var hourlyData = [[String:AnyObject]]()
 var weekSummary = ""
+var daySummary = ""
 var week: Day? = nil
 var now: Currently? = nil
 var location = ""
@@ -146,15 +147,16 @@ class Networking: UIViewController {
                 let date = Date(timeIntervalSince1970: 1533078000)
                 //PRINT DIFFERENT OUTPUTS HERE
                // print(Date().dayOfWeek()!)
-                
+                daySummary = hourlyWeather!["summary"]! as! String
                 //print(now!)
-                //print(dailyWeather!["summary"]!)
+              //  print(dailyWeather!["summary"]!)
                // print(nextHour)
                 
                 //Hour by hour for the next 48 hours
-                print(hourlyWeather!["data"]!)
-                print(hourlyData[8]["summary"]!)
-                print(hourlyData.count)
+                //print(hourlyWeather!["data"]!)
+                print(hourlyWeather!["summary"]!)
+               // print(hourlyData[8]["summary"]!)
+               // print(hourlyData.count)
                print(date)
             } catch {
                 print(error)
