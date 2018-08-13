@@ -71,20 +71,30 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         Networking().getWeatherForecast()
         cityString = getCityFromCoordinate()
     }
-    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.startUpdatingLocation()
+            startApp()
+        }
+    }
     func locationPermissions() {
        
         if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
+            
             let locationAlert = UIAlertController(title: "Location Alert", message: "Sketch Weather will need to use your location to work properly", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "Allow", style: UIAlertActionStyle.cancel, handler: nil))
             self.dismiss(animated: true)
-            present(locationAlert, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                 self.present(locationAlert, animated: true, completion: nil)
+            }
+           
             
             
-            manager.requestAlwaysAuthorization()
-            manager.requestWhenInUseAuthorization()
-            manager.desiredAccuracy = kCLLocationAccuracyBest
-            manager.startUpdatingLocation()
+           
+           
             
           
             
