@@ -303,7 +303,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = view.center
         }
+        if (summaryLabel.text?.contains("Overcast"))! {
+            weatherBottomImage = UIImage(named: "Cloudy")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
+            
+        }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
+            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
+            
+        }
+        if (summaryLabel.text?.contains("Overcast"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
@@ -468,6 +482,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             cityImage.image = UIImage(named:"Los Angeles")
         }else if cityString == "Houston" {
             cityImage.image = UIImage(named: "Houston")
+        }else if cityString == "Washington" {
+            cityImage.image = UIImage(named: "DC")
+        }else if cityString == "Chicago" {
+            cityImage.image = UIImage(named: "Chicago")
         }
     }
     

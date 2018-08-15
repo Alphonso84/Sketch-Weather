@@ -358,7 +358,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-aU-D4W">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sketch Weather" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-zu-zGt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Speak Weather" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-zu-zGt">
                                 <rect key="frame" x="38" y="253" width="299" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3dj-zu-zGt" secondAttribute="height" multiplier="299:280" id="tXc-3Q-TIh"/>
@@ -675,7 +675,7 @@
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="San Francisco" width="451" height="451"/>
-        <image name="Sketch Weather" width="600" height="600"/>
+        <image name="Speak Weather" width="600" height="600"/>
         <image name="TreesAndBird" width="960" height="644"/>
         <image name="close icon white" width="256" height="256"/>
         <image name="dark" width="320" height="480"/>

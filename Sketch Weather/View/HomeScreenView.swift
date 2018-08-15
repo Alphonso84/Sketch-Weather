@@ -121,9 +121,13 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         locationPermissions()
         
     }
+//    New York
+//     40.662
+//    -73.957
     
-    
-    
+//    Washington DC
+//    38.915
+//    -77.001
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
