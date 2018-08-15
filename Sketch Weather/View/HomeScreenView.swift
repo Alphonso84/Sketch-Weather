@@ -121,6 +121,10 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         locationPermissions()
         
     }
+    //  Oakland
+    //  37.810
+    //  -122.252
+    
 //    New York
 //     40.662
 //    -73.957
@@ -131,8 +135,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
-        latitude = [40.662] as! [Double]
-        longitude = [-73.957] as! [Double]
+        latitude = [manager.location?.coordinate.latitude] as! [Double]
+        longitude = [manager.location?.coordinate.longitude] as! [Double]
     }
     //manager.location?.coordinate.latitude
     //manager.location?.coordinate.longitude
