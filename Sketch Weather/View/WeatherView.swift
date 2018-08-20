@@ -42,6 +42,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var rainPercentLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    
     var weatherLabels: [String] = []
     let SectionHeaderHeight: CGFloat = 25
     
@@ -64,7 +68,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         locationLabel.text = cityString
-        
+      
         
         
     }
@@ -77,7 +81,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-        
+       
     }
     
     //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
@@ -467,27 +471,27 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
-    func cityImageAssignment() {
-        if cityString == "Oakland" {
-            cityImage.image = UIImage(named: "Oakland")
-        }else if cityString == "San Francisco" {
-            cityImage.image = UIImage(named: "San Francisco")
-        }else if cityString == "New York" {
-            cityImage.image = UIImage(named: "NY")
-        }else if cityString == "Seattle" {
-            cityImage.image = UIImage(named: "Seattle")
-        }else if cityString == "Portland" {
-            cityImage.image = UIImage(named:"Portland")
-        }else if cityString == "Los Angeles" {
-            cityImage.image = UIImage(named:"Los Angeles")
-        }else if cityString == "Houston" {
-            cityImage.image = UIImage(named: "Houston")
-        }else if cityString == "Washington" {
-            cityImage.image = UIImage(named: "DC")
-        }else if cityString == "Chicago" {
-            cityImage.image = UIImage(named: "Chicago")
-        }
-    }
+//    func cityImageAssignment() {
+//        if cityString == "Oakland" {
+//            cityImage.image = UIImage(named: "Oakland")
+//        }else if cityString == "San Francisco" {
+//            cityImage.image = UIImage(named: "San Francisco")
+//        }else if cityString == "New York" {
+//            cityImage.image = UIImage(named: "NY")
+//        }else if cityString == "Seattle" {
+//            cityImage.image = UIImage(named: "Seattle")
+//        }else if cityString == "Portland" {
+//            cityImage.image = UIImage(named:"Portland")
+//        }else if cityString == "Los Angeles" {
+//            cityImage.image = UIImage(named:"Los Angeles")
+//        }else if cityString == "Houston" {
+//            cityImage.image = UIImage(named: "Houston")
+//        }else if cityString == "Washington" {
+//            cityImage.image = UIImage(named: "DC")
+//        }else if cityString == "Chicago" {
+//            cityImage.image = UIImage(named: "Chicago")
+//        }
+//    }
     
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
@@ -500,7 +504,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.temperatureLabel.alpha = 0.20
             
             self.summaryLabel.text = daySummary
-            self.cityImage.alpha = 0.20
+           // self.cityImage.alpha = 0.20
             
             let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
             
@@ -518,7 +522,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
             self.summaryLabel.text = now?.summary
-            self.cityImage.alpha = 1
+           
            
             
         })
@@ -541,15 +545,24 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         
-        cityImageAssignment()
+       // cityImageAssignment()
         
         summaryLabel.text = now?.summary
-        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        windLabel.text = "Wind from the \(windBearing()) at \(Int((now?.windSpeed)!))MPH"
+        windLabel.layer.borderWidth = 0.5
+        windLabel.layer.borderColor = UIColor.white.cgColor
+       humidityLabel.text = " \(now?.humidity)"
+        humidityLabel.layer.borderColor = UIColor.white.cgColor
+       humidityLabel.layer.borderWidth = 0.25
+       temperatureLabel.text = "\(Int((now?.temperature)!))"
+        rainPercentLabel.layer.borderWidth = 0.25
+        rainPercentLabel.layer.borderColor = UIColor.white.cgColor
         tableView.alpha = 0
+        
        
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-        WeekWeatherViewController().daysArrayLogic()
+    WeekWeatherViewController().daysArrayLogic()
         speechUtterance()
         
         // locationLabel.text = cityString
