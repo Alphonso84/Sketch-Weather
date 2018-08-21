@@ -42,9 +42,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var windLabel: UILabel!
-    @IBOutlet weak var rainPercentLabel: UILabel!
-    @IBOutlet weak var humidityLabel: UILabel!
+   
     
     var weatherLabels: [String] = []
     let SectionHeaderHeight: CGFloat = 25
@@ -548,15 +546,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
        // cityImageAssignment()
         
         summaryLabel.text = now?.summary
-        windLabel.text = "Wind from the \(windBearing()) at \(Int((now?.windSpeed)!))MPH"
-        windLabel.layer.borderWidth = 0.5
-        windLabel.layer.borderColor = UIColor.white.cgColor
-       humidityLabel.text = " \(now?.humidity)"
-        humidityLabel.layer.borderColor = UIColor.white.cgColor
-       humidityLabel.layer.borderWidth = 0.25
+        
        temperatureLabel.text = "\(Int((now?.temperature)!))"
-        rainPercentLabel.layer.borderWidth = 0.25
-        rainPercentLabel.layer.borderColor = UIColor.white.cgColor
+      
         tableView.alpha = 0
         
        
@@ -603,7 +595,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-        
+       
         
         
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
