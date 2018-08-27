@@ -139,7 +139,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="Barren-Landscape-Silhouette" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-7B-Zlu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-7B-Zlu">
                                 <rect key="frame" x="0.0" y="533" width="375" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="291" id="wfz-pJ-hs7">
@@ -453,7 +453,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-xv-LpB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-xv-LpB">
                                 <rect key="frame" x="0.0" y="120" width="375" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="E8p-xv-LpB" secondAttribute="height" multiplier="346:47" id="xBd-ty-M68">
@@ -952,7 +952,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Barren-Landscape-Silhouette" width="2400" height="1317"/>
         <image name="Blueback" width="1059.75" height="702.75"/>
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>

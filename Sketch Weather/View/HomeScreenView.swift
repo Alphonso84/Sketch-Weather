@@ -124,6 +124,9 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //  Oakland
     //  37.810
     //  -122.252
+    //West Bloomfield
+    // 42.550
+    // -83.384
     
 //    New York
 //     40.662

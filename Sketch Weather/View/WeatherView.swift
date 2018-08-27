@@ -192,6 +192,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }else if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
             cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
             
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
+            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
+                cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
+        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
+                cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
         }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
             cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
             
@@ -333,6 +339,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.alpha = 0.5
             
         }
+        if (summaryLabel.text?.contains("Light Rain"))! && (0...4).contains(hour) {
+            summaryLabel.text = "Lightly Raining"
+            weatherBottomImage = UIImage(named: "nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            
+        }
+        if (summaryLabel.text?.contains("Light Rain"))! && (20...23).contains(hour) {
+            summaryLabel.text = "Lightly Raining"
+            weatherBottomImage = UIImage(named: "nightRain")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            
+        }
+        
         if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
             summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "nightRain")!
@@ -593,11 +614,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
-   
-        backGroundWeather.image = UIImage(named: "Cloudy")!
-        backGroundWeather.alpha = 0.5
-        currentWeatherImage.image =  UIImage(named: "Cloudy")!
-           // CurrentWeatherImageAssinmentLogic()
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
        
         
