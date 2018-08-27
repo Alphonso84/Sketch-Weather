@@ -593,7 +593,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
-        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+   
+        backGroundWeather.image = UIImage(named: "Cloudy")!
+        backGroundWeather.alpha = 0.5
+        currentWeatherImage.image =  UIImage(named: "Cloudy")!
+           // CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
        
         

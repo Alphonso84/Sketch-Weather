@@ -139,6 +139,14 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="Barren-Landscape-Silhouette" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-7B-Zlu">
+                                <rect key="frame" x="0.0" y="533" width="375" height="291"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="291" id="wfz-pJ-hs7">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="446"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-nh-EFb">
                                 <rect key="frame" x="3" y="0.0" width="367" height="272"/>
                                 <constraints>
@@ -159,7 +167,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tAm-uC-3aR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tAm-uC-3aR">
                                 <rect key="frame" x="0.0" y="321" width="375" height="170"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -223,7 +231,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-2j-gTf">
-                                                    <rect key="frame" x="294" y="0.0" width="81" height="45"/>
+                                                    <rect key="frame" x="294" y="0.0" width="81" height="44.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="81" id="5l9-hD-s0U"/>
                                                         <constraint firstAttribute="width" constant="167" id="Y6l-ni-M3D">
@@ -252,7 +260,7 @@
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFK-Bb-XEE">
-                                                    <rect key="frame" x="134" y="0.0" width="101" height="45"/>
+                                                    <rect key="frame" x="134" y="0.0" width="101" height="44.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="158" id="Zqz-AW-cZK">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="183"/>
@@ -460,11 +468,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rCM-7B-Zlu" secondAttribute="bottom" constant="-12" id="5AQ-b4-3On"/>
+                            <constraint firstItem="rCM-7B-Zlu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Lj-6a-FVt"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="6nc-jI-fLA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E8p-xv-LpB" secondAttribute="trailing" id="95c-Uv-LkQ"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="142" id="9yM-ZT-hoa">
                                 <variation key="heightClass=regular-widthClass=regular" constant="167"/>
                             </constraint>
+                            <constraint firstItem="tAm-uC-3aR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A4u-2g-0jD"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="AEw-b6-KXT"/>
                             <constraint firstItem="IZq-w4-CRC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B8N-sh-HTs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="E9x-hX-vZr"/>
@@ -478,6 +489,7 @@
                             <constraint firstItem="tAm-uC-3aR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SZq-pL-K3M"/>
                             <constraint firstItem="G9Z-nh-EFb" firstAttribute="top" secondItem="SqS-MG-slp" secondAttribute="top" id="TG7-B2-Zwh"/>
                             <constraint firstAttribute="bottom" secondItem="IZq-w4-CRC" secondAttribute="bottom" id="Umg-UI-cj3"/>
+                            <constraint firstItem="tAm-uC-3aR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uq4-R3-33V"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="ak2-Yj-nNT"/>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="c4G-m1-25O"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="34" id="fsR-Ob-1OL">
@@ -487,6 +499,7 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="222"/>
                             </constraint>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hL9-Rd-DOD"/>
+                            <constraint firstItem="rCM-7B-Zlu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="j4f-No-WCP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G9Z-nh-EFb" secondAttribute="trailing" constant="5" id="jUF-sJ-EU2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RfW-ps-pJf" secondAttribute="trailing" constant="63" id="kLV-nU-xeM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="72" id="li1-VA-gef"/>
@@ -939,6 +952,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Barren-Landscape-Silhouette" width="2400" height="1317"/>
         <image name="Blueback" width="1059.75" height="702.75"/>
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
