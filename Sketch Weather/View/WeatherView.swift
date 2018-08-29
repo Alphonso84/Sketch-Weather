@@ -17,11 +17,11 @@ var weatherVariables: [AnyObject] = []
 
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
+    
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     
     @IBOutlet var swipeUpGesture: UISwipeGestureRecognizer!
-   
+    
     
     @IBOutlet weak var cityImage: UIImageView!
     var timeGreeting = ""
@@ -42,7 +42,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-   
+    
     
     var weatherLabels: [String] = []
     let SectionHeaderHeight: CGFloat = 25
@@ -66,7 +66,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         locationLabel.text = cityString
-      
+        
         
         
     }
@@ -79,7 +79,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-       
+        
     }
     
     //THIS METHOD PROVIDES DATA LAYOUT FOR TABLEVIEW ROWS
@@ -195,9 +195,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
             cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
         }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
-                cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
+            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
         }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
-                cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
+            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
         }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
             cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
             
@@ -304,6 +304,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.image = nil
             
         }
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
+            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+            backGroundWeather.image = UIImage(named: "Cloudy")!
+            backGroundWeather.alpha = 0.5
+            backGroundWeather.center = view.center
+            
+        }
         if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             
@@ -318,13 +325,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.center = view.center
             
         }
-        if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
-            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
-            backGroundWeather.image = UIImage(named: "Cloudy")!
-            backGroundWeather.alpha = 0.5
-            backGroundWeather.center = view.center
-            
-        }
+        
         if (summaryLabel.text?.contains("Overcast"))! && (20...23).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
@@ -334,21 +335,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if (summaryLabel.text?.contains("Light Rain"))! {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named: "Rainy")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
         }
         if (summaryLabel.text?.contains("Light Rain"))! && (0...4).contains(hour) {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named: "nightRain")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
         }
         if (summaryLabel.text?.contains("Light Rain"))! && (20...23).contains(hour) {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named: "nightRain")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
@@ -356,38 +357,38 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
             summaryLabel.text = "Raining"
-            weatherBottomImage = UIImage(named: "nightRain")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = self.view.center
         }
         if (summaryLabel.text?.contains("Rain"))! && (20...23).contains(hour) {
             summaryLabel.text = "Raining"
-            weatherBottomImage = UIImage(named: "nightRain")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Rain"))! {
             summaryLabel.text = "Raining"
-            weatherBottomImage = UIImage(named: "Rainy")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named: "drizzle")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (0...4).contains(hour) {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named: "nightRain")!
+            weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
         if (summaryLabel.text?.contains("Drizzle"))! && (20...23).contains(hour) {
             summaryLabel.text = "Lightly Raining"
-            weatherBottomImage = UIImage(named:"nightRain")!
+            weatherBottomImage = UIImage(named:"rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
@@ -490,32 +491,32 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
-//    func cityImageAssignment() {
-//        if cityString == "Oakland" {
-//            cityImage.image = UIImage(named: "Oakland")
-//        }else if cityString == "San Francisco" {
-//            cityImage.image = UIImage(named: "San Francisco")
-//        }else if cityString == "New York" {
-//            cityImage.image = UIImage(named: "NY")
-//        }else if cityString == "Seattle" {
-//            cityImage.image = UIImage(named: "Seattle")
-//        }else if cityString == "Portland" {
-//            cityImage.image = UIImage(named:"Portland")
-//        }else if cityString == "Los Angeles" {
-//            cityImage.image = UIImage(named:"Los Angeles")
-//        }else if cityString == "Houston" {
-//            cityImage.image = UIImage(named: "Houston")
-//        }else if cityString == "Washington" {
-//            cityImage.image = UIImage(named: "DC")
-//        }else if cityString == "Chicago" {
-//            cityImage.image = UIImage(named: "Chicago")
-//        }
-//    }
+    //    func cityImageAssignment() {
+    //        if cityString == "Oakland" {
+    //            cityImage.image = UIImage(named: "Oakland")
+    //        }else if cityString == "San Francisco" {
+    //            cityImage.image = UIImage(named: "San Francisco")
+    //        }else if cityString == "New York" {
+    //            cityImage.image = UIImage(named: "NY")
+    //        }else if cityString == "Seattle" {
+    //            cityImage.image = UIImage(named: "Seattle")
+    //        }else if cityString == "Portland" {
+    //            cityImage.image = UIImage(named:"Portland")
+    //        }else if cityString == "Los Angeles" {
+    //            cityImage.image = UIImage(named:"Los Angeles")
+    //        }else if cityString == "Houston" {
+    //            cityImage.image = UIImage(named: "Houston")
+    //        }else if cityString == "Washington" {
+    //            cityImage.image = UIImage(named: "DC")
+    //        }else if cityString == "Chicago" {
+    //            cityImage.image = UIImage(named: "Chicago")
+    //        }
+    //    }
     
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
-       // swipeLeftGesture.isEnabled = false
+        // swipeLeftGesture.isEnabled = false
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
@@ -523,7 +524,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.temperatureLabel.alpha = 0.20
             
             self.summaryLabel.text = daySummary
-           // self.cityImage.alpha = 0.20
+            // self.cityImage.alpha = 0.20
             
             let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
             
@@ -534,6 +535,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func tapGesture(_ sender: Any) {
         //swipeLeftGesture.isEnabled = true
         swipeUpGesture.isEnabled = true
+     
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
             self.currentWeatherImage.alpha = 1
@@ -541,10 +543,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
             self.summaryLabel.text = now?.summary
-           
-           
+            
+            
+            
             
         })
+        CurrentWeatherImageAssinmentLogic()
     }
     
     
@@ -564,18 +568,18 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         
-       // cityImageAssignment()
+        // cityImageAssignment()
         
         summaryLabel.text = now?.summary
         
-       temperatureLabel.text = "\(Int((now?.temperature)!))"
-      
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        
         tableView.alpha = 0
         
-       
+        
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-    WeekWeatherViewController().daysArrayLogic()
+        WeekWeatherViewController().daysArrayLogic()
         speechUtterance()
         
         // locationLabel.text = cityString
@@ -600,12 +604,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-       
+        
         
         
     }
     
-   
+    
     
     
     
@@ -616,7 +620,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-       
+        
         
         
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
@@ -626,7 +630,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         myMotionEffect(view: backGroundWeather, min: 10, max: -10)
         myMotionEffect(view: tableView, min: -10, max: 10)
         
-       
+        
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {

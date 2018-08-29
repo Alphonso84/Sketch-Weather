@@ -139,7 +139,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-7B-Zlu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-7B-Zlu">
                                 <rect key="frame" x="0.0" y="533" width="375" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="291" id="wfz-pJ-hs7">
@@ -231,7 +231,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-2j-gTf">
-                                                    <rect key="frame" x="294" y="0.0" width="81" height="44.666666666666664"/>
+                                                    <rect key="frame" x="333" y="0.0" width="81" height="44.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="81" id="5l9-hD-s0U"/>
                                                         <constraint firstAttribute="width" constant="167" id="Y6l-ni-M3D">
@@ -260,7 +260,7 @@
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFK-Bb-XEE">
-                                                    <rect key="frame" x="134" y="0.0" width="101" height="44.666666666666664"/>
+                                                    <rect key="frame" x="134" y="0.0" width="140" height="44.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="158" id="Zqz-AW-cZK">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="183"/>
@@ -464,13 +464,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaI-ox-pOV">
+                                <rect key="frame" x="318" y="45" width="41" height="41"/>
+                                <state key="normal" title="Button" image="reload"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZe-iY-rhG">
+                                <rect key="frame" x="16" y="45" width="41" height="41"/>
+                                <state key="normal" title="Button" image="Menu"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="fZe-iY-rhG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="0jF-Rw-OkL">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaI-ox-pOV" secondAttribute="trailing" constant="16" id="3nd-pj-avX">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="rCM-7B-Zlu" secondAttribute="bottom" constant="-12" id="5AQ-b4-3On"/>
                             <constraint firstItem="rCM-7B-Zlu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Lj-6a-FVt"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="6nc-jI-fLA"/>
+                            <constraint firstItem="NaI-ox-pOV" firstAttribute="leading" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="15" id="8kE-Ew-k76">
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E8p-xv-LpB" secondAttribute="trailing" id="95c-Uv-LkQ"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="142" id="9yM-ZT-hoa">
                                 <variation key="heightClass=regular-widthClass=regular" constant="167"/>
@@ -481,8 +498,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IZq-w4-CRC" secondAttribute="trailing" id="E9x-hX-vZr"/>
                             <constraint firstItem="G9Z-nh-EFb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="Enr-Z7-lkS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" constant="-34" id="GzN-zX-dLV"/>
+                            <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="fZe-iY-rhG" secondAttribute="trailing" constant="18" id="HoW-zx-CeK">
+                                <variation key="heightClass=regular-widthClass=compact" constant="28"/>
+                            </constraint>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="9" id="Joy-eK-6qU">
                                 <variation key="heightClass=regular-widthClass=regular" constant="34"/>
+                            </constraint>
+                            <constraint firstItem="fZe-iY-rhG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JrA-3I-v4F">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="NRF-HE-zwn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="72" id="Q4D-n0-wQ3"/>
@@ -491,6 +514,9 @@
                             <constraint firstAttribute="bottom" secondItem="IZq-w4-CRC" secondAttribute="bottom" id="Umg-UI-cj3"/>
                             <constraint firstItem="tAm-uC-3aR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uq4-R3-33V"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="ak2-Yj-nNT"/>
+                            <constraint firstItem="NaI-ox-pOV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="boy-U4-BPx">
+                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                            </constraint>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="c4G-m1-25O"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="34" id="fsR-Ob-1OL">
                                 <variation key="heightClass=regular-widthClass=regular" constant="8"/>
@@ -509,6 +535,12 @@
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="p0W-Nb-j8S"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="E8p-xv-LpB" secondAttribute="bottom" constant="9" id="q9g-GU-Zbi"/>
                             <constraint firstAttribute="trailing" secondItem="SqS-MG-slp" secondAttribute="trailing" id="rQu-z4-9MN"/>
+                            <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="fZe-iY-rhG" secondAttribute="bottom" constant="34" id="vLc-b6-R1O">
+                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
+                            </constraint>
+                            <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="NaI-ox-pOV" secondAttribute="bottom" constant="34" id="wsX-MZ-6C1">
+                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RfW-ps-pJf" secondAttribute="trailing" constant="234" id="ySI-cm-e8s">
                                 <variation key="heightClass=regular-widthClass=regular" constant="227"/>
                             </constraint>
@@ -526,6 +558,22 @@
                                 <exclude reference="9yM-ZT-hoa"/>
                                 <exclude reference="Joy-eK-6qU"/>
                                 <exclude reference="gbd-5K-yDZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="NaI-ox-pOV"/>
+                                <exclude reference="fZe-iY-rhG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3nd-pj-avX"/>
+                                <exclude reference="0jF-Rw-OkL"/>
+                                <exclude reference="JrA-3I-v4F"/>
+                                <exclude reference="HoW-zx-CeK"/>
+                                <exclude reference="vLc-b6-R1O"/>
+                                <exclude reference="wsX-MZ-6C1"/>
+                                <exclude reference="8kE-Ew-k76"/>
+                                <exclude reference="boy-U4-BPx"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -586,7 +634,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="612" y="-168.4729064039409"/>
+            <point key="canvasLocation" x="605.60000000000002" y="-172.16748768472908"/>
         </scene>
         <!--Map View-->
         <scene sceneID="m7M-An-zoK">
@@ -599,20 +647,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="X5k-BG-ghi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="898"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="San Francisco" translatesAutoresizingMaskIntoConstraints="NO" id="r7v-wP-4PR">
-                                <rect key="frame" x="0.0" y="529" width="377" height="249"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="r7v-wP-4PR" secondAttribute="trailing" constant="-18" id="BbI-aM-DM1"/>
                             <constraint firstItem="X5k-BG-ghi" firstAttribute="top" secondItem="MS3-dC-wk8" secondAttribute="top" id="HVc-Iw-kbD"/>
                             <constraint firstItem="X5k-BG-ghi" firstAttribute="leading" secondItem="MS3-dC-wk8" secondAttribute="leading" id="IsT-hg-V7H"/>
                             <constraint firstAttribute="bottom" secondItem="X5k-BG-ghi" secondAttribute="bottom" constant="-86" id="RvC-bQ-OXu"/>
-                            <constraint firstItem="r7v-wP-4PR" firstAttribute="top" secondItem="sFt-St-FmP" secondAttribute="top" constant="485" id="Uwk-gE-ARh"/>
-                            <constraint firstItem="r7v-wP-4PR" firstAttribute="leading" secondItem="X5k-BG-ghi" secondAttribute="leading" id="YuL-je-eVg"/>
                             <constraint firstAttribute="trailing" secondItem="X5k-BG-ghi" secondAttribute="trailing" id="fY9-4P-GqK"/>
-                            <constraint firstItem="r7v-wP-4PR" firstAttribute="bottom" secondItem="sFt-St-FmP" secondAttribute="bottom" id="rSh-vC-lLc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sFt-St-FmP"/>
                     </view>
@@ -620,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239.1999999999998" y="747.78325123152717"/>
+            <point key="canvasLocation" x="2225" y="-167"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="vID-Bj-ZPm">
@@ -955,13 +996,15 @@
         <image name="Blueback" width="1059.75" height="702.75"/>
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
-        <image name="San Francisco" width="451" height="451"/>
+        <image name="Menu" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="San Francisco" width="2400" height="750"/>
         <image name="Speak Weather" width="600" height="600"/>
         <image name="TreesAndBird" width="960" height="644"/>
         <image name="close icon white" width="256" height="256"/>
         <image name="dark" width="320" height="480"/>
         <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
+        <image name="reload" width="204.80000305175781" height="204.80000305175781"/>
         <image name="update-arrows" width="102.40000152587891" height="102.40000152587891"/>
         <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
