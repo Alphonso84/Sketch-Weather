@@ -453,8 +453,9 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfB-08-zeS" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfB-08-zeS" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                 <rect key="frame" x="0.0" y="654" width="375" height="69"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="hQ1-32-xNa"/>
                                 </constraints>
@@ -472,7 +473,7 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
-                                        <real key="value" value="50"/>
+                                        <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
                                         <real key="value" value="0.0"/>
@@ -490,30 +491,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaI-ox-pOV">
-                                <rect key="frame" x="318" y="45" width="41" height="41"/>
-                                <state key="normal" title="Button" image="reload"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZe-iY-rhG">
-                                <rect key="frame" x="16" y="45" width="41" height="41"/>
-                                <state key="normal" title="Button" image="Menu"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="fZe-iY-rhG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="0jF-Rw-OkL">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="WZS-1Z-d7r" secondAttribute="bottom" constant="-1" id="1Je-as-EHu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaI-ox-pOV" secondAttribute="trailing" constant="16" id="3nd-pj-avX">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                            </constraint>
                             <constraint firstItem="WZS-1Z-d7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Lf-4p-8dd"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="6nc-jI-fLA"/>
-                            <constraint firstItem="NaI-ox-pOV" firstAttribute="leading" secondItem="4gC-Xg-Xc1" secondAttribute="trailing" constant="15" id="8kE-Ew-k76">
-                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
-                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E8p-xv-LpB" secondAttribute="trailing" id="95c-Uv-LkQ"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="142" id="9yM-ZT-hoa">
                                 <variation key="heightClass=regular-widthClass=regular" constant="167"/>
@@ -525,14 +509,8 @@
                             <constraint firstItem="G9Z-nh-EFb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="Enr-Z7-lkS"/>
                             <constraint firstItem="WZS-1Z-d7r" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F3X-Io-eZe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SqS-MG-slp" secondAttribute="bottom" constant="-34" id="GzN-zX-dLV"/>
-                            <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="fZe-iY-rhG" secondAttribute="trailing" constant="18" id="HoW-zx-CeK">
-                                <variation key="heightClass=regular-widthClass=compact" constant="28"/>
-                            </constraint>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="9" id="Joy-eK-6qU">
                                 <variation key="heightClass=regular-widthClass=regular" constant="34"/>
-                            </constraint>
-                            <constraint firstItem="fZe-iY-rhG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JrA-3I-v4F">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="NRF-HE-zwn"/>
                             <constraint firstItem="KfB-08-zeS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NgV-Va-gD7"/>
@@ -542,9 +520,6 @@
                             <constraint firstAttribute="bottom" secondItem="IZq-w4-CRC" secondAttribute="bottom" id="Umg-UI-cj3"/>
                             <constraint firstItem="tAm-uC-3aR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uq4-R3-33V"/>
                             <constraint firstItem="SqS-MG-slp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="ak2-Yj-nNT"/>
-                            <constraint firstItem="NaI-ox-pOV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="boy-U4-BPx">
-                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
-                            </constraint>
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="c4G-m1-25O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KfB-08-zeS" secondAttribute="bottom" constant="55" id="dKw-lZ-wvE"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="34" id="fsR-Ob-1OL">
@@ -563,13 +538,7 @@
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="p0W-Nb-j8S"/>
                             <constraint firstItem="RfW-ps-pJf" firstAttribute="top" secondItem="E8p-xv-LpB" secondAttribute="bottom" constant="9" id="q9g-GU-Zbi"/>
                             <constraint firstAttribute="trailing" secondItem="SqS-MG-slp" secondAttribute="trailing" id="rQu-z4-9MN"/>
-                            <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="fZe-iY-rhG" secondAttribute="bottom" constant="34" id="vLc-b6-R1O">
-                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
-                            </constraint>
                             <constraint firstItem="KfB-08-zeS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wmu-FY-WBk"/>
-                            <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="NaI-ox-pOV" secondAttribute="bottom" constant="34" id="wsX-MZ-6C1">
-                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
-                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RfW-ps-pJf" secondAttribute="trailing" constant="234" id="ySI-cm-e8s">
                                 <variation key="heightClass=regular-widthClass=regular" constant="227"/>
                             </constraint>
@@ -587,22 +556,6 @@
                                 <exclude reference="9yM-ZT-hoa"/>
                                 <exclude reference="Joy-eK-6qU"/>
                                 <exclude reference="gbd-5K-yDZ"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <exclude reference="NaI-ox-pOV"/>
-                                <exclude reference="fZe-iY-rhG"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="0jF-Rw-OkL"/>
-                                <exclude reference="JrA-3I-v4F"/>
-                                <exclude reference="8kE-Ew-k76"/>
-                                <exclude reference="boy-U4-BPx"/>
-                                <exclude reference="3nd-pj-avX"/>
-                                <exclude reference="HoW-zx-CeK"/>
-                                <exclude reference="vLc-b6-R1O"/>
-                                <exclude reference="wsX-MZ-6C1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -627,6 +580,7 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ilo-dm-DT6" appends="YES" id="D8q-1h-vDH"/>
                             <outletCollection property="gestureRecognizers" destination="aMG-0b-ctY" appends="YES" id="Izo-Nj-z4p"/>
+                            <outletCollection property="gestureRecognizers" destination="jG3-g7-hqU" appends="YES" id="WNj-me-rGJ"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Day" id="dmz-t9-aCb">
@@ -646,6 +600,7 @@
                         <outlet property="lowerBackground" destination="G9Z-nh-EFb" id="ywi-0b-upa"/>
                         <outlet property="scrollingLabel" destination="KfB-08-zeS" id="Ri7-hG-N1i"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
+                        <outlet property="swipeDownGesture" destination="jG3-g7-hqU" id="zNu-gz-bdT"/>
                         <outlet property="swipeUpGesture" destination="Ilo-dm-DT6" id="85e-Ek-194"/>
                         <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                         <outlet property="temperatureLabel" destination="RfW-ps-pJf" id="Kuf-OO-kFE"/>
@@ -663,6 +618,11 @@
                         <action selector="tapGesture:" destination="BYZ-38-t0r" id="RQx-Ey-ugO"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="jG3-g7-hqU">
+                    <connections>
+                        <action selector="SwipeDownGesture:" destination="BYZ-38-t0r" id="c9L-rh-XeL"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="-172.16748768472908"/>
         </scene>
@@ -1026,7 +986,6 @@
         <image name="Blueback" width="1059.75" height="702.75"/>
         <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
-        <image name="Menu" width="204.80000305175781" height="204.80000305175781"/>
         <image name="San Francisco" width="2400" height="750"/>
         <image name="Speak Weather" width="600" height="600"/>
         <image name="TreesAndBird" width="960" height="644"/>
@@ -1034,7 +993,6 @@
         <image name="dark" width="320" height="480"/>
         <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
-        <image name="reload" width="204.80000305175781" height="204.80000305175781"/>
         <image name="update-arrows" width="102.40000152587891" height="102.40000152587891"/>
         <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
     </resources>

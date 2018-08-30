@@ -22,6 +22,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var scrollingLabel: MarqueeLabel!
     
+    @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
     
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     
@@ -466,7 +467,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to refresh and see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
         
         synthesizer.speak(utterance)
     }
@@ -518,16 +519,29 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //        }
     //    }
     
+    @IBAction func SwipeDownGesture(_ sender: Any) {
+        swipeUpGesture.isEnabled = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.tableView.alpha = 0
+            self.currentWeatherImage.alpha = 0.1
+            self.backGroundWeather.alpha = 0.1
+            self.temperatureLabel.alpha = 0.1
+            self.scrollingLabel.alpha = 0.1
+            self.summaryLabel.alpha = 0.1
+            self.locationLabel.alpha = 0.1
+        })
+        
+    }
     
     //GESTURES TO SHOW AND HIDE TABLEVIEW
     @IBAction func swipeUpGesture(_ sender: Any) {
-        // swipeLeftGesture.isEnabled = false
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 1
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
-            self.scrollingLabel.alpha = 0.20
+            self.scrollingLabel.alpha = 0
             self.summaryLabel.text = daySummary
             // self.cityImage.alpha = 0.20
             
@@ -536,11 +550,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.synthesizer.speak(utterance)
             
         })
+        Networking().getWeatherForecast()
+        CurrentWeatherImageAssinmentLogic()
     }
     @IBAction func tapGesture(_ sender: Any) {
         //swipeLeftGesture.isEnabled = true
         swipeUpGesture.isEnabled = true
-     
+        swipeDownGesture.isEnabled = true
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
             self.currentWeatherImage.alpha = 1
@@ -554,6 +570,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
         })
+        Networking().getWeatherForecast()
         CurrentWeatherImageAssinmentLogic()
     }
     
@@ -565,7 +582,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        Networking().getWeatherForecast()
         appendArray()
         //cityString = "Los Angeles"
         locationLabel.text = cityString
@@ -631,9 +648,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-        
+        //TEXT FOR SCROLLING LABEL
         scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                             "
-        myMotionEffect(view: scrollingLabel, min: -10, max: 10)
+        myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
         myMotionEffect(view: lowerBackground, min: 10, max: -10)

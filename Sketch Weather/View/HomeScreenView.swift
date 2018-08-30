@@ -90,13 +90,10 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         if status == .notDetermined || status == .denied  {
             manager.requestAlwaysAuthorization()
             manager.requestWhenInUseAuthorization()
-            
-//
            
         }else if status == .authorizedAlways || status == .authorizedWhenInUse {
            startApp()
         }
-        
         
     }
     
