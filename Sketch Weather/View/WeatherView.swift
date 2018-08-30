@@ -467,7 +467,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to refresh and see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
+        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
         
         synthesizer.speak(utterance)
     }
@@ -570,6 +570,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func updateAll() {
+        manager.startUpdatingLocation()
         Networking().getWeatherForecast()
         appendArray()
         locationLabel.text = cityString
