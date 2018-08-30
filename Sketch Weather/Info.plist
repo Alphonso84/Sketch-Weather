@@ -17,15 +17,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationUsageDescription</key>
-	<string>Needs your location to retrieve weather data </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Needs your location to retrieve weather data</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Needs your location to retrieve weather data </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Needs your location to retrieve weather data</string>
 	<key>UILaunchStoryboardName</key>
@@ -36,15 +36,15 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIRequiresFullScreen</key>
-	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
