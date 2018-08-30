@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import AVKit
+import MarqueeLabel
 
 
 var weatherImages: [UIImage] = []
@@ -17,6 +18,10 @@ var weatherVariables: [AnyObject] = []
 
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var scrollingLabel: MarqueeLabel!
+    
     
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     
@@ -522,7 +527,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
-            
+            self.scrollingLabel.alpha = 0.20
             self.summaryLabel.text = daySummary
             // self.cityImage.alpha = 0.20
             
@@ -542,6 +547,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
             self.summaryLabel.alpha = 1
+            self.scrollingLabel.alpha = 1
             self.summaryLabel.text = now?.summary
             
             
@@ -615,14 +621,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+    
+       
+    
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         
-        
-        
+        scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                             "
+        myMotionEffect(view: scrollingLabel, min: -10, max: 10)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
         myMotionEffect(view: lowerBackground, min: 10, max: -10)
