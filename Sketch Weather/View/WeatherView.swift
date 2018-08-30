@@ -550,8 +550,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.synthesizer.speak(utterance)
             
         })
-        Networking().getWeatherForecast()
-        CurrentWeatherImageAssinmentLogic()
+       
     }
     @IBAction func tapGesture(_ sender: Any) {
         //swipeLeftGesture.isEnabled = true
@@ -565,15 +564,26 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.summaryLabel.alpha = 1
             self.scrollingLabel.alpha = 1
             self.summaryLabel.text = now?.summary
-            
-            
-            
-            
+        
         })
-        Networking().getWeatherForecast()
-        CurrentWeatherImageAssinmentLogic()
+      updateAll()
     }
     
+    func updateAll() {
+        Networking().getWeatherForecast()
+        appendArray()
+        locationLabel.text = cityString
+        setBackgroundForTimeOfDay()
+        summaryLabel.text = now?.summary
+        
+        CurrentWeatherImageAssinmentLogic()
+        windDirection = windBearing()
+       
+        temperatureLabel.text = "\(Int((now?.temperature)!))"
+        //tableView.refreshTable()
+        currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        WeekWeatherViewController().daysArrayLogic()
+    }
     
     func updateAfterCitySelect() {
         
@@ -582,13 +592,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         Networking().getWeatherForecast()
         appendArray()
         //cityString = "Los Angeles"
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         //cityImage.image = UIImage(named: "San Francisco")
-        CurrentWeatherImageAssinmentLogic()
+       // CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         
         // cityImageAssignment()
@@ -647,9 +658,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+          
         WeekWeatherViewController().daysArrayLogic()
         //TEXT FOR SCROLLING LABEL
         scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                             "
+        scrollingLabel.backgroundColor = .clear
         myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)

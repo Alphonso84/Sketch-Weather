@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import MarqueeLabel
 
 class MyCell: UICollectionViewCell {
     
     @IBOutlet weak var backgroundCellImage: UIImageView!
     @IBOutlet weak var name: UILabel?
-    @IBOutlet weak var summary: UILabel?
+    @IBOutlet weak var summary: MarqueeLabel?
     @IBOutlet weak var chanceOfRain: UILabel?
     @IBOutlet weak var HighTemp: UILabel?
     @IBOutlet weak var LowTemp: UILabel?

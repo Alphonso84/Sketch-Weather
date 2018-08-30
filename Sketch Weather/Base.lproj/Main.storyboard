@@ -473,7 +473,7 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
-                                        <real key="value" value="100"/>
+                                        <real key="value" value="85"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
                                         <real key="value" value="0.0"/>
@@ -814,7 +814,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="19" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0O-M1-0jO">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="19" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0O-M1-0jO" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                                 <rect key="frame" x="8" y="224" width="307" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="gZW-SU-erJ"/>
@@ -988,7 +988,7 @@
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
         <image name="San Francisco" width="2400" height="750"/>
         <image name="Speak Weather" width="600" height="600"/>
-        <image name="TreesAndBird" width="960" height="644"/>
+        <image name="TreesAndBird" width="2400" height="1317"/>
         <image name="close icon white" width="256" height="256"/>
         <image name="dark" width="320" height="480"/>
         <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
