@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -738,8 +741,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="TreesAndBird" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-gm-tMN">
-                                <rect key="frame" x="35" y="538" width="340" height="275"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="Barren-Landscape-Silhouette" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-gm-tMN">
+                                <rect key="frame" x="0.0" y="538" width="375" height="275"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="275" id="yTY-5N-HFo">
                                         <variation key="heightClass=regular-widthClass=regular" constant="446"/>
@@ -938,7 +941,7 @@
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="leading" secondItem="h3f-ZI-A0J" secondAttribute="leading" id="nXV-oO-HTT"/>
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="bottom" secondItem="29V-Iw-4r6" secondAttribute="bottom" constant="34" id="s90-Bm-abd"/>
                             <constraint firstItem="FRr-gm-tMN" firstAttribute="leading" secondItem="Yki-k1-SUK" secondAttribute="leading" id="sfb-64-4jf">
-                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="Rc7-9O-b07" firstAttribute="trailing" secondItem="Yki-k1-SUK" secondAttribute="trailing" constant="-55" id="u9E-K0-Mbj"/>
                             <constraint firstItem="Yki-k1-SUK" firstAttribute="trailing" secondItem="Rc7-9O-b07" secondAttribute="trailing" id="z7Y-If-Qe7">
@@ -979,21 +982,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsK-jJ-Pmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="-167"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="-167.73399014778326"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Blueback" width="1059.75" height="702.75"/>
-        <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="Barren-Landscape-Silhouette" width="2400" height="1317"/>
+        <image name="Blueback" width="471" height="312"/>
+        <image name="Day" width="42" height="42"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
-        <image name="San Francisco" width="2400" height="750"/>
-        <image name="Speak Weather" width="600" height="600"/>
-        <image name="TreesAndBird" width="2400" height="1317"/>
-        <image name="close icon white" width="256" height="256"/>
-        <image name="dark" width="320" height="480"/>
-        <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="San Francisco" width="800" height="250"/>
+        <image name="Speak Weather" width="266" height="266"/>
+        <image name="TreesAndBird" width="800" height="439"/>
+        <image name="close icon white" width="85" height="85"/>
+        <image name="dark" width="106" height="160"/>
+        <image name="hot" width="42" height="42"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
-        <image name="update-arrows" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="update-arrows" width="42" height="42"/>
+        <image name="worldwide" width="42" height="42"/>
     </resources>
 </document>
