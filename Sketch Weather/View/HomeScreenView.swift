@@ -139,8 +139,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
-        latitude = [42.550] as! [Double]
-        longitude = [-83.384] as! [Double]
+        latitude = [37.810] as! [Double]
+        longitude = [-122.252] as! [Double]
     }
     //manager.location?.coordinate.latitude
     //manager.location?.coordinate.longitude

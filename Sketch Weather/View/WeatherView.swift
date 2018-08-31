@@ -573,15 +573,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         manager.startUpdatingLocation()
         Networking().getWeatherForecast()
         appendArray()
-        locationLabel.text = cityString
+        locationLabel.text = HomeScreenView().getCityFromCoordinate()
         setBackgroundForTimeOfDay()
         summaryLabel.text = now?.summary
-        
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
-       
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        //tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
     }
