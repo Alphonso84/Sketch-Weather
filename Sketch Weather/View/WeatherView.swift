@@ -71,8 +71,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-        locationLabel.text = cityString
-        
+        //locationLabel.text = cityString
         
         
     }
@@ -468,7 +467,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //This block contructs the actual speech utterance
         let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
-        
+       
         synthesizer.speak(utterance)
     }
     func speech() {
@@ -570,17 +569,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func updateAll() {
+        
         manager.startUpdatingLocation()
         Networking().getWeatherForecast()
         appendArray()
-        locationLabel.text = HomeScreenView().getCityFromCoordinate()
+        HomeScreenView().getCityFromCoordinate()
+        locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         summaryLabel.text = now?.summary
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        scrollLabelUpdate()
         WeekWeatherViewController().daysArrayLogic()
+        tableView.reloadData()
     }
     
     func updateAfterCitySelect() {
@@ -612,7 +615,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-        speechUtterance()
+         speechUtterance()
         
         // locationLabel.text = cityString
         
@@ -633,6 +636,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
     }
+    func scrollLabelUpdate() {
+        scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                                             "
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -648,10 +654,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-    
-       
-    
+
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
@@ -659,8 +662,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
           
         WeekWeatherViewController().daysArrayLogic()
         //TEXT FOR SCROLLING LABEL
-        scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                             "
+        scrollLabelUpdate()
         scrollingLabel.backgroundColor = .clear
+       
         myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)

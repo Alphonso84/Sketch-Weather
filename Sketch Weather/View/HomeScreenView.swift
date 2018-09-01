@@ -18,6 +18,8 @@ var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
 var cityString = String()
 let status = CLLocationManager.authorizationStatus()
+
+
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -139,8 +141,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
-        latitude = [37.810] as! [Double]
-        longitude = [-122.252] as! [Double]
+        latitude = [manager.location?.coordinate.latitude] as! [Double]
+        longitude = [manager.location?.coordinate.longitude] as! [Double]
     }
     //manager.location?.coordinate.latitude
     //manager.location?.coordinate.longitude
