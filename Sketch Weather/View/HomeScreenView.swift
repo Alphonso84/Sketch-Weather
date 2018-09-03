@@ -79,7 +79,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             manager.startUpdatingLocation()
             startApp()
         }else if status == .denied || status == .restricted {
-            let locationAlert = UIAlertController(title: "Location is Disabled", message: "Sketch Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
+            let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
             self.dismiss(animated: true)
             DispatchQueue.main.async {

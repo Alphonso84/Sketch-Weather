@@ -19,7 +19,7 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+   
     @IBOutlet weak var scrollingLabel: MarqueeLabel!
     
     @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
@@ -182,15 +182,18 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             timeOfDayArray = ["11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM"]
         }
         
-        return timeOfDayArray
+       return timeOfDayArray
     }
-    func hourlyImageAssignment() {
-        
-    }
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherCell
+        
         
         if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
             cell.hourlyWeatherImage.image = UIImage(named: "Sunshine")
@@ -221,9 +224,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
         cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
-        // cell.hourlyWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-        
-        //cell.imageView?.image = 
         cell.timeLabel.textColor = UIColor.white
         cell.hourlyTempLabel.textColor = UIColor.white
         cell.timeLabel.font = UIFont.systemFont(ofSize: 27)
@@ -238,26 +238,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-    }
-    //METHODS
-    
-    func animateIn() {
-        UIView.animate(withDuration: 0.5, animations: {
-            //self.currentWeatherImage.isHidden = false
-            self.currentWeatherImage.center = CGPoint(x: 190, y: 350)
-            self.currentWeatherImage.alpha = 1.0
-            
-        })
-    }
-    
-    func animateOut() {
-        UIView.animate(withDuration: 0.5, delay: 0.6, animations: {
-            self.currentWeatherImage.center = CGPoint(x: 190, y: 800)
-            self.currentWeatherImage.alpha = 0.0
-            //self.currentWeatherImage.transform = CGAffineTransform(scaleX: 4.0, y: 4.0)
-            //self.currentWeatherImage.isHidden = true
-            
-        })
     }
     
     
@@ -332,7 +312,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         if (summaryLabel.text?.contains("Overcast"))! && (20...23).contains(hour) {
-            weatherBottomImage = UIImage(named: "partlyCloudyNight")!
+            weatherBottomImage = UIImage(named: "Cloudy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = view.center
@@ -399,6 +379,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         return weatherBottomImage
     }
+    
+    
     
     //METHOD TO CREATE WIND DIRECTION STRING FROM RANGE OF BEARING INTS
     func windBearing() -> String{
@@ -496,27 +478,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
-    //    func cityImageAssignment() {
-    //        if cityString == "Oakland" {
-    //            cityImage.image = UIImage(named: "Oakland")
-    //        }else if cityString == "San Francisco" {
-    //            cityImage.image = UIImage(named: "San Francisco")
-    //        }else if cityString == "New York" {
-    //            cityImage.image = UIImage(named: "NY")
-    //        }else if cityString == "Seattle" {
-    //            cityImage.image = UIImage(named: "Seattle")
-    //        }else if cityString == "Portland" {
-    //            cityImage.image = UIImage(named:"Portland")
-    //        }else if cityString == "Los Angeles" {
-    //            cityImage.image = UIImage(named:"Los Angeles")
-    //        }else if cityString == "Houston" {
-    //            cityImage.image = UIImage(named: "Houston")
-    //        }else if cityString == "Washington" {
-    //            cityImage.image = UIImage(named: "DC")
-    //        }else if cityString == "Chicago" {
-    //            cityImage.image = UIImage(named: "Chicago")
-    //        }
-    //    }
+
     
     @IBAction func SwipeDownGesture(_ sender: Any) {
         swipeUpGesture.isEnabled = false
@@ -572,8 +534,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         manager.startUpdatingLocation()
         Networking().getWeatherForecast()
-        appendArray()
         HomeScreenView().getCityFromCoordinate()
+        appendArray()
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         summaryLabel.text = now?.summary
@@ -583,7 +545,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         scrollLabelUpdate()
         WeekWeatherViewController().daysArrayLogic()
-        tableView.reloadData()
+        tableView.refreshTable()
+        timeOfDayArrayAssignment()
     }
     
     func updateAfterCitySelect() {
@@ -596,29 +559,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         Networking().getWeatherForecast()
         appendArray()
-        //cityString = "Los Angeles"
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
-        //cityImage.image = UIImage(named: "San Francisco")
-       // CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
-        
-        // cityImageAssignment()
-        
         summaryLabel.text = now?.summary
-        
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        
         tableView.alpha = 0
-        
-        
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
-         speechUtterance()
-        
-        // locationLabel.text = cityString
-        
+        speechUtterance()
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
@@ -659,9 +609,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-          
         WeekWeatherViewController().daysArrayLogic()
-        //TEXT FOR SCROLLING LABEL
         scrollLabelUpdate()
         scrollingLabel.backgroundColor = .clear
        
