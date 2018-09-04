@@ -42,6 +42,7 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
             weekArray = ["\(Date().dayOfWeek()!)","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
         }
         
+        
     }
     
     func setBackgroundForTimeOfDay() {

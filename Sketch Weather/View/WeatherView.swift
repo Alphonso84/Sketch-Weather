@@ -109,6 +109,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Assigns TableView time of day based on current time of day
     func timeOfDayArrayAssignment() -> [String] {
+        timeOfDayArray.removeAll()
         if timeOfDay[0] == 0 {
             timeOfDayArray = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
         }
@@ -544,6 +545,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         scrollLabelUpdate()
+        timeOfDayArray.removeAll()
+        weekArray.removeAll()
         WeekWeatherViewController().daysArrayLogic()
         tableView.refreshTable()
         timeOfDayArrayAssignment()
