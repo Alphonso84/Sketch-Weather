@@ -109,77 +109,126 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Assigns TableView time of day based on current time of day
     func timeOfDayArrayAssignment() -> [String] {
-        timeOfDayArray.removeAll()
+        
         if timeOfDay[0] == 0 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
         }
-        if timeOfDay[0] == 1 {
+        else if timeOfDay[0] == 1 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM"]
         }
-        if timeOfDay[0] == 2 {
+        else if timeOfDay[0] == 2 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM"]
         }
-        if timeOfDay[0] == 3 {
+        else if timeOfDay[0] == 3 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM"]
         }
-        if timeOfDay[0] == 4 {
+        else if timeOfDay[0] == 4 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM"]
         }
-        if timeOfDay[0] == 5 {
+        else if timeOfDay[0] == 5 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM"]
         }
-        if timeOfDay[0] == 6 {
+        else if timeOfDay[0] == 6 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
         }
-        if timeOfDay[0] == 7 {
+       else if timeOfDay[0] == 7 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM"]
         }
-        if timeOfDay[0] == 8 {
+        else if timeOfDay[0] == 8 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM"]
         }
-        if timeOfDay[0] == 9 {
+        else if timeOfDay[0] == 9 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM"]
         }
-        if timeOfDay[0] == 10 {
+        else if timeOfDay[0] == 10 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM"]
         }
-        if timeOfDay[0] == 11 {
+        else if timeOfDay[0] == 11 {
+            timeOfDayArray.removeAll()
+            
             timeOfDayArray = ["11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM"]
         }
-        if timeOfDay[0] == 12 {
+        else if timeOfDay[0] == 12 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]
         }
-        if timeOfDay[0] == 13 {
+        else if timeOfDay[0] == 13 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM"]
+        
         }
-        if timeOfDay[0] == 14 {
+        else if timeOfDay[0] == 14 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM",]
         }
-        if timeOfDay[0] == 15 {
+        else if timeOfDay[0] == 15 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM"]
         }
-        if timeOfDay[0] == 16 {
+        else if timeOfDay[0] == 16 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM"]
         }
-        if timeOfDay[0] == 17 {
+        else if timeOfDay[0] == 17 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM"]
         }
-        if timeOfDay[0] == 18 {
+        else if timeOfDay[0] == 18 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM"]
         }
-        if timeOfDay[0] == 19 {
+       else if timeOfDay[0] == 19 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM"]
         }
-        if timeOfDay[0] == 20 {
+        else if timeOfDay[0] == 20 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM"]
         }
-        if timeOfDay[0] == 21 {
+        else if timeOfDay[0] == 21 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM"]
         }
-        if timeOfDay[0] == 22 {
+        else if timeOfDay[0] == 22 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM"]
         }
-        if timeOfDay[0] == 23 {
+        else if timeOfDay[0] == 23 {
+            timeOfDayArray.removeAll()
+           
             timeOfDayArray = ["11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM"]
         }
         
@@ -550,6 +599,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         WeekWeatherViewController().daysArrayLogic()
         tableView.refreshTable()
         timeOfDayArrayAssignment()
+        tableView.reloadData()
+        tableView.refreshTable()
+        print("itmes in timeOfDayArray \(timeOfDayArray.count)")
     }
     
     func updateAfterCitySelect() {
