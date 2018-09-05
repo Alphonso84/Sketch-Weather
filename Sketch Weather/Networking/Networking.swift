@@ -140,7 +140,7 @@ class Networking: UIViewController {
                 }
                
                 hourlyData = hourlyForecast as! [[String:AnyObject]]
-               
+                
                // nextHour = minutelyWeather!["summary"] as! String
                 weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
                 
@@ -160,10 +160,10 @@ class Networking: UIViewController {
                // print(nextHour)
                 
                 //Hour by hour for the next 48 hours
-                print(hourlyWeather!["data"]!)
-                print(hourlyWeather!["summary"]!)
-               // print(hourlyData[8]["summary"]!)
-               // print(hourlyData.count)
+               // print(hourlyWeather!["data"]!)
+               // print(hourlyWeather!["summary"]!)
+                print(hourlyData[0]["summary"]!)
+               print(hourlyData.count)
                print(date)
             } catch {
                 print(error)

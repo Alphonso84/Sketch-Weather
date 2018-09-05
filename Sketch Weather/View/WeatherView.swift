@@ -33,7 +33,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var timeGreeting = ""
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
-    var timeOfDay = [Date().timeOfDay()]
+    
     var timeOfDayArray = [String]()
     
     
@@ -107,129 +107,130 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 12
     }
     
-    //Assigns TableView time of day based on current time of day
+    //Assigns TableView time of day label based on current time of day
     func timeOfDayArrayAssignment() -> [String] {
+        var timeOfDay = [Date().timeOfDay()]
         
         if timeOfDay[0] == 0 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
+            timeOfDayArray = ["12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
         }
-        else if timeOfDay[0] == 1 {
+        if timeOfDay[0] == 1 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM"]
+            timeOfDayArray = ["1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM"]
         }
-        else if timeOfDay[0] == 2 {
+        if timeOfDay[0] == 2 {
             timeOfDayArray.removeAll()
             
-            timeOfDayArray = ["2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM"]
+            timeOfDayArray = ["2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM"]
         }
-        else if timeOfDay[0] == 3 {
+        if timeOfDay[0] == 3 {
             timeOfDayArray.removeAll()
             
-            timeOfDayArray = ["3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM"]
+            timeOfDayArray = ["3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM"]
         }
-        else if timeOfDay[0] == 4 {
+        if timeOfDay[0] == 4 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM"]
+            timeOfDayArray = ["4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM"]
         }
-        else if timeOfDay[0] == 5 {
+        if timeOfDay[0] == 5 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM"]
         }
-        else if timeOfDay[0] == 6 {
+        if timeOfDay[0] == 6 {
             timeOfDayArray.removeAll()
            
             timeOfDayArray = ["6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
         }
-       else if timeOfDay[0] == 7 {
+       if timeOfDay[0] == 7 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM"]
         }
-        else if timeOfDay[0] == 8 {
+        if timeOfDay[0] == 8 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM"]
         }
-        else if timeOfDay[0] == 9 {
+        if timeOfDay[0] == 9 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM"]
         }
-        else if timeOfDay[0] == 10 {
+        if timeOfDay[0] == 10 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM"]
         }
-        else if timeOfDay[0] == 11 {
+        if timeOfDay[0] == 11 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM"]
         }
-        else if timeOfDay[0] == 12 {
+        if timeOfDay[0] == 12 {
             timeOfDayArray.removeAll()
            
             timeOfDayArray = ["12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]
         }
-        else if timeOfDay[0] == 13 {
+        if timeOfDay[0] == 13 {
             timeOfDayArray.removeAll()
            
             timeOfDayArray = ["1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM"]
         
         }
-        else if timeOfDay[0] == 14 {
+        if timeOfDay[0] == 14 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM",]
+            timeOfDayArray = ["2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM",]
         }
-        else if timeOfDay[0] == 15 {
+        if timeOfDay[0] == 15 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM"]
+            timeOfDayArray = ["3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM"]
         }
-        else if timeOfDay[0] == 16 {
+        if timeOfDay[0] == 16 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM"]
+            timeOfDayArray = ["4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM"]
         }
-        else if timeOfDay[0] == 17 {
+        if timeOfDay[0] == 17 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM"]
+            timeOfDayArray = ["5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM"]
         }
-        else if timeOfDay[0] == 18 {
+        if timeOfDay[0] == 18 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["6PM","7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM"]
+            timeOfDayArray = ["6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM"]
         }
-       else if timeOfDay[0] == 19 {
+        if timeOfDay[0] == 19 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["7PM","8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM"]
+            timeOfDayArray = ["7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM"]
         }
-        else if timeOfDay[0] == 20 {
+        if timeOfDay[0] == 20 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["8PM","9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM"]
+            timeOfDayArray = ["8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM"]
         }
-        else if timeOfDay[0] == 21 {
+        if timeOfDay[0] == 21 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["9PM","10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM"]
+            timeOfDayArray = ["9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM"]
         }
-        else if timeOfDay[0] == 22 {
+        if timeOfDay[0] == 22 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["10PM","11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM"]
+            timeOfDayArray = ["10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM"]
         }
-        else if timeOfDay[0] == 23 {
+        if timeOfDay[0] == 23 {
             timeOfDayArray.removeAll()
            
-            timeOfDayArray = ["11PM","12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM"]
+            timeOfDayArray = ["11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM"]
         }
         
        return timeOfDayArray
@@ -238,57 +239,135 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherCell
         
-        
-        if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Sunshine")
-        }else if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
+        //Assigns hourlyWeatherImage based on summary string for hour
+        func tableViewCellImageAssignment() -> UIImage {
             
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
-            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
-            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
-            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
-            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
-            
-        }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Rainy")
-        }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
-        }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
-        }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
-            cell.hourlyWeatherImage.image = UIImage(named: "Cloudy")
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
-            cell.hourlyWeatherImage.image = UIImage(named: "Partly Cloudy")
-        }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
-            cell.hourlyWeatherImage.image = UIImage(named: "wind")
+            var timeOfDay = [Date().timeOfDay()]
+            var hourlyWeatherImage = UIImage()
+            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
+                hourlyWeatherImage = UIImage(named: "Sunshine")!
+            }
+            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+                
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+                
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
+                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
+                hourlyWeatherImage = UIImage(named: "wind")!
+            }
+            return hourlyWeatherImage
         }
+        
+        //Assigns hourlyWeatherImage based on summary string for hour but for Night
+        func nightTableViewCellImageAssignment() -> UIImage {
+            
+            var timeOfDay = [Date().timeOfDay()]
+            var hourlyWeatherImage = UIImage()
+            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
+                hourlyWeatherImage = UIImage(named: "clearNight")!
+            }
+            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
+                
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+                
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
+                hourlyWeatherImage = UIImage(named: "Rainy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
+                hourlyWeatherImage = UIImage(named: "Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
+                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
+                hourlyWeatherImage = UIImage(named: "wind")!
+            }
+            return hourlyWeatherImage
+        }
+        
+        //assigns hourlyWeatherImage for night hours by calling appropiate method
+        func cellNightAndDay() {
+            if (cell.timeLabel.text?.contains("8PM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("9PM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("10PM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("11PM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("12AM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("1 AM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("2 AM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("3 AM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else if (cell.timeLabel.text?.contains("4 AM"))!{
+                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+            }
+            else{
+                cell.hourlyWeatherImage.image = tableViewCellImageAssignment()
+            }
+        }
+        
         cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
         cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
         cell.timeLabel.textColor = UIColor.white
         cell.hourlyTempLabel.textColor = UIColor.white
         cell.timeLabel.font = UIFont.systemFont(ofSize: 27)
         cell.hourlyTempLabel.font = UIFont.systemFont(ofSize: 27)
-        
+        cellNightAndDay()
         
         
         return cell
         
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
     }
+    
+    
     
     
     func CurrentWeatherImageAssinmentLogic() ->UIImage {
@@ -601,6 +680,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         timeOfDayArrayAssignment()
         tableView.reloadData()
         tableView.refreshTable()
+        
         print("itmes in timeOfDayArray \(timeOfDayArray.count)")
     }
     
@@ -702,5 +782,9 @@ extension UITableView {
         let indexPathForSection = NSIndexSet(index: 0)
         self.reloadSections(indexPathForSection as IndexSet, with: UITableViewRowAnimation.bottom)
     }
+    
+   
+    
+    
 }
 
