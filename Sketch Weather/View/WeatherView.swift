@@ -19,7 +19,7 @@ var weatherVariables: [AnyObject] = []
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+    
     @IBOutlet weak var scrollingLabel: MarqueeLabel!
     
     @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
@@ -113,12 +113,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if timeOfDay[0] == 0 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"]
         }
         if timeOfDay[0] == 1 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM"]
         }
         if timeOfDay[0] == 2 {
@@ -133,7 +133,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if timeOfDay[0] == 4 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["4 AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM"]
         }
         if timeOfDay[0] == 5 {
@@ -143,10 +143,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if timeOfDay[0] == 6 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
         }
-       if timeOfDay[0] == 7 {
+        if timeOfDay[0] == 7 {
             timeOfDayArray.removeAll()
             
             timeOfDayArray = ["7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM"]
@@ -173,67 +173,67 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         if timeOfDay[0] == 12 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]
         }
         if timeOfDay[0] == 13 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM"]
-        
+            
         }
         if timeOfDay[0] == 14 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM",]
         }
         if timeOfDay[0] == 15 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM"]
         }
         if timeOfDay[0] == 16 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM"]
         }
         if timeOfDay[0] == 17 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["5PM","6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM"]
         }
         if timeOfDay[0] == 18 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["6PM","7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM"]
         }
         if timeOfDay[0] == 19 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["7PM","8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM"]
         }
         if timeOfDay[0] == 20 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["8PM","9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM"]
         }
         if timeOfDay[0] == 21 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["9PM","10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM"]
         }
         if timeOfDay[0] == 22 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["10PM","11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM"]
         }
         if timeOfDay[0] == 23 {
             timeOfDayArray.removeAll()
-           
+            
             timeOfDayArray = ["11PM","12AM","1 AM","2 AM","3 AM","4 AM","5AM","6AM","7AM","8AM","9AM","10AM"]
         }
         
-       return timeOfDayArray
+        return timeOfDayArray
     }
     
     
@@ -306,7 +306,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
                 hourlyWeatherImage = UIImage(named: "Cloudy")!
             }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
-                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
             }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
                 hourlyWeatherImage = UIImage(named: "wind")!
             }
@@ -573,12 +573,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             cold = ""
         }
         
-        
-        
-        
         //This block contructs the actual speech utterance
         let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
-       
+        
         synthesizer.speak(utterance)
     }
     func speech() {
@@ -607,7 +604,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
-
+    
     
     @IBAction func SwipeDownGesture(_ sender: Any) {
         swipeUpGesture.isEnabled = false
@@ -640,7 +637,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.synthesizer.speak(utterance)
             
         })
-       
+        
     }
     @IBAction func tapGesture(_ sender: Any) {
         //swipeLeftGesture.isEnabled = true
@@ -654,9 +651,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.summaryLabel.alpha = 1
             self.scrollingLabel.alpha = 1
             self.summaryLabel.text = now?.summary
-        
+            
         })
-      updateAll()
+        updateAll()
     }
     
     func updateAll() {
@@ -682,10 +679,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshTable()
         
         print("itmes in timeOfDayArray \(timeOfDayArray.count)")
-    }
-    
-    func updateAfterCitySelect() {
-        
     }
     
     //The various Arrays are populated before view appears here
@@ -739,7 +732,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
@@ -747,7 +740,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         WeekWeatherViewController().daysArrayLogic()
         scrollLabelUpdate()
         scrollingLabel.backgroundColor = .clear
-       
+        
         myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
@@ -783,7 +776,7 @@ extension UITableView {
         self.reloadSections(indexPathForSection as IndexSet, with: UITableViewRowAnimation.bottom)
     }
     
-   
+    
     
     
 }

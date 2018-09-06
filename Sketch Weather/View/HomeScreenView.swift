@@ -138,6 +138,10 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
 //     Chicago
 //     41.984
 //     -87.762
+ //
+//    Portland
+//      45.499
+//      -122.657
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.786 -122.433
     func locationInit() {
