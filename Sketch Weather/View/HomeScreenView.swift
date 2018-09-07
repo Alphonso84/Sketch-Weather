@@ -22,7 +22,7 @@ let status = CLLocationManager.authorizationStatus()
 
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
-    
+    var reachability: Reachability?
     
     @objc func switchViews() {
         
@@ -69,15 +69,18 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         }
     }
     func startApp() {
+       
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getWeatherForecast()
         cityString = getCityFromCoordinate()
+        print("Start App Was Called")
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
-            startApp()
+            networkCheck()
+            //startApp()
         }else if status == .denied || status == .restricted {
             let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -99,6 +102,24 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func networkCheck() {
+        self.reachability = Reachability.init()
+        
+        if ((self.reachability!.connection) != .none) {
+             startApp()
+            
+        }else if ((self.reachability!.connection) == .none) {
+            let locationAlert = UIAlertController(title: "No Internet Connection", message: "Speak Weather will need an Internet connection to work properly. Please go to settings and connect to a network", preferredStyle: UIAlertControllerStyle.alert)
+            locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.dismiss(animated: true)
+            DispatchQueue.main.async {
+                self.present(locationAlert, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         setBackgroundForTimeOfDay()
         
@@ -115,9 +136,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self
-        //let locationManager = CLLocationManager()
-    
-        locationPermissions()
+        
         
     }
     //  Oakland
