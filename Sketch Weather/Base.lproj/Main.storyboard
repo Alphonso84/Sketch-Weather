@@ -602,6 +602,7 @@
                         <outlet property="locationLabel" destination="4gC-Xg-Xc1" id="nMa-2I-96S"/>
                         <outlet property="lowerBackground" destination="G9Z-nh-EFb" id="ywi-0b-upa"/>
                         <outlet property="scrollingLabel" destination="KfB-08-zeS" id="Ri7-hG-N1i"/>
+                        <outlet property="shadowImage" destination="WZS-1Z-d7r" id="9yh-FD-T2Y"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
                         <outlet property="swipeDownGesture" destination="jG3-g7-hqU" id="zNu-gz-bdT"/>
                         <outlet property="swipeUpGesture" destination="Ilo-dm-DT6" id="85e-Ek-194"/>

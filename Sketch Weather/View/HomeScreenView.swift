@@ -79,8 +79,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
-            networkCheck()
-            //startApp()
+           networkCheck()
+           // startApp()
         }else if status == .denied || status == .restricted {
             let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -97,17 +97,17 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             manager.requestWhenInUseAuthorization()
            
         }else if status == .authorizedAlways || status == .authorizedWhenInUse {
-           startApp()
+           networkCheck()
         }
         
     }
     
     func networkCheck() {
         self.reachability = Reachability.init()
-        
+
         if ((self.reachability!.connection) != .none) {
              startApp()
-            
+
         }else if ((self.reachability!.connection) == .none) {
             let locationAlert = UIAlertController(title: "No Internet Connection", message: "Speak Weather will need an Internet connection to work properly. Please go to settings and connect to a network", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -116,8 +116,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
                 self.present(locationAlert, animated: true, completion: nil)
             }
         }
-        
-        
+
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,7 +136,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self
-        
+        //THIS IS CALLED FIRST
+        locationPermissions()
         
     }
     //  Oakland
@@ -162,7 +163,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
 //      45.499
 //      -122.657
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
-    //37.786 -122.433
+    //37.781 -122.450
     func locationInit() {
         latitude = [manager.location?.coordinate.latitude] as! [Double]
         longitude = [manager.location?.coordinate.longitude] as! [Double]

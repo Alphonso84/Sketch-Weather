@@ -28,6 +28,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet var swipeUpGesture: UISwipeGestureRecognizer!
     
+    @IBOutlet weak var shadowImage: UIImageView!
     
     @IBOutlet weak var cityImage: UIImageView!
     var timeGreeting = ""
@@ -628,6 +629,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.currentWeatherImage.alpha = 0.20
             self.backGroundWeather.alpha = 0.20
             self.temperatureLabel.alpha = 0.20
+            self.shadowImage.alpha = 0.20
             self.scrollingLabel.alpha = 0
             self.summaryLabel.text = daySummary
             // self.cityImage.alpha = 0.20
@@ -648,6 +650,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.currentWeatherImage.alpha = 1
             self.backGroundWeather.alpha = 0.5
             self.temperatureLabel.alpha = 1
+            self.shadowImage.alpha = 1
             self.summaryLabel.alpha = 1
             self.scrollingLabel.alpha = 1
             self.summaryLabel.text = now?.summary
@@ -681,6 +684,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("itmes in timeOfDayArray \(timeOfDayArray.count)")
     }
     
+    func shadowImageForCity() {
+       
+        
+        if cityString == "San Francisco" {
+            shadowImage.image = UIImage(named: "San Francisco")
+        }
+        if cityString == "New York" {
+            shadowImage.image = UIImage(named: "NY")
+        }
+        if cityString == "Seattle" {
+            shadowImage.image = UIImage(named: "Seattle")
+            scrollingLabel.textColor = .blue
+        }
+        
+        
+    }
+    
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -693,10 +713,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.alpha = 0
+        temperatureLabel.alpha = 1
+        scrollingLabel.alpha = 1
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
+        //cityString = "New York"
+        shadowImageForCity()
         WeekWeatherViewController().daysArrayLogic()
         speechUtterance()
+        
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
