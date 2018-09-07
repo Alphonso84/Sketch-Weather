@@ -690,6 +690,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if cityString == "San Francisco" {
             shadowImage.image = UIImage(named: "San Francisco")
         }
+        if cityString == "Oakland" {
+            shadowImage.image = UIImage(named: "Oakland")
+        }
         if cityString == "New York" {
             shadowImage.image = UIImage(named: "NY")
         }
@@ -715,6 +718,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.alpha = 0
         temperatureLabel.alpha = 1
         scrollingLabel.alpha = 1
+        shadowImage.alpha = 1
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         //cityString = "New York"
