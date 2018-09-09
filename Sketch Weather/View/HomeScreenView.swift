@@ -69,7 +69,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         }
     }
     func startApp() {
-       
+        
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getWeatherForecast()
         cityString = getCityFromCoordinate()
@@ -79,8 +79,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
-           networkCheck()
-           // startApp()
+            networkCheck()
+            // startApp()
         }else if status == .denied || status == .restricted {
             let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -91,23 +91,23 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         }
     }
     func locationPermissions() {
-       
+        
         if status == .notDetermined || status == .denied  {
             manager.requestAlwaysAuthorization()
             manager.requestWhenInUseAuthorization()
-           
+            
         }else if status == .authorizedAlways || status == .authorizedWhenInUse {
-           networkCheck()
+            networkCheck()
         }
         
     }
     
     func networkCheck() {
         self.reachability = Reachability.init()
-
+        
         if ((self.reachability!.connection) != .none) {
-             startApp()
-
+            startApp()
+            
         }else if ((self.reachability!.connection) == .none) {
             let locationAlert = UIAlertController(title: "No Internet Connection", message: "Speak Weather will need an Internet connection to work properly. Please go to settings and connect to a network", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -116,8 +116,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
                 self.present(locationAlert, animated: true, completion: nil)
             }
         }
-
-
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,28 +140,38 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         locationPermissions()
         
     }
-    //  Oakland
-    //  37.810
-    //  -122.252
-    //West Bloomfield
-    // 42.550
-    // -83.384
+    //    Oakland
+    //     37.810
+    //    -122.252
     
-//    New York
-//     40.662
-//    -73.957
+    //   West Bloomfield
+    //     42.550
+    //    -83.384
     
-//    Washington DC
-//    38.915
-//    -77.001
+    //    New York
+    //     40.662
+    //    -73.957
     
-//     Chicago
-//     41.984
-//     -87.762
- //
-//    Portland
-//      45.499
-//      -122.657
+    //     Boston
+    //     42.361
+    //    -71.059
+    
+    //    Washington DC
+    //    38.915
+    //    -77.001
+    
+    //     Chicago
+    //     41.984
+    //     -87.762
+    
+    //    Portland
+    //      45.499
+    //      -122.657
+    
+    //      Philidelphia
+    //      39.941
+    //      -75.158
+    
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.781 -122.450
     func locationInit() {

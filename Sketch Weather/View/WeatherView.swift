@@ -15,7 +15,7 @@ import MarqueeLabel
 
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
-
+var spokenCounter = 0
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -31,10 +31,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var shadowImage: UIImageView!
     
     @IBOutlet weak var cityImage: UIImageView!
+    
     var timeGreeting = ""
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
-    
     var timeOfDayArray = [String]()
     
     
@@ -546,8 +546,46 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return windString
     }
     
-    //METHOD DETERMINES SPEECH OF WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
-    func speechUtterance() {
+    //LIMITS SPEECH TO BE SPOKEN A CERTAIN NUMBER OF TIMES. NUMBER OF TIMES AS INT ARGUMENT
+    //OPTIONALLY ADD TEXT TO BE SPOKEN AS ARGUMENT
+    //ADJUSTS SPOKENCOUNTER VARIABLE DECLARED AT TOP OF CLASS
+    func speechCounter(numberOfTimes:Int, customSpeech: String) {
+        var createdUtterance = AVSpeechUtterance(string: customSpeech)
+        if spokenCounter < numberOfTimes {
+            if customSpeech != "" {
+                synthesizer.speak(createdUtterance)
+                spokenCounter += 1
+                print(spokenCounter)
+                    
+                    if spokenCounter >= numberOfTimes {
+                        let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
+                        createdUtterance = AVSpeechUtterance(string: "")
+                        synthesizer.speak(utterance2)
+                    }
+                
+            } else {
+              
+                
+                var swipeUpUtterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
+            synthesizer.speak(swipeUpUtterance)
+            
+            if synthesizer.isSpeaking {
+                spokenCounter += 1
+                print(spokenCounter)
+                
+                if spokenCounter >= numberOfTimes {
+                    let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
+                    swipeUpUtterance = AVSpeechUtterance(string: "")
+                    synthesizer.speak(utterance2)
+            }
+          }
+        }
+      }
+    }
+    
+    
+    //METHOD DETERMINES SPEECH OF CURRENT WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
+    func speechUtterance() -> String {
         var hot = ""
         var cold = ""
         let date = Date()
@@ -575,18 +613,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         //This block contructs the actual speech utterance
-        let utterance = AVSpeechUtterance(string: "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week.")
+        let currentSpokenForecast = "\(timeGreeting). Welcome Too  \(cityString).  \(hot)\(cold) The current temperature is \(temperatureLabel.text!) degrees. It is \(summaryLabel.text!) With wind blowing from the \(windDirection) at \(Int((now?.windSpeed)!)) Miles per hour. Swipe up to see hourly conditions for the rest of the day. Or, Swipe to the left to get the Forecast for the coming week."
         
-        synthesizer.speak(utterance)
+       return currentSpokenForecast
     }
-    func speech() {
-        let utterance = AVSpeechUtterance(string: "Here is your forecast for the week! \(weekSummary). Tap anywhere to dismiss.")
-        
-        synthesizer.speak(utterance)
-    }
-    
-    
-    
     
     func setBackgroundForTimeOfDay() {
         //THE DATE OBJECT IS USED TO ASSIGN DIFFERENT IMAGE BASED ON THE TIME OF DAY
@@ -632,13 +662,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.shadowImage.alpha = 0.20
             self.scrollingLabel.alpha = 0
             self.summaryLabel.text = daySummary
-            // self.cityImage.alpha = 0.20
-            
-            let utterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
-            
-            self.synthesizer.speak(utterance)
-            
         })
+        
+        
+        speechCounter(numberOfTimes: 10, customSpeech: "")
         
     }
     @IBAction func tapGesture(_ sender: Any) {
@@ -685,7 +712,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func shadowImageForCity() {
-       
+        
         
         if cityString == "San Francisco" {
             shadowImage.image = UIImage(named: "San Francisco")
@@ -699,6 +726,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if cityString == "Seattle" {
             shadowImage.image = UIImage(named: "Seattle")
             scrollingLabel.textColor = .blue
+        }
+        if cityString == "Boston" {
+            shadowImage.image = UIImage(named: "Boston")
+        }
+        if cityString == "Philadelphia" {
+            shadowImage.image = UIImage(named: "Philadelphia")
         }
         
         
@@ -721,11 +754,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         shadowImage.alpha = 1
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
-        //cityString = "New York"
+       // cityString = "Pittsburg"
         shadowImageForCity()
         WeekWeatherViewController().daysArrayLogic()
-        speechUtterance()
-        
+        speechCounter(numberOfTimes: 10, customSpeech: speechUtterance())
         
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0

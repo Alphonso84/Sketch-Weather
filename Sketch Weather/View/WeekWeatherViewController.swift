@@ -11,6 +11,8 @@ import AVKit
 var todayArray = [Date().dayOfWeek()]
 var weekArray = [String]()
 class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     @IBOutlet weak var cityBackgroundImage: UIImageView!
     
     let synthesizer = AVSpeechSynthesizer()
@@ -148,17 +150,6 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
-    //SPEAKING THE WEEKSUMMARY FROM NETWORKING 
-    func speech() {
-    let utterance = AVSpeechUtterance(string: weekSummary)
-
-    synthesizer.speak(utterance)
-    }
-    
-   
-   
-    
-    
     
     @IBAction func MenuButton(_ sender: Any) {
     }
@@ -178,7 +169,8 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         UIView.animate(withDuration: 0.5, animations: {
             self.collectionView.alpha = 1
         })
-        speech()
+        //CALL FOR SPEECH
+         speechCounter(numberOfTimes: 10, customSpeech: weekSummary)
         print(weekForecast[0]["summary"]!)
         
     }
@@ -188,6 +180,40 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
         
        
         
+    }
+    
+    func speechCounter(numberOfTimes:Int, customSpeech: String) {
+        var createdUtterance = AVSpeechUtterance(string: customSpeech)
+        if spokenCounter < numberOfTimes {
+            if customSpeech != "" {
+                synthesizer.speak(createdUtterance)
+                spokenCounter += 1
+                print(spokenCounter)
+                
+                if spokenCounter >= numberOfTimes {
+                    let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
+                    createdUtterance = AVSpeechUtterance(string: "")
+                    synthesizer.speak(utterance2)
+                }
+                
+            } else {
+                
+                
+                var swipeUpUtterance = AVSpeechUtterance(string: "Here are the expected conditions for the next 12 hours. It should be \(daySummary). Tap any where to dismiss")
+                synthesizer.speak(swipeUpUtterance)
+                
+                if synthesizer.isSpeaking {
+                    spokenCounter += 1
+                    print(spokenCounter)
+                    
+                    if spokenCounter >= numberOfTimes {
+                        let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
+                        swipeUpUtterance = AVSpeechUtterance(string: "")
+                        synthesizer.speak(utterance2)
+                    }
+                }
+            }
+        }
     }
     
     func myMotionEffect(view: UIView, min: CGFloat, max: CGFloat) {
