@@ -27,9 +27,9 @@ class MyCell: UICollectionViewCell {
         _ = calendar.component(.minute, from: date)
         _ = calendar.component(.second, from: date)
         
-        if (21...23).contains(hour) {
+        if (19...23).contains(hour) {
             backgroundCellImage.image = UIImage(named: "dark")
-        }else if (0...4).contains(hour) {
+        }else if (0...5).contains(hour) {
             backgroundCellImage.image = UIImage(named:"dark")
         }else{
             backgroundCellImage.image = UIImage(named:"Blueback")

@@ -409,24 +409,24 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             weatherBottomImage = UIImage(named: "Sunshine")!
             backGroundWeather.image = nil
         }
-        if (summaryLabel.text?.contains("Clear"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Clear"))! && (19...23).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
             backGroundWeather.image = nil
             
         }
-        if (summaryLabel.text?.contains("Clear"))! && (0...4).contains(hour) {
+        if (summaryLabel.text?.contains("Clear"))! && (0...5).contains(hour) {
             weatherBottomImage = UIImage(named: "clearNight")!
             backGroundWeather.image = nil
             
         }
-        if (summaryLabel.text?.contains("Partly Cloudy"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (19...23).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = view.center
             
         }
-        if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...4).contains(hour) {
+        if (summaryLabel.text?.contains("Partly Cloudy"))! && (0...5).contains(hour) {
             weatherBottomImage = UIImage(named: "partlyCloudyNight")!
             
             backGroundWeather.image = UIImage(named: "Cloudy")!
@@ -441,7 +441,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         
-        if (summaryLabel.text?.contains("Overcast"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Overcast"))! && (19...23).contains(hour) {
             weatherBottomImage = UIImage(named: "Cloudy")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
@@ -455,14 +455,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.alpha = 0.5
             
         }
-        if (summaryLabel.text?.contains("Light Rain"))! && (0...4).contains(hour) {
+        if (summaryLabel.text?.contains("Light Rain"))! && (0...5).contains(hour) {
             summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             
         }
-        if (summaryLabel.text?.contains("Light Rain"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Light Rain"))! && (19...23).contains(hour) {
             summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
@@ -470,14 +470,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         
-        if (summaryLabel.text?.contains("Rain"))! && (0...4).contains(hour) {
+        if (summaryLabel.text?.contains("Rain"))! && (0...5).contains(hour) {
             summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
             backGroundWeather.center = self.view.center
         }
-        if (summaryLabel.text?.contains("Rain"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Rain"))! && (19...23).contains(hour) {
             summaryLabel.text = "Raining"
             weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
@@ -495,13 +495,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
-        if (summaryLabel.text?.contains("Drizzle"))! && (0...4).contains(hour) {
+        if (summaryLabel.text?.contains("Drizzle"))! && (0...5).contains(hour) {
             summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named: "rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
             backGroundWeather.alpha = 0.5
         }
-        if (summaryLabel.text?.contains("Drizzle"))! && (20...23).contains(hour) {
+        if (summaryLabel.text?.contains("Drizzle"))! && (19...23).contains(hour) {
             summaryLabel.text = "Lightly Raining"
             weatherBottomImage = UIImage(named:"rain")!
             backGroundWeather.image = UIImage(named: "Cloudy")!
@@ -624,10 +624,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         
-        if (20...23).contains(hour) {
+        if (19...23).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
             
-        }else if (0...4).contains(hour) {
+        }else if (0...5).contains(hour) {
             backGroundImageView.image = UIImage(named:"dark")
             
         }else{
