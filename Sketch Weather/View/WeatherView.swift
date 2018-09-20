@@ -551,6 +551,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //ADJUSTS SPOKENCOUNTER VARIABLE DECLARED AT TOP OF CLASS
     func speechCounter(numberOfTimes:Int, customSpeech: String) {
         var createdUtterance = AVSpeechUtterance(string: customSpeech)
+       
         if spokenCounter < numberOfTimes {
             if customSpeech != "" {
                 synthesizer.speak(createdUtterance)
@@ -574,7 +575,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print(spokenCounter)
                 
                 if spokenCounter >= numberOfTimes {
-                    let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
+                    let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. Speech will now be muted. Restart the app to hear from me again.")
                     swipeUpUtterance = AVSpeechUtterance(string: "")
                     synthesizer.speak(utterance2)
             }
@@ -741,6 +742,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        
         Networking().getWeatherForecast()
         appendArray()
         locationLabel.text = cityString
@@ -758,11 +760,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         shadowImageForCity()
         WeekWeatherViewController().daysArrayLogic()
         speechCounter(numberOfTimes: 10, customSpeech: speechUtterance())
-        
         //ANIMATIONS FOR CURRENT WEATHER IMAGE
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 200, y: 0)
         backGroundWeather.center = self.view.center
+       
         
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
