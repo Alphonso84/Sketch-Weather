@@ -630,7 +630,7 @@
         <!--Map View-->
         <scene sceneID="m7M-An-zoK">
             <objects>
-                <viewController id="r2e-QL-b5e" customClass="MapView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" id="r2e-QL-b5e" customClass="MapView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MS3-dC-wk8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import AerisWeatherKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
-        
+        AerisWeather.start(withApiKey: "4v6BOcwwocVGnLSYosWkh", secret: "nRnN0WyE0mr7j6cKLjkLecBKQf8U0jS4ft7Q3H7g")
         return true
     }
 

@@ -9,18 +9,28 @@
 import Foundation
 import WebKit
 import UIKit
-import MapKit
+import AerisWeatherKit
+import AerisMapKit
+
 import CoreLocation
 
 
-class MapView: UIViewController {
+class MapView: UIViewController, AWFWeatherMapDelegate {
     
    
+    let weatherMap = AWFWeatherMap(mapType: .apple, config: AWFWeatherMapConfig())
+    let radarSource = AWFTileSource(layerType: .radar)
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        weatherMap.delegate = self
        
+        weatherMap.weatherMapView.frame = view.bounds
+        view.addSubview(weatherMap.weatherMapView)
+        weatherMap.addSource(radarSource)
         }
     
     
