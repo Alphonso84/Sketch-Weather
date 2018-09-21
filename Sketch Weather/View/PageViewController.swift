@@ -12,8 +12,9 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVC(viewController: "WeatherView"),self.newVC(viewController: "WeekView"),self.newVC(viewController: "MapView")]
+        return [self.newVC(viewController: "WeatherView"),self.newVC(viewController: "WeekView")]
     }()
+    //,self.newVC(viewController: "MapView")
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController)
