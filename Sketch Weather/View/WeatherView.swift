@@ -637,18 +637,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+   
     @IBAction func swipeDownGesture(_ sender: Any) {
-        
-                swipeUpGesture.isEnabled = false
-        //        UIView.animate(withDuration: 0.5, animations: {
-        //            self.tableView.alpha = 0
-        //            self.currentWeatherImage.alpha = 0.1
-        //            self.backGroundWeather.alpha = 0.1
-        //            self.temperatureLabel.alpha = 0.1
-        //            self.scrollingLabel.alpha = 0.1
-        //            self.summaryLabel.alpha = 0.1
-        //            self.locationLabel.alpha = 0.1
-        //        })
+         summaryLabel.text = "Precipitation Map"
+        print("SwipeDown-------------------------------------------->>")
     }
     
     
