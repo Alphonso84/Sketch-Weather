@@ -23,13 +23,14 @@ class MapView: UIViewController, AWFWeatherMapDelegate {
     
     let locations = CLLocationCoordinate2DMake(latitude[0] , longitude[0])
     
-    let weatherMap = AWFWeatherMap(mapType: .apple, config: AWFWeatherMapConfig())
+    let weatherMap = AWFWeatherMap(mapType: .apple , config: AWFWeatherMapConfig())
     let radarSource = AWFTileSource(layerType: .radar)
    // let roadConditions = AWFTileSource(layerType: .roadConditions)
     
     override func viewWillAppear(_ animated: Bool) {
         let isRadarActive = weatherMap.containsSource(forLayerType: .radar)
         let source = weatherMap.source(forLayerType: .radar)
+        let geoColor = weatherMap.source(forLayerType: .satelliteVisibleTransparent)
         weatherMap.refreshAllSources()
     }
     
@@ -46,7 +47,7 @@ class MapView: UIViewController, AWFWeatherMapDelegate {
         
         weatherMap.weatherMapView.frame = CGRect(x: 15, y: 165, width: 350, height: 500)
             //view.bounds
-       // weatherMap.addSources(forLayerTypes: [.radar])
+        weatherMap.addSources(forLayerTypes: [.cloudCover])
         
         view.addSubview(weatherMap.weatherMapView)
         
