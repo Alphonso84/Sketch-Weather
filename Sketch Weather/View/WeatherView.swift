@@ -551,7 +551,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //ADJUSTS SPOKENCOUNTER VARIABLE DECLARED AT TOP OF CLASS
     func speechCounter(numberOfTimes:Int, customSpeech: String) {
         var createdUtterance = AVSpeechUtterance(string: customSpeech)
-       
+        var voice = AVSpeechSynthesisVoiceQuality.enhanced
+        
         if spokenCounter < numberOfTimes {
             if customSpeech != "" {
                 synthesizer.speak(createdUtterance)
@@ -561,6 +562,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if spokenCounter >= numberOfTimes {
                         let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. The speech will now be muted. Restart the app to hear from me again.")
                         createdUtterance = AVSpeechUtterance(string: "")
+                        utterance2.voice = AVSpeechSynthesisVoice(language: "en-US")
+                        let allVoices = AVSpeechSynthesisVoice.speechVoices()
+                        utterance2.voice = AVSpeechSynthesisVoice(identifier: allVoices[0].identifier)
                         synthesizer.speak(utterance2)
                     }
                 
@@ -577,6 +581,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if spokenCounter >= numberOfTimes {
                     let utterance2 = AVSpeechUtterance(string: "You've heard enough from me. Speech will now be muted. Restart the app to hear from me again.")
                     swipeUpUtterance = AVSpeechUtterance(string: "")
+                    
                     synthesizer.speak(utterance2)
             }
           }
@@ -625,7 +630,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         
-        if (19...23).contains(hour) {
+        if (18...23).contains(hour) {
             backGroundImageView.image = UIImage(named: "dark")
             
         }else if (0...5).contains(hour) {
