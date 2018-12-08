@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		890BD3FA20525C4000628875 /* Date Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890BD3F920525C4000628875 /* Date Logic.swift */; };
+		8929526521BB9EA000BBE7B9 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8929526321BB9EA000BBE7B9 /* Rain.sks */; };
+		8929526621BB9EA000BBE7B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8929526421BB9EA000BBE7B9 /* Assets.xcassets */; };
+		8929526821BB9F5D00BBE7B9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929526721BB9F5D00BBE7B9 /* GameScene.swift */; };
 		892FF1172003799B00C558E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1162003799B00C558E4 /* AppDelegate.swift */; };
 		892FF1192003799B00C558E4 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1182003799B00C558E4 /* WeatherView.swift */; };
 		892FF11C2003799B00C558E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11A2003799B00C558E4 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 		1ADEC3405684671668CBBDE2 /* Pods-Sketch Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketch Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		275709BE307B9C4A903E7386 /* Pods-Sketch Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketch Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather.release.xcconfig"; sourceTree = "<group>"; };
 		890BD3F920525C4000628875 /* Date Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Logic.swift"; sourceTree = "<group>"; };
+		8929526321BB9EA000BBE7B9 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
+		8929526421BB9EA000BBE7B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8929526721BB9F5D00BBE7B9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		892FF1132003799B00C558E4 /* Sketch Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		892FF1162003799B00C558E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892FF1182003799B00C558E4 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -146,9 +152,12 @@
 			children = (
 				899AB72A210A94CC0082E8A7 /* PageViewController.swift */,
 				89375E18203F60B300E3F402 /* HomeScreenView.swift */,
+				8929526321BB9EA000BBE7B9 /* Rain.sks */,
+				8929526421BB9EA000BBE7B9 /* Assets.xcassets */,
 				892FF13120043BAF00C558E4 /* MenuView.swift */,
 				897D47672012AEB800CB68FD /* MenuViewTableCell.swift */,
 				892FF1182003799B00C558E4 /* WeatherView.swift */,
+				8929526721BB9F5D00BBE7B9 /* GameScene.swift */,
 				892FF12F20043A2600C558E4 /* WeekWeatherViewController.swift */,
 				89EE5FA62111B4B40028ADB5 /* WeatherCell.swift */,
 				898FE83F204FCE8F002764D7 /* WeekCell.swift */,
@@ -227,8 +236,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				892FF1212003799B00C558E4 /* LaunchScreen.storyboard in Resources */,
+				8929526521BB9EA000BBE7B9 /* Rain.sks in Resources */,
 				892FF11E2003799B00C558E4 /* Assets.xcassets in Resources */,
 				892FF11C2003799B00C558E4 /* Main.storyboard in Resources */,
+				8929526621BB9EA000BBE7B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +317,7 @@
 				897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */,
 				898FE840204FCE8F002764D7 /* WeekCell.swift in Sources */,
 				892FF1192003799B00C558E4 /* WeatherView.swift in Sources */,
+				8929526821BB9F5D00BBE7B9 /* GameScene.swift in Sources */,
 				898FE83E204FC7F6002764D7 /* DayModel.swift in Sources */,
 				892FF13020043A2600C558E4 /* WeekWeatherViewController.swift in Sources */,
 				892FF1172003799B00C558E4 /* AppDelegate.swift in Sources */,
