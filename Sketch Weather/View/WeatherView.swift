@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import AVKit
 import MarqueeLabel
+import SpriteKit
 
 
 var weatherImages: [UIImage] = []
@@ -36,7 +37,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var windDirection = ""
     let synthesizer = AVSpeechSynthesizer()
     var timeOfDayArray = [String]()
-    
+    var skView = SKView()
     
     @IBOutlet var topView: UIView!
     @IBOutlet weak var lowerBackground: UIImageView!
@@ -95,6 +96,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         reloadInputViews()
     }
+//    THIS METHOD IMPLEMENTS THE INSTANTIATION OF THE SPRITEKIT RAIN ANIMATION
+    func setupGameScene() {
+        let scene = GameScene(size: CGSize(width: 1080, height: 1920))
+        scene.scaleMode = .aspectFill
+        //skView = self.view as! SKView
+        skView.presentScene(scene)
+        
+    }
+    
+   
     
     
     //TABLEVIEW FUNCTIONS
@@ -738,8 +749,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     //The various Arrays are populated before view appears here
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        
         Networking().getWeatherForecast()
         appendArray()
         locationLabel.text = cityString
@@ -761,19 +770,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.currentWeatherImage.alpha = 0.0
         self.currentWeatherImage.center = CGPoint(x: 200, y: 0)
         backGroundWeather.center = self.view.center
-       
-        
         //self.currentWeatherImage.transform = CGAffineTransform(rotationAngle: 180.0)
         UIView.animate(withDuration: 2.5, animations: {
             self.currentWeatherImage.center = self.view.center
             self.currentWeatherImage.alpha = 1.0
-            
-            
         })
-        
-        
-        
     }
+    
     func scrollLabelUpdate() {
         scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                                             "
     }
@@ -800,7 +803,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         WeekWeatherViewController().daysArrayLogic()
         scrollLabelUpdate()
         scrollingLabel.backgroundColor = .clear
-        
+        setupGameScene()
         myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
