@@ -100,7 +100,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func setupGameScene() {
         let scene = GameScene(size: CGSize(width: 1080, height: 1920))
         scene.scaleMode = .aspectFill
-        //skView = self.view as! SKView
+        skView = self.view as! SKView
         skView.presentScene(scene)
         
     }
@@ -796,7 +796,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         
-        summaryLabel.text = now?.summary
+        //summaryLabel.text = now?.summary
+        summaryLabel.text = "Rain"
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()

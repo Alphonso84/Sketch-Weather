@@ -37,7 +37,7 @@ class Networking: UIViewController {
     //USED FOR LOCATION BASED CALL
     public func buildURL(constructedUrl: String) -> URL {
         
-        let apiKey = ""
+        let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
         let base = "https://api.darksky.net/forecast/"
         location = "\(latitude[0]),\(longitude[0])"
         urlString = "\(base)\(apiKey)\(location)"
@@ -49,7 +49,7 @@ class Networking: UIViewController {
     //USED FOR CITY SELECTION BASED CALL IN WEATHEVIEWCONTROLLER
     public func buildSelectedURL(constructedUrl: String) -> URL {
         
-        let apiKey = ""
+        let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
         let base = "https://api.darksky.net/forecast/"
         let selectedLocationString = "\(selectedLocation)"
         selectedUrlString = "\(base)\(apiKey)\(selectedLocationString)"
