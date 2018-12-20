@@ -98,10 +98,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 //    THIS METHOD IMPLEMENTS THE INSTANTIATION OF THE SPRITEKIT RAIN ANIMATION
     func setupGameScene() {
+        self.view.sendSubview(toBack: backGroundImageView)
+        backGroundImageView.alpha = 0.85
         let scene = GameScene(size: view.bounds.size)
         //CGSize(width: 1080, height: 1920)
         scene.scaleMode = .aspectFill
-        skView = self.view as! SKView
+        self.view.sendSubview(toBack: backGroundImageView)
+        skView = view as! SKView
+        self.view.bringSubview(toFront: skView)
         skView.presentScene(scene)
         
     }
@@ -756,6 +760,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         setBackgroundForTimeOfDay()
         windDirection = windBearing()
         summaryLabel.text = now?.summary
+        
+        setupGameScene()
+        if (summaryLabel.text?.contains("Overcast"))! {
+            
+        }
+       
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.alpha = 0
         temperatureLabel.alpha = 1
@@ -797,15 +807,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         
-        //summaryLabel.text = now?.summary
-        summaryLabel.text = "Rain"
+        
+        summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         WeekWeatherViewController().daysArrayLogic()
         scrollLabelUpdate()
         scrollingLabel.backgroundColor = .clear
-        setupGameScene()
         myMotionEffect(view: scrollingLabel, min: -15, max: 15)
         myMotionEffect(view: summaryLabel, min: -10, max: 10)
         myMotionEffect(view: temperatureLabel, min: -10, max: 10)
