@@ -580,7 +580,6 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ilo-dm-DT6" appends="YES" id="D8q-1h-vDH"/>
                             <outletCollection property="gestureRecognizers" destination="aMG-0b-ctY" appends="YES" id="Izo-Nj-z4p"/>
-                            <outletCollection property="gestureRecognizers" destination="fdr-5q-lLj" appends="YES" id="UxA-vA-88f"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Day" id="dmz-t9-aCb">
@@ -601,7 +600,6 @@
                         <outlet property="scrollingLabel" destination="KfB-08-zeS" id="Ri7-hG-N1i"/>
                         <outlet property="shadowImage" destination="WZS-1Z-d7r" id="9yh-FD-T2Y"/>
                         <outlet property="summaryLabel" destination="E8p-xv-LpB" id="nGc-ST-FYR"/>
-                        <outlet property="swipeDownGesture" destination="fdr-5q-lLj" id="ywV-x6-sQS"/>
                         <outlet property="swipeUpGesture" destination="Ilo-dm-DT6" id="85e-Ek-194"/>
                         <outlet property="tableView" destination="IZq-w4-CRC" id="bqf-iI-XzZ"/>
                         <outlet property="temperatureLabel" destination="RfW-ps-pJf" id="Kuf-OO-kFE"/>
@@ -619,12 +617,6 @@
                         <action selector="tapGesture:" destination="BYZ-38-t0r" id="RQx-Ey-ugO"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="fdr-5q-lLj" userLabel="Swipe Down Gesture">
-                    <connections>
-                        <action selector="swipeDownGesture:" destination="BYZ-38-t0r" id="XAn-rd-Bj3"/>
-                        <segue destination="A2L-Ww-UJY" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="XLs-FU-Kh6"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="-172.16748768472908"/>
         </scene>

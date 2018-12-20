@@ -23,7 +23,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var scrollingLabel: MarqueeLabel!
     
-    @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
+   // @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
     
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     
@@ -98,7 +98,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 //    THIS METHOD IMPLEMENTS THE INSTANTIATION OF THE SPRITEKIT RAIN ANIMATION
     func setupGameScene() {
-        let scene = GameScene(size: CGSize(width: 1080, height: 1920))
+        let scene = GameScene(size: view.bounds.size)
+        //CGSize(width: 1080, height: 1920)
         scene.scaleMode = .aspectFill
         skView = self.view as! SKView
         skView.presentScene(scene)
@@ -680,7 +681,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func tapGesture(_ sender: Any) {
         //swipeLeftGesture.isEnabled = true
         swipeUpGesture.isEnabled = true
-        swipeDownGesture.isEnabled = true
+       // swipeDownGesture.isEnabled = true
         UIView.animate(withDuration: 0.5, animations: {
             self.tableView.alpha = 0
             self.currentWeatherImage.alpha = 1
