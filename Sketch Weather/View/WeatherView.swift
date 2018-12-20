@@ -101,7 +101,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.sendSubview(toBack: backGroundImageView)
         backGroundImageView.alpha = 0.85
         let scene = GameScene(size: view.bounds.size)
-        //CGSize(width: 1080, height: 1920)
         scene.scaleMode = .aspectFill
         self.view.sendSubview(toBack: backGroundImageView)
         skView = view as! SKView
