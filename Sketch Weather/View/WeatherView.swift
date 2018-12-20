@@ -99,13 +99,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    THIS METHOD IMPLEMENTS THE INSTANTIATION OF THE SPRITEKIT RAIN ANIMATION
     func setupGameScene() {
         self.view.sendSubview(toBack: backGroundImageView)
-        backGroundImageView.alpha = 0.85
+       // backGroundImageView.alpha = 0.5
         let scene = GameScene(size: view.bounds.size)
         scene.scaleMode = .aspectFill
         self.view.sendSubview(toBack: backGroundImageView)
         skView = view as! SKView
         self.view.bringSubview(toFront: skView)
-        skView.presentScene(scene)
+        if (summaryLabel.text?.contains("Rain"))! {
+            skView.presentScene(scene)
+        }
+        
         
     }
     
