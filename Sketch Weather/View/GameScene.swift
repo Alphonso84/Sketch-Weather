@@ -18,10 +18,9 @@ class GameScene: SKScene {
     func addEmitter() {
         
         let emitter = SKEmitterNode(fileNamed: Emitter.rain)!
-        emitter.zPosition = 10000
+        emitter.zPosition = 1
         emitter.position = CGPoint(x: size.width / 2, y: size.height)
         addChild(emitter)
-        
     }
 
 }
