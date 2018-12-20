@@ -44,7 +44,7 @@ class Networking: UIViewController {
         let url = URL(string: urlString)
         return url!
     }
-     
+    
     //
     //USED FOR CITY SELECTION BASED CALL IN WEATHEVIEWCONTROLLER
     public func buildSelectedURL(constructedUrl: String) -> URL {
@@ -59,7 +59,7 @@ class Networking: UIViewController {
     
     //USED FOR CITY SELECTION BASED CALL IN WEATHEVIEWCONTROLLER
     public func getSelectedWeatherForecast() {
-       
+        
         let unwrappedURL = buildSelectedURL(constructedUrl: selectedUrlString)
         print(unwrappedURL)
         
@@ -70,7 +70,7 @@ class Networking: UIViewController {
             guard let unwrappedData = data else {return}
             do {
                 
-               
+                
                 let jsonData = try JSONSerialization.jsonObject(with: unwrappedData, options: .allowFragments ) as! [String:AnyObject]
                 
                 let currentWeather = jsonData["currently"] as? [String : AnyObject]
@@ -93,7 +93,7 @@ class Networking: UIViewController {
                 //PRINT DIFFERENT OUTPUTS HERE
                 // print(Date().dayOfWeek()!)
                 
-               // print(now!)
+                // print(now!)
                 
             } catch {
                 print(error)
@@ -104,7 +104,7 @@ class Networking: UIViewController {
         
     }
     
- 
+    
     
     
     //USED FOR LOCATION BASED CALL
@@ -138,10 +138,10 @@ class Networking: UIViewController {
                     print("Error with minutely Forecast")
                     nextHour = "Error"
                 }
-               
+                
                 hourlyData = hourlyForecast as! [[String:AnyObject]]
                 
-               // nextHour = minutelyWeather!["summary"] as! String
+                // nextHour = minutelyWeather!["summary"] as! String
                 weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
                 
                 now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: (currentWeather!["temperature"] as! Double), time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
@@ -153,18 +153,18 @@ class Networking: UIViewController {
                 
                 let date = Date(timeIntervalSince1970: 1533078000)
                 //PRINT DIFFERENT OUTPUTS HERE
-               // print(Date().dayOfWeek()!)
+                // print(Date().dayOfWeek()!)
                 daySummary = hourlyWeather!["summary"]! as! String
                 //print(now!)
-              //  print(dailyWeather!["summary"]!)
-               // print(nextHour)
+                //  print(dailyWeather!["summary"]!)
+                // print(nextHour)
                 
                 //Hour by hour for the next 48 hours
-               // print(hourlyWeather!["data"]!)
-               // print(hourlyWeather!["summary"]!)
+                // print(hourlyWeather!["data"]!)
+                // print(hourlyWeather!["summary"]!)
                 print(hourlyData[0]["summary"]!)
-               print(hourlyData.count)
-               print(date)
+                print(hourlyData.count)
+                print(date)
             } catch {
                 print(error)
             }
