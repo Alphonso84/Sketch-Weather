@@ -36,7 +36,7 @@ public func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
 class Networking: UIViewController {
     //USED FOR LOCATION BASED CALL
     public func buildURL(constructedUrl: String) -> URL {
-        
+        //API KEY REMOVED
         let apiKey = ""
         let base = "https://api.darksky.net/forecast/"
         location = "\(latitude[0]),\(longitude[0])"
