@@ -631,11 +631,7 @@
                         <viewLayoutGuide key="safeArea" id="sFt-St-FmP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Precipitation Map" id="fxl-BK-S5K">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="3es-PJ-TqU">
-                            <connections>
-                                <segue destination="0LC-sU-gUs" kind="presentation" modalTransitionStyle="crossDissolve" id="Vxo-ZJ-2g2"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="3es-PJ-TqU"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -724,7 +720,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HowToStylishAlphaGrad" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-9O-b07">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="Barren-Landscape-Silhouette" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-gm-tMN">
@@ -1013,7 +1009,4 @@
         <image name="update-arrows" width="102.40000152587891" height="102.40000152587891"/>
         <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Vxo-ZJ-2g2"/>
-    </inferredMetricsTieBreakers>
 </document>
