@@ -607,10 +607,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
       }
     }
     
+    
     //METHOD CONVERTS FARHENHEIGHT TO CELSIUS
     func celsiusFromFahrenheitTempOf(temp:Int) -> Int {
         let celsiusTemp = ((temp - 32) * (5/9))
-    return celsiusTemp
+        return celsiusTemp
     }
     
     
