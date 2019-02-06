@@ -607,6 +607,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
       }
     }
     
+    //METHOD CONVERTS FARHENHEIGHT TO CELSIUS
+    func celsiusFromFahrenheitTempOf(temp:Int) -> Int {
+        let celsiusTemp = ((temp - 32) * (5/9))
+    return celsiusTemp
+    }
+    
     
     //METHOD DETERMINES SPEECH OF CURRENT WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
     func speechUtterance() -> String {
