@@ -432,7 +432,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="FaC-UD-H28"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfW-ps-pJf">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfW-ps-pJf">
                                 <rect key="frame" x="66" y="180" width="246" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="281" id="8bz-IZ-YQM"/>

@@ -14,6 +14,7 @@ import MarqueeLabel
 import SpriteKit
 
 
+
 var weatherImages: [UIImage] = []
 var weatherVariables: [AnyObject] = []
 var spokenCounter = 0
@@ -608,9 +609,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    
     //METHOD CONVERTS FARHENHEIGHT TO CELSIUS
-    func celsiusFromFahrenheitTempOf(temp:Int) -> Int {
-        let celsiusTemp = ((temp - 32) * (5/9))
+    func celsiusFromFahrenheitTempOf() -> Int {
+        let fahrenTemp = Int((now?.temperature)!)
+        let celsiusTemp = ((fahrenTemp - 32) * (5/9))
         return celsiusTemp
     }
     
