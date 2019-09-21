@@ -258,7 +258,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -267,7 +267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF71AFB6D4868A4ECBAE05A4 /* [CP] Check Pods Manifest.lock */ = {
