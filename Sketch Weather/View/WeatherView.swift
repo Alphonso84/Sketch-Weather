@@ -617,7 +617,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return celsiusTemp
     }
     
-    
     //METHOD DETERMINES SPEECH OF CURRENT WEATHER FORECAST CALLED IN VIEWWILLAPPEAR
     func speechUtterance() -> String {
         var hot = ""
@@ -629,19 +628,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         //This block determines the greeting based on time of day
         if (17...23).contains(hour) {
             timeGreeting = "Good Evening"
-        }else if (0...11).contains(hour) {
+        } else if (0...11).contains(hour) {
             timeGreeting = "Good Morning"
-            
-        }else{
+        } else {
             timeGreeting = "Good Afternoon"
         }
-        
         if (85...125).contains(Int((now?.temperature)!)) {
             hot = "It's Hot! Try to stay cool!"
             
-        }else if (0...34).contains(Int((now?.temperature)!)) {
+        } else if (0...34).contains(Int((now?.temperature)!)) {
             cold = "Bring a Jacket! It's rather cold."
-        }else{
+        } else {
             hot = ""
             cold = ""
         }

@@ -25,17 +25,12 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     var reachability: Reachability?
     
     @objc func switchViews() {
-        
         DispatchQueue.main.async() {
-            
             self.performSegue(withIdentifier: "initialSegue", sender: self)
-            
         }
-        
-        
     }
     //FUNCTION TAKES LAT&LONG AND OUTPUTS CITY NAME
-    func getCityFromCoordinate() ->String{
+    func getCityFromCoordinate() ->String {
         var cityName = String()
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: latitude[0], longitude: longitude[0])
@@ -48,11 +43,12 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
                 print(city)
                 cityString = city
                 cityName = cityString
-                
             }
         })
         return cityName
     }
+    
+    
     func setBackgroundForTimeOfDay() {
         let date = Date()
         let calendar = Calendar.current
@@ -68,20 +64,23 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             backgroundImage.image = UIImage(named:"Blueback")
         }
     }
+    
+    
     func startApp() {
-        
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getWeatherForecast()
         cityString = getCityFromCoordinate()
         print("Start App Was Called")
     }
+    
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
             networkCheck()
             // startApp()
-        }else if status == .denied || status == .restricted {
+        } else if status == .denied || status == .restricted {
             let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
             self.dismiss(animated: true)
@@ -90,25 +89,23 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
+    
     func locationPermissions() {
-        
         if status == .notDetermined || status == .denied  {
             manager.requestAlwaysAuthorization()
             manager.requestWhenInUseAuthorization()
-            
-        }else if status == .authorizedAlways || status == .authorizedWhenInUse {
+        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
             networkCheck()
         }
-        
     }
+    
     
     func networkCheck() {
         self.reachability = Reachability.init()
-        
         if ((self.reachability!.connection) != .none) {
             startApp()
-            
-        }else if ((self.reachability!.connection) == .none) {
+        } else if ((self.reachability!.connection) == .none) {
             let locationAlert = UIAlertController(title: "No Internet Connection", message: "Speak Weather will need an Internet connection to work properly. Please go to settings and connect to a network", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
             self.dismiss(animated: true)
@@ -116,22 +113,18 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
                 self.present(locationAlert, animated: true, completion: nil)
             }
         }
-        
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         setBackgroundForTimeOfDay()
-        
-        
     }
+    
     
     func viewDidAppear() {
         super.viewDidAppear(true)
-        
-        
-        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -179,8 +172,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.781 -122.450
     func locationInit() {
-        latitude = [39.941] as! [Double]
-        longitude = [-75.158] as! [Double]
+        latitude = [37.810] as! [Double]
+        longitude = [-122.252] as! [Double]
     }
     //manager.location?.coordinate.latitude
     //manager.location?.coordinate.longitude

@@ -103,8 +103,6 @@ class WeekWeatherViewController: UIViewController, UICollectionViewDelegate, UIC
                 //cell.backgroundCellImage.alpha = 0
             }
     
-        
-       
         //THIS FUNCTION ASSIGNS IMAGE TO CELL BASED ON WEATHER SUMMARY STRING
         func weekImageAssinmentLogic() {
             if (weekForecast[indexPath.row]["summary"]?.contains("Partly cloudy"))! {
