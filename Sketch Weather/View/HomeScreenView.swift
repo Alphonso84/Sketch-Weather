@@ -21,18 +21,17 @@ let status = CLLocationManager.authorizationStatus()
 
 
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet weak var backgroundImage: UIImageView!
+   // @IBOutlet weak var backgroundImage: UIImageView!
+    var backgroundImage = UIImageView()
     var reachability: Reachability?
     
     @objc func switchViews() {
+        let navController = UINavigationController()
+        navController.viewControllers.append(NewWeatherViewController())
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
         
-        DispatchQueue.main.async() {
-            
-            self.performSegue(withIdentifier: "initialSegue", sender: self)
-            
-        }
-        
-        
+        //self.present(navController, animated: true, completion: nil)
     }
     //FUNCTION TAKES LAT&LONG AND OUTPUTS CITY NAME
     func getCityFromCoordinate() ->String{
@@ -53,34 +52,31 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
         })
         return cityName
     }
-    func setBackgroundForTimeOfDay() {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        _ = calendar.component(.minute, from: date)
-        _ = calendar.component(.second, from: date)
-        
-        if (19...23).contains(hour) {
-            backgroundImage.image = UIImage(named: "dark")
-        }else if (0...5).contains(hour) {
-            backgroundImage.image = UIImage(named:"dark")
-        }else{
-            backgroundImage.image = UIImage(named:"Blueback")
-        }
+    
+    func setUpUI() {
+        view.addSubview(backgroundImage)
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
+    
     func startApp() {
-        
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getWeatherForecast()
         cityString = getCityFromCoordinate()
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
+        
         print("Start App Was Called")
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.startUpdatingLocation()
-            networkCheck()
-            // startApp()
+            //networkCheck()
+           
         }else if status == .denied || status == .restricted {
             let locationAlert = UIAlertController(title: "Location is Disabled", message: "Speak Weather will need to use your location to work properly. Please go to settings and enable location settings", preferredStyle: UIAlertControllerStyle.alert)
             locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -98,6 +94,7 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             
         }else if status == .authorizedAlways || status == .authorizedWhenInUse {
             networkCheck()
+        
         }
         
     }
@@ -105,23 +102,23 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     func networkCheck() {
         self.reachability = Reachability.init()
         
-        if ((self.reachability!.connection) != .none) {
-            startApp()
-            
-        }else if ((self.reachability!.connection) == .none) {
+        guard reachability?.connection != Reachability.Connection.none else {
             let locationAlert = UIAlertController(title: "No Internet Connection", message: "Speak Weather will need an Internet connection to work properly. Please go to settings and connect to a network", preferredStyle: UIAlertControllerStyle.alert)
-            locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            locationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.dismiss(animated: true)
             DispatchQueue.main.async {
                 self.present(locationAlert, animated: true, completion: nil)
             }
+            return
         }
         
-        
+            startApp()
+            
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setBackgroundForTimeOfDay()
+        setBackgroundForTimeOfDay(imageView: backgroundImage)
         
         
     }
@@ -135,9 +132,11 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         manager.delegate = self
         //THIS IS CALLED FIRST
         locationPermissions()
+        self.title = "HI"
         
     }
     //    Oakland
@@ -179,8 +178,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.781 -122.450
     func locationInit() {
-        latitude = [39.941] as! [Double]
-        longitude = [-75.158] as! [Double]
+        latitude = [37.810] as! [Double]
+        longitude = [-122.252] as! [Double]
     }
     //manager.location?.coordinate.latitude
     //manager.location?.coordinate.longitude

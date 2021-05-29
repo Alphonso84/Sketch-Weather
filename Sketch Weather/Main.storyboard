@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKy-3v-YnK">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,24 +13,24 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="gyf-1m-ouo" customClass="MenuView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gP5-ZV-OWm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-2S-ws9">
-                                <rect key="frame" x="49" y="155" width="277" height="575"/>
+                                <rect key="frame" x="49" y="111" width="277" height="609"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-fP-Saj">
-                                <rect key="frame" x="49" y="244" width="277" height="425"/>
+                                <rect key="frame" x="49" y="200" width="277" height="415"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="eml-16-ATP" customClass="MenuTableViewCell" customModule="Sketch_Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="277" height="44"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="277" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eml-16-ATP" id="oYb-Fa-l4r">
-                                            <rect key="frame" x="0.0" y="0.0" width="277" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="277" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +42,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-j7-3ia">
-                                <rect key="frame" x="49" y="155" width="277" height="37"/>
+                                <rect key="frame" x="49" y="111" width="277" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4q-99-XBQ">
                                         <rect key="frame" x="241" y="0.0" width="36" height="33"/>
@@ -65,11 +63,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIJ-nc-6Dl">
-                                <rect key="frame" x="49" y="651" width="277" height="79"/>
+                                <rect key="frame" x="49" y="597" width="277" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lea-4W-sVu">
-                                <rect key="frame" x="49" y="198" width="117" height="38"/>
+                                <rect key="frame" x="49" y="154" width="117" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="nMN-wk-NNT"/>
                                 </constraints>
@@ -78,6 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="TAn-S4-5Xx"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -101,7 +100,6 @@
                             <constraint firstItem="HIJ-nc-6Dl" firstAttribute="bottom" secondItem="xYV-2S-ws9" secondAttribute="bottom" id="v6w-zb-QhP"/>
                             <constraint firstItem="Lea-4W-sVu" firstAttribute="leading" secondItem="gP5-ZV-OWm" secondAttribute="leadingMargin" constant="33" id="xAB-AZ-4Gs"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="TAn-S4-5Xx"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="188" height="812"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -114,18 +112,10 @@
             </objects>
             <point key="canvasLocation" x="893.60000000000002" y="-848.27586206896558"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="Jaf-5C-cGS">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0LC-sU-gUs" customClass="PageViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oTs-Ij-p99" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-209" y="-167"/>
-        </scene>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WeatherView" modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sketch_Weather" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,14 +177,14 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="45" id="5B0-48-KL1" customClass="WeatherCell" customModule="Sketch_Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" tableViewCell="5B0-48-KL1" id="qaO-Er-erR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-JB-qe3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="44.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="7tt-zO-eql"/>
                                                         <constraint firstAttribute="width" constant="79" id="F6y-b6-DN0"/>
@@ -231,7 +221,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-2j-gTf">
-                                                    <rect key="frame" x="294" y="0.0" width="81" height="44.666666666666664"/>
+                                                    <rect key="frame" x="294" y="0.0" width="81" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="81" id="5l9-hD-s0U"/>
                                                         <constraint firstAttribute="width" constant="167" id="Y6l-ni-M3D">
@@ -260,7 +250,7 @@
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFK-Bb-XEE">
-                                                    <rect key="frame" x="134" y="0.0" width="101" height="44.666666666666664"/>
+                                                    <rect key="frame" x="134" y="0.0" width="101" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="158" id="Zqz-AW-cZK">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="183"/>
@@ -492,6 +482,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -545,7 +536,6 @@
                             <constraint firstItem="4gC-Xg-Xc1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="yYR-pZ-fvf"/>
                             <constraint firstItem="E8p-xv-LpB" firstAttribute="top" secondItem="4gC-Xg-Xc1" secondAttribute="bottom" constant="34" id="ytk-Fb-GBO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="li1-VA-gef"/>
@@ -582,9 +572,6 @@
                             <outletCollection property="gestureRecognizers" destination="aMG-0b-ctY" appends="YES" id="Izo-Nj-z4p"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Day" id="dmz-t9-aCb">
-                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Title" id="aRf-FJ-eg2">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" image="update-arrows" id="Zjj-PQ-Ief">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -618,7 +605,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="-172.16748768472908"/>
+            <point key="canvasLocation" x="161" y="-172"/>
         </scene>
         <!--Precipitation Map-->
         <scene sceneID="m7M-An-zoK">
@@ -627,8 +614,8 @@
                     <view key="view" contentMode="scaleToFill" id="MS3-dC-wk8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sFt-St-FmP"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Precipitation Map" id="fxl-BK-S5K">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="3es-PJ-TqU"/>
@@ -636,12 +623,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-by-6WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4087" y="361"/>
+            <point key="canvasLocation" x="5028" y="360.59113300492612"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="vID-Bj-ZPm">
             <objects>
-                <viewController storyboardIdentifier="initialSegue" title="Home Screen" id="aKy-3v-YnK" customClass="HomeScreenView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home Screen" id="aKy-3v-YnK" customClass="HomeScreenView" customModule="Sketch_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gMK-dW-J7E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,6 +649,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="M9k-xH-eLO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="M9k-xH-eLO" firstAttribute="trailing" secondItem="3dj-zu-zGt" secondAttribute="trailing" constant="38" id="ASp-71-Se0"/>
@@ -675,17 +663,15 @@
                             <constraint firstItem="WFS-A2-WZR" firstAttribute="leading" secondItem="M9k-xH-eLO" secondAttribute="leading" constant="16" id="rKE-5S-ZEA"/>
                             <constraint firstItem="bPT-aU-D4W" firstAttribute="leading" secondItem="gMK-dW-J7E" secondAttribute="leading" id="xkH-b0-fxN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="M9k-xH-eLO"/>
                     </view>
                     <navigationItem key="navigationItem" id="LRE-xY-ceF"/>
                     <connections>
                         <outlet property="backgroundImage" destination="bPT-aU-D4W" id="7jf-Pd-13a"/>
-                        <segue destination="0LC-sU-gUs" kind="presentation" identifier="initialSegue" modalTransitionStyle="coverVertical" id="rOe-xQ-Vpq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O98-lH-zbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943.20000000000005" y="-166.8665667166417"/>
+            <point key="canvasLocation" x="-639" y="-172"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Qo4-ZW-CMO">
@@ -704,8 +690,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="24V-qv-Zap"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7T-F3-vq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -896,6 +882,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="29V-Iw-4r6"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RBp-6x-cWd" firstAttribute="leading" secondItem="29V-Iw-4r6" secondAttribute="leading" constant="103" id="40S-dx-cgg">
@@ -930,7 +917,6 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="29V-Iw-4r6"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Zcl-AO-j6u"/>
@@ -964,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsK-jJ-Pmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="-172"/>
+            <point key="canvasLocation" x="2220" y="-172.16748768472908"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IRp-k3-cNc">
@@ -991,22 +977,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwL-Kl-mul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095" y="-393"/>
+            <point key="canvasLocation" x="3036" y="-393.10344827586209"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="KfB-08-zeS">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="39.666666666666664"/>
+        </designable>
+        <designable name="o0O-M1-0jO">
+            <size key="intrinsicContentSize" width="99" height="26.333333333333332"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Barren-Landscape-Silhouette" width="2400" height="1317"/>
-        <image name="Blueback" width="1059.75" height="702.75"/>
-        <image name="Day" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="Blueback" width="471" height="312.33334350585938"/>
         <image name="HowToStylishAlphaGrad" width="106" height="160"/>
-        <image name="San Francisco" width="2378" height="1802"/>
-        <image name="Speak Weather" width="600" height="600"/>
-        <image name="TreesAndBird" width="2400" height="1317"/>
-        <image name="close icon white" width="256" height="256"/>
-        <image name="dark" width="320" height="480"/>
-        <image name="hot" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="San Francisco" width="792.66668701171875" height="600.66668701171875"/>
+        <image name="Speak Weather" width="266.66665649414062" height="266.66665649414062"/>
+        <image name="TreesAndBird" width="800" height="439"/>
+        <image name="close icon white" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="dark" width="106.66666412353516" height="160"/>
+        <image name="hot" width="42.666667938232422" height="42.666667938232422"/>
         <image name="poweredby-darkbackground" width="400" height="159"/>
-        <image name="update-arrows" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="worldwide" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="update-arrows" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="worldwide" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

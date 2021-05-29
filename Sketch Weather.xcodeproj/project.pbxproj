@@ -15,7 +15,6 @@
 		8929526C21BBAA3400BBE7B9 /* RainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929526B21BBAA3400BBE7B9 /* RainScene.swift */; };
 		892FF1172003799B00C558E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1162003799B00C558E4 /* AppDelegate.swift */; };
 		892FF1192003799B00C558E4 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF1182003799B00C558E4 /* WeatherView.swift */; };
-		892FF11C2003799B00C558E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11A2003799B00C558E4 /* Main.storyboard */; };
 		892FF11E2003799B00C558E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11D2003799B00C558E4 /* Assets.xcassets */; };
 		892FF1212003799B00C558E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892FF11F2003799B00C558E4 /* LaunchScreen.storyboard */; };
 		892FF12A200379BA00C558E4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF129200379BA00C558E4 /* Networking.swift */; };
@@ -32,6 +31,9 @@
 		89EE5FA72111B4B40028ADB5 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE5FA62111B4B40028ADB5 /* WeatherCell.swift */; };
 		89F5B6882141EB270038F774 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5B6872141EB270038F774 /* Reachability.swift */; };
 		89FE153220ABFF50007F4DAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE153120ABFF50007F4DAE /* MapView.swift */; };
+		D0992B052661AD750098F514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0992B042661AD750098F514 /* SceneDelegate.swift */; };
+		D0992B072661B0300098F514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0992B062661B0300098F514 /* Main.storyboard */; };
+		D0992B092661B4620098F514 /* NewWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0992B082661B4620098F514 /* NewWeatherViewController.swift */; };
 		D45D9A3CCDB6C6CC979F280F /* Pods_Sketch_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D763FBBAC4285829C59390 /* Pods_Sketch_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +48,6 @@
 		892FF1132003799B00C558E4 /* Sketch Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		892FF1162003799B00C558E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892FF1182003799B00C558E4 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
-		892FF11B2003799B00C558E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		892FF11D2003799B00C558E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892FF1202003799B00C558E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892FF1222003799B00C558E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +66,9 @@
 		89F5B6872141EB270038F774 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		89FE153120ABFF50007F4DAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9A69BDA89A9B150ED1F062AD /* Pods-Sketch Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketch Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sketch Weather/Pods-Sketch Weather.release.xcconfig"; sourceTree = "<group>"; };
+		D0992B042661AD750098F514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D0992B062661B0300098F514 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D0992B082661B4620098F514 /* NewWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWeatherViewController.swift; sourceTree = "<group>"; };
 		F8D763FBBAC4285829C59390 /* Pods_Sketch_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sketch_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -119,12 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				892FF1162003799B00C558E4 /* AppDelegate.swift */,
+				D0992B042661AD750098F514 /* SceneDelegate.swift */,
 				890BD3F820525C1800628875 /* Controller */,
 				892FF12E200379EF00C558E4 /* View */,
 				892FF12B200379C800C558E4 /* Model */,
 				892FF128200379A800C558E4 /* Networking */,
-				892FF11A2003799B00C558E4 /* Main.storyboard */,
 				892FF11D2003799B00C558E4 /* Assets.xcassets */,
+				D0992B062661B0300098F514 /* Main.storyboard */,
 				892FF11F2003799B00C558E4 /* LaunchScreen.storyboard */,
 				892FF1222003799B00C558E4 /* Info.plist */,
 			);
@@ -161,6 +166,7 @@
 				892FF13120043BAF00C558E4 /* MenuView.swift */,
 				897D47672012AEB800CB68FD /* MenuViewTableCell.swift */,
 				892FF1182003799B00C558E4 /* WeatherView.swift */,
+				D0992B082661B4620098F514 /* NewWeatherViewController.swift */,
 				8929526721BB9F5D00BBE7B9 /* GameScene.swift */,
 				8929526B21BBAA3400BBE7B9 /* RainScene.swift */,
 				8929526921BBA12200BBE7B9 /* Constants.swift */,
@@ -242,9 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				892FF1212003799B00C558E4 /* LaunchScreen.storyboard in Resources */,
+				D0992B072661B0300098F514 /* Main.storyboard in Resources */,
 				8929526521BB9EA000BBE7B9 /* Rain.sks in Resources */,
 				892FF11E2003799B00C558E4 /* Assets.xcassets in Resources */,
-				892FF11C2003799B00C558E4 /* Main.storyboard in Resources */,
 				8929526621BB9EA000BBE7B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +309,8 @@
 				892FF13220043BAF00C558E4 /* MenuView.swift in Sources */,
 				896EF8D32145B67500CC5299 /* AVSpeechModels.swift in Sources */,
 				890BD3FA20525C4000628875 /* Date Logic.swift in Sources */,
+				D0992B092661B4620098F514 /* NewWeatherViewController.swift in Sources */,
+				D0992B052661AD750098F514 /* SceneDelegate.swift in Sources */,
 				89FE153220ABFF50007F4DAE /* MapView.swift in Sources */,
 				89375E19203F60B300E3F402 /* HomeScreenView.swift in Sources */,
 				897D47682012AEB800CB68FD /* MenuViewTableCell.swift in Sources */,
@@ -321,14 +329,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		892FF11A2003799B00C558E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				892FF11B2003799B00C558E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		892FF11F2003799B00C558E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,6 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6257XTCRBF;
 				INFOPLIST_FILE = "Sketch Weather/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alphonso-Sensley-II.Sketch-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,6 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6257XTCRBF;
 				INFOPLIST_FILE = "Sketch Weather/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alphonso-Sensley-II.Sketch-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";

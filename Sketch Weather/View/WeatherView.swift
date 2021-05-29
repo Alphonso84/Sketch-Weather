@@ -266,6 +266,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             var timeOfDay = [Date().timeOfDay()]
             var hourlyWeatherImage = UIImage()
+            
             if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
                 hourlyWeatherImage = UIImage(named: "Sunshine")!
             }

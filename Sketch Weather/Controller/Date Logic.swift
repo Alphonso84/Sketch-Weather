@@ -7,7 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
+func setBackgroundForTimeOfDay(imageView:UIImageView) {
+    let date = Date()
+    let calendar = Calendar.current
+    let hour = calendar.component(.hour, from: date)
+    _ = calendar.component(.minute, from: date)
+    _ = calendar.component(.second, from: date)
+
+    if (19...23).contains(hour) {
+        imageView.image = UIImage(named: "dark")
+    }else if (0...5).contains(hour) {
+        imageView.image = UIImage(named:"dark")
+    }else{
+        imageView.image = UIImage(named:"Blueback")
+    }
+}
 
 func getDayOfWeek(today:String)->Int? {
     
