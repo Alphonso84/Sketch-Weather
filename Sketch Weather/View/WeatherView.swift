@@ -72,7 +72,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        summaryLabel.text = now?.summary
+     //   summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         //locationLabel.text = cityString
         
@@ -85,7 +85,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         appendArray()
         tableView.refreshTable()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
-        summaryLabel.text = now?.summary
+       // summaryLabel.text = now?.summary
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()
         
     }
@@ -259,126 +259,126 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherCell
-        
-        //Assigns hourlyWeatherImage based on summary string for hour
-        func tableViewCellImageAssignment() -> UIImage {
-            
-            var timeOfDay = [Date().timeOfDay()]
-            var hourlyWeatherImage = UIImage()
-            
-            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
-                hourlyWeatherImage = UIImage(named: "Sunshine")!
-            }
-            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
-                
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-                
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
-                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
-                hourlyWeatherImage = UIImage(named: "wind")!
-            }
-            return hourlyWeatherImage
-        }
-        
-        //Assigns hourlyWeatherImage based on summary string for hour but for Night
-        func nightTableViewCellImageAssignment() -> UIImage {
-            
-            var timeOfDay = [Date().timeOfDay()]
-            var hourlyWeatherImage = UIImage()
-            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
-                hourlyWeatherImage = UIImage(named: "clearNight")!
-            }
-            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
-                
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-                
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
-                hourlyWeatherImage = UIImage(named: "Rainy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
-                hourlyWeatherImage = UIImage(named: "Cloudy")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
-                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
-            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
-                hourlyWeatherImage = UIImage(named: "wind")!
-            }
-            return hourlyWeatherImage
-        }
-        
-        //assigns hourlyWeatherImage for night hours by calling appropiate method
-        func cellNightAndDay() {
-            if (cell.timeLabel.text?.contains("8PM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("9PM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("10PM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("11PM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("12AM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("1 AM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("2 AM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("3 AM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else if (cell.timeLabel.text?.contains("4 AM"))!{
-                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
-            }
-            else{
-                cell.hourlyWeatherImage.image = tableViewCellImageAssignment()
-            }
-        }
-        
-        cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
-        cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
-        cell.timeLabel.textColor = UIColor.white
-        cell.hourlyTempLabel.textColor = UIColor.white
-        cell.timeLabel.font = UIFont.systemFont(ofSize: 27)
-        cell.hourlyTempLabel.font = UIFont.systemFont(ofSize: 27)
-        cellNightAndDay()
-        
-        
+        let cell = UITableViewCell() //as! WeatherCell
+//
+//        //Assigns hourlyWeatherImage based on summary string for hour
+//        func tableViewCellImageAssignment() -> UIImage {
+//
+//            var timeOfDay = [Date().timeOfDay()]
+//            var hourlyWeatherImage = UIImage()
+//
+//            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
+//                hourlyWeatherImage = UIImage(named: "Sunshine")!
+//            }
+//            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+//
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
+//                hourlyWeatherImage = UIImage(named: "Partly Cloudy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
+//                hourlyWeatherImage = UIImage(named: "wind")!
+//            }
+//            return hourlyWeatherImage
+//        }
+//
+//        //Assigns hourlyWeatherImage based on summary string for hour but for Night
+//        func nightTableViewCellImageAssignment() -> UIImage {
+//
+//            var timeOfDay = [Date().timeOfDay()]
+//            var hourlyWeatherImage = UIImage()
+//            if hourlyData[indexPath.row]["summary"] as! String == "Clear" {
+//                hourlyWeatherImage = UIImage(named: "clearNight")!
+//            }
+//            if hourlyData[indexPath.row]["summary"] as! String == "Partly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
+//
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Heavy Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Light Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Overcast") {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Possible Light Rain") {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Rain" {
+//                hourlyWeatherImage = UIImage(named: "Rainy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Mostly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if hourlyData[indexPath.row]["summary"] as! String == "Humid and Mostly Cloudy" {
+//                hourlyWeatherImage = UIImage(named: "Cloudy")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Humid and Partly Cloudy") {
+//                hourlyWeatherImage = UIImage(named: "partlyCloudyNight")!
+//            }else if (hourlyData[indexPath.row]["summary"] as! String).contains("Breezy")  {
+//                hourlyWeatherImage = UIImage(named: "wind")!
+//            }
+//            return hourlyWeatherImage
+//        }
+//
+//        //assigns hourlyWeatherImage for night hours by calling appropiate method
+//        func cellNightAndDay() {
+//            if (cell.timeLabel.text?.contains("8PM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("9PM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("10PM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("11PM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("12AM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("1 AM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("2 AM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("3 AM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else if (cell.timeLabel.text?.contains("4 AM"))!{
+//                cell.hourlyWeatherImage.image = nightTableViewCellImageAssignment()
+//            }
+//            else{
+//                cell.hourlyWeatherImage.image = tableViewCellImageAssignment()
+//            }
+//        }
+//
+//        cell.timeLabel.text =  "\(timeOfDayArrayAssignment()[indexPath.row])"
+//        cell.hourlyTempLabel.text = " \(Int(hourlyData[indexPath.row]["temperature"]! as! NSNumber))F"
+//        cell.timeLabel.textColor = UIColor.white
+//        cell.hourlyTempLabel.textColor = UIColor.white
+//        cell.timeLabel.font = UIFont.systemFont(ofSize: 27)
+//        cell.hourlyTempLabel.font = UIFont.systemFont(ofSize: 27)
+//        cellNightAndDay()
+//
+//
         return cell
-        
+//
     }
     
     
@@ -707,7 +707,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.shadowImage.alpha = 1
             self.summaryLabel.alpha = 1
             self.scrollingLabel.alpha = 1
-            self.summaryLabel.text = now?.summary
+         //   self.summaryLabel.text = now?.summary
             
         })
         updateAll()
@@ -715,13 +715,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func updateAll() {
         
-        manager.startUpdatingLocation()
+      //  manager.startUpdatingLocation()
         Networking().getWeatherForecast()
         HomeScreenView().getCityFromCoordinate()
         appendArray()
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
-        summaryLabel.text = now?.summary
+     //   summaryLabel.text = now?.summary
         CurrentWeatherImageAssinmentLogic()
         windDirection = windBearing()
         temperatureLabel.text = "\(Int((now?.temperature)!))"
@@ -772,7 +772,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         locationLabel.text = cityString
         setBackgroundForTimeOfDay()
         windDirection = windBearing()
-        summaryLabel.text = now?.summary
+      //  summaryLabel.text = now?.summary
         
         setupGameScene()
         if (summaryLabel.text?.contains("Overcast"))! {
@@ -802,7 +802,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func scrollLabelUpdate() {
-        scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                                             "
+//        scrollingLabel.text = " \(daySummary)    Currently: \(String((now?.summary)!)),     Temp \(temperatureLabel.text!),     Wind \(Int((now?.windSpeed)!))MPH,     Gusts \(Int((now?.windGust)!))MPH                                                             "
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -821,7 +821,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
-        summaryLabel.text = now?.summary
+       // summaryLabel.text = now?.summary
         temperatureLabel.text = "\(Int((now?.temperature)!))"
         tableView.refreshTable()
         currentWeatherImage.image = CurrentWeatherImageAssinmentLogic()

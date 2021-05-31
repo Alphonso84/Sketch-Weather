@@ -11,8 +11,8 @@ import UIKit
 import CoreLocation
 import MapKit
 
-var latitude = [Double]()
-var longitude = [Double]()
+var latitude = Double()
+var longitude = Double()
 let manager = CLLocationManager()
 var userLocation = CLLocationCoordinate2D()
 var variableArray: [AnyObject?]? = nil
@@ -23,12 +23,22 @@ let status = CLLocationManager.authorizationStatus()
 class HomeScreenView: UIViewController, CLLocationManagerDelegate {
    // @IBOutlet weak var backgroundImage: UIImageView!
     var backgroundImage = UIImageView()
+    var logoImageView = UIImageView()
     var reachability: Reachability?
+    
     
     @objc func switchViews() {
         let navController = UINavigationController()
-        navController.viewControllers.append(NewWeatherViewController())
+        if #available(iOS 14.0, *) {
+            navController.viewControllers.append(NewWeatherViewController())
+        } else {
+            // Fallback on earlier versions
+        }
         navController.modalPresentationStyle = .fullScreen
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().alignmentRect(forFrame: CGRect.zero)
+        UIBarAppearance().backgroundEffect = .none
         present(navController, animated: true, completion: nil)
         
         //self.present(navController, animated: true, completion: nil)
@@ -37,8 +47,8 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     func getCityFromCoordinate() ->String{
         var cityName = String()
         let geoCoder = CLGeocoder()
-        let location = CLLocation(latitude: latitude[0], longitude: longitude[0])
-        
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+       
         geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
             guard let addressDict = placemarks?[0].addressDictionary else {
                 return
@@ -55,7 +65,18 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     
     func setUpUI() {
         view.addSubview(backgroundImage)
+        view.addSubview(logoImageView)
+        logoImageView.image = UIImage(named: "Speak Weather")
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
+        ])
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -93,7 +114,9 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
             manager.requestWhenInUseAuthorization()
             
         }else if status == .authorizedAlways || status == .authorizedWhenInUse {
+            manager.startUpdatingLocation()
             networkCheck()
+            
         
         }
         
@@ -178,11 +201,13 @@ class HomeScreenView: UIViewController, CLLocationManagerDelegate {
     //CANNOT RUN IN SIMULATOR UNLESS LAT & LONG HAVE ACTUAL VALUE
     //37.781 -122.450
     func locationInit() {
-        latitude = [37.810] as! [Double]
-        longitude = [-122.252] as! [Double]
+        manager.startUpdatingLocation()
+        latitude = manager.location?.coordinate.latitude ?? 0.0
+        longitude = manager.location?.coordinate.longitude ?? 0.0
+//        latitude = 45.499
+//        longitude = -122.657
     }
-    //manager.location?.coordinate.latitude
-    //manager.location?.coordinate.longitude
+   
     func locationInitWithSelection() {
         
     }

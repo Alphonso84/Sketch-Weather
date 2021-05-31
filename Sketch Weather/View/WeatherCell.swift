@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class WeatherCell: UITableViewCell {
+    let stackView              = UIStackView()
+    var timeLabel              = UILabel()
+    var hourlyWeatherImageView = UIImageView()
+    var hourlyTempLabel        = UILabel()
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var hourlyWeatherImage: UIImageView!
-    
-    @IBOutlet weak var hourlyTempLabel: UILabel!
 }

@@ -39,7 +39,7 @@ class Networking: UIViewController {
         //API KEY REMOVED
         let apiKey = "8a0189f3ea88f1c0c56e4845fdf28200/"
         let base = "https://api.darksky.net/forecast/"
-        location = "\(latitude[0]),\(longitude[0])"
+        location = "\(latitude),\(longitude)"
         urlString = "\(base)\(apiKey)\(location)"
         let url = URL(string: urlString)
         return url!
@@ -81,8 +81,9 @@ class Networking: UIViewController {
                 
                 nextHour = minutelyWeather!["summary"] as! String
                 weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
-                
-                now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: (currentWeather!["temperature"] as! Double), time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
+                print(currentWeather ?? "")
+                print(currentWeather?["temperature"] ?? "")
+//                now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: (currentWeather!["temperature"] as! Double), time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
                 
                 week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureMin"] as? Double)
                 //PRINT DIFFERENT OUTPUTS HERE
@@ -135,18 +136,19 @@ class Networking: UIViewController {
                 }
                 
                 hourlyData = hourlyForecast as! [[String:AnyObject]]
-                
+                temp = hourlyData[0]["temperature"]! as! Double
+                windSpeed = hourlyData[0]["windSpeed"]! as! Double
                 // nextHour = minutelyWeather!["summary"] as! String
                 weekForecast = (dailyWeather!["data"] as? [[String:AnyObject]])!
                 
-                now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: (currentWeather!["temperature"] as! Double), time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
-                
+//                now = Currently(apparentTemperature: currentWeather?["apparentTemperature"] as? Double, cloudCover: currentWeather?["cloudCover"] as? Double, dewPoint: currentWeather?["dewPoint"] as? Double, humidity: currentWeather?["humidity"] as? Double, icon: currentWeather?["icon"] as? String, nearestStormBearing: currentWeather!["nearestStormBearing"] as? Int, nearestStormDistance: currentWeather?["nearestStormDistance"] as? Int, ozone: currentWeather?["ozone"] as? Double, precipIntensity: currentWeather?["precipIntensity"] as? Int, precipProbability: currentWeather?["precipProbability"] as? Int, pressure: currentWeather?["pressure"] as? Double, summary: currentWeather?["summary"] as? String, temperature: (currentWeather!["temperature"] as! Double), time: currentWeather?["time"] as? Int, uvIndex: currentWeather?["uvIndex"] as? Int, visibility: currentWeather?["visibility"] as? Int, windBearing: currentWeather?["windBearing"] as? Int, windGust: currentWeather?["windGust"] as? Double, windSpeed: currentWeather?["windSpeed"] as? Double)
+//                
                 
                 week = Day(summary: weekForecast[0]["summary"] as? String, chanceOfRain: weekForecast[0]["precipProbability"] as? Double, HighTemp: weekForecast[0]["temperatureMax"] as? Double, LowTemp: weekForecast[0]["temperatureMin"] as? Double)
                 
                 weekSummary = "\(dailyWeather!["summary"]!)"
                 
-                let date = Date(timeIntervalSince1970: 1533078000)
+               // let date = Date(timeIntervalSince1970: 1533078000)
                 //PRINT DIFFERENT OUTPUTS HERE
                 // print(Date().dayOfWeek()!)
                 daySummary = hourlyWeather!["summary"]! as! String
@@ -157,9 +159,12 @@ class Networking: UIViewController {
                 //Hour by hour for the next 48 hours
                 // print(hourlyWeather!["data"]!)
                 // print(hourlyWeather!["summary"]!)
-                print(hourlyData[0]["summary"]!)
-                print(hourlyData.count)
-                print(date)
+                print("This week it looks like \(weekSummary)")
+                print("You are currently in \(cityString)")
+                print("The current temperature is \(hourlyData[0]["temperature"]!)")
+               // print(hourlyData[0]["summary"]!)
+                //print(hourlyData.count)
+                //print(date)
             } catch {
                 print(error)
             }
